@@ -3,73 +3,23 @@ import ClickAwayListener from 'react-click-away-listener';
 import SearchModuleFilter from './SearchModuleFilter'
 import SearchModuleItem from './SearchModuleItem'
 
-import { opportunityRead } from '../../../api/user/opportunity'
+const IntegratingSearchModule = ({ pageInfo, setPageInfo, searchResult, searchParameter, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
-const SearchModule = () => {
-
-    const [searchResult, setSearchResult] = useState<any>(["11111"])
-
-    const [pageInfo, setPageInfo] = useState({
-        pageNumber: 0,
-        pageLimit: 20,
-    })
 
     const [focus, setFocus] = useState(false);
-
     const overlaySearchClick = () => setFocus(true);
-
     const overlayClickAway = () => setFocus(false);
-
-    const [searchParameter, setSearchParameter] = useState({
-        totalNumber: 23,
-        searchValue: ""
-    })
-
-    const [bufferSearch, setBufferSearch] = useState("")
 
     const handleKeyPress = (event: any) => {
         if (event.key === 'Enter') {
-            setSearchParameter({ ...searchParameter, searchValue: event.target.value })
+            setSearchParameter(event.target.value)
         }
     };
-
-    useEffect(() => {
-
-        async function fetchData() {
-            let data = {
-                ...pageInfo,
-                ...searchParameter
-            }
-            let result = await opportunityRead(data)
-            if (result.isOkay) {
-                setSearchResult(result.result)
-                setBufferSearch("")
-            }
-
-        }
-        fetchData()
-    }, [searchParameter])
-
-    console.log("searchResult", searchResult);
 
     return (
         <div className='w-full flex justify-center py-8'>
             <div className="w-full flex justify-between items-start">
-
-                {/* <div className="w-[300px] p-2">
-                    <p className="font-semibold my-2 mb-5">Search Suggestions</p>
-
-                    <div className="my-2">
-                        {
-                            <span className="badge badge-outline-info">
-                                Accelerator
-                            </span>
-                        }
-                    </div>
-                    <SearchModuleFilter />
-                </div> */}
-                {/* <div className="w-[calc(100%-300px)] p-2"> */}
-                <div className="w-[calc(100%)] p-2">
+                <div className="w-full p-2">
                     <div className="flex justify-between items-center mb-2">
                         <p className="mb-2">Viewing {pageInfo.pageNumber + 1} ~ {pageInfo.pageLimit} of {searchParameter.totalNumber} results</p>
                         <div className="flex justify-start items-center">
@@ -125,4 +75,4 @@ const SearchModule = () => {
     );
 };
 
-export default SearchModule;
+export default IntegratingSearchModule;

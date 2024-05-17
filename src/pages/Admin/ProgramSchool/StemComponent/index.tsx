@@ -8,18 +8,18 @@ import { setPageTitle } from '../../../../store/themeConfigSlice';
 import { stemRead } from '../../../../api/admin/stem'
 import StemModal from './StemModal'
 
-import textFile from './tempData.txt'
-import textFile1 from './tempData1.txt'
-import textFile2 from './tempData2.txt'
-import textFile3 from './tempData3.txt'
-import textFile4 from './tempData4.txt'
-import textFile5 from './tempData5.txt'
-import textFile6 from './tempData6.txt'
-import textFile7 from './tempData7.txt'
-import textFile8 from './tempData8.txt'
-import textFile9 from './tempData9.txt'
-import textFile10 from './tempData10.txt'
-import textFile11 from './tempData11.txt'
+// import textFile from './tempData.txt'
+// import textFile1 from './tempData1.txt'
+// import textFile2 from './tempData2.txt'
+// import textFile3 from './tempData3.txt'
+// import textFile4 from './tempData4.txt'
+// import textFile5 from './tempData5.txt'
+// import textFile6 from './tempData6.txt'
+// import textFile7 from './tempData7.txt'
+// import textFile8 from './tempData8.txt'
+// import textFile9 from './tempData9.txt'
+// import textFile10 from './tempData10.txt'
+// import textFile11 from './tempData11.txt'
 
 const ColumnChooser = () => {
 
@@ -28,100 +28,100 @@ const ColumnChooser = () => {
     useEffect(() => {
         async function fetchData() {
 
-            let arrayResult1: any = await fetch(textFile1)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
-            let arrayResult2: any = await fetch(textFile2)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
-            let arrayResult3: any = await fetch(textFile3)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
-            let arrayResult4: any = await fetch(textFile4)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
-            let arrayResult5: any = await fetch(textFile5)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult1: any = await fetch(textFile1)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+            // let arrayResult2: any = await fetch(textFile2)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+            // let arrayResult3: any = await fetch(textFile3)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+            // let arrayResult4: any = await fetch(textFile4)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+            // let arrayResult5: any = await fetch(textFile5)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult6: any = await fetch(textFile6)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult6: any = await fetch(textFile6)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult7: any = await fetch(textFile7)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult7: any = await fetch(textFile7)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult8: any = await fetch(textFile8)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult8: any = await fetch(textFile8)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult9: any = await fetch(textFile9)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult9: any = await fetch(textFile9)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult10: any = await fetch(textFile10)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult10: any = await fetch(textFile10)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            let arrayResult11: any = await fetch(textFile11)
-                .then(response => response.text())
-                .then((data: any) => {
-                    const lines = data.split('\n');
-                    const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-                    return cleanedLines
-                })
+            // let arrayResult11: any = await fetch(textFile11)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
 
-            console.log(arrayResult1.length, arrayResult2.length, arrayResult3.length, arrayResult4.length, arrayResult5.length);
+            // console.log(arrayResult1.length, arrayResult2.length, arrayResult3.length, arrayResult4.length, arrayResult5.length);
 
 
-            let buffer: any = []
+            // let buffer: any = []
 
-            for (let i = 0; i < 833; i++) {
-                buffer.push([arrayResult1[i], arrayResult2[i], arrayResult3[i], arrayResult4[i], arrayResult5[i], arrayResult6[i], arrayResult7[i], arrayResult8[i], arrayResult9[i], arrayResult10[i], arrayResult11[i]])
-            }
+            // for (let i = 0; i < 833; i++) {
+            //     buffer.push([arrayResult1[i], arrayResult2[i], arrayResult3[i], arrayResult4[i], arrayResult5[i], arrayResult6[i], arrayResult7[i], arrayResult8[i], arrayResult9[i], arrayResult10[i], arrayResult11[i]])
+            // }
 
-            console.log("buffer.length", buffer.length);
+            // console.log("buffer.length", buffer.length);
 
 
             // let uniqueResult = buffer.filter((arr: any, index: any) => {

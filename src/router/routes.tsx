@@ -1,13 +1,14 @@
 import { lazy } from 'react';
 const Index = lazy(() => import('../pages/Index'));
 const About = lazy(() => import('../pages/About'));
-const Navigate = lazy(() => import('../pages/Navigate'));
-const Resources = lazy(() => import('../pages/Resources'));
+const Credential = lazy(() => import('../pages/Credential'));
+const Field = lazy(() => import('../pages/Field'));
 const Opportunity = lazy(() => import('../pages/Opportunity'));
 const UsersList = lazy(() => import('../pages/UsersList'));
 const Lists = lazy(() => import('../pages/Lists'));
 const Keywords = lazy(() => import('../pages/Keywords'));
 const Guides = lazy(() => import('../pages/Guides'));
+const IntegrationSearch = lazy(() => import('../pages/IntegrationSearch'));
 
 const ProgramAdmin = lazy(() => import('../pages/Admin/ProgramSchool/ProgramAdmin'));
 const CredentialAdmin = lazy(() => import('../pages/Admin/ProgramSchool/CredentialAdmin'));
@@ -129,12 +130,12 @@ const routes = [
         element: <About />,
     },
     {
-        path: '/navigate',
-        element: <Navigate />,
+        path: '/credential',
+        element: <Credential />,
     },
     {
-        path: '/resources',
-        element: <Resources />,
+        path: '/field',
+        element: <Field />,
     },
     {
         path: '/opportunity',
@@ -156,6 +157,10 @@ const routes = [
         path: '/guides',
         element: <Guides />,
     },
+    {
+        path: '/integration-search',
+        element: <IntegrationSearch />,
+    },
 
 
     {
@@ -175,7 +180,7 @@ const routes = [
         element: <StemAdmin />,
     },
 
-
+    
 
 
 
