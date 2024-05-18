@@ -8,63 +8,55 @@ import { setPageTitle } from '../../../../store/themeConfigSlice';
 import { stemRead } from '../../../../api/admin/stem'
 import StemModal from './StemModal'
 
-// import textFile from './tempData.txt'
-// import textFile1 from './tempData1.txt'
-// import textFile2 from './tempData2.txt'
-// import textFile3 from './tempData3.txt'
-// import textFile4 from './tempData4.txt'
-// import textFile5 from './tempData5.txt'
-// import textFile6 from './tempData6.txt'
-// import textFile7 from './tempData7.txt'
-// import textFile8 from './tempData8.txt'
-// import textFile9 from './tempData9.txt'
-// import textFile10 from './tempData10.txt'
-// import textFile11 from './tempData11.txt'
+import Opportunity from './tempData.txt'
+
+import ProgramSchoolOrg from './tempData1.txt'
+
+import ProgramSchoolOrgType from './tempData2.txt'
+import CredentialsSchool from './tempData3.txt'
+import SpecificAreaofStudy from './tempData4.txt'
+import GeneralFieldofStudy from './tempData5.txt'
+import CourseList from './tempData6.txt'
+import Credential from './tempData7.txt'
+import EducationLevel from './tempData8.txt'
+import ApplicantRequirementCredential from './tempData9.txt'
+import Age from './tempData10.txt'
+import OpportunityLink from './tempData11.txt'
 
 const ColumnChooser = () => {
-
-    const dispatch = useDispatch();
 
     useEffect(() => {
         async function fetchData() {
 
-            // let arrayResult1: any = await fetch(textFile1)
+            // let arrayResult1: any = await fetch(ProgramSchoolOrg)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
             //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
             //         return cleanedLines
             //     })
-            // let arrayResult2: any = await fetch(textFile2)
+            // let arrayResult2: any = await fetch(ProgramSchoolOrgType)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
             //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
             //         return cleanedLines
             //     })
-            // let arrayResult3: any = await fetch(textFile3)
+            // let arrayResult3: any = await fetch(CredentialsSchool)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
             //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
             //         return cleanedLines
             //     })
-            // let arrayResult4: any = await fetch(textFile4)
+            // let arrayResult4: any = await fetch(SpecificAreaofStudy)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
             //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
             //         return cleanedLines
             //     })
-            // let arrayResult5: any = await fetch(textFile5)
-            //     .then(response => response.text())
-            //     .then((data: any) => {
-            //         const lines = data.split('\n');
-            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
-            //         return cleanedLines
-            //     })
-
-            // let arrayResult6: any = await fetch(textFile6)
+            // let arrayResult5: any = await fetch(GeneralFieldofStudy)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -72,7 +64,7 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
-            // let arrayResult7: any = await fetch(textFile7)
+            // let arrayResult6: any = await fetch(CourseList)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -80,7 +72,7 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
-            // let arrayResult8: any = await fetch(textFile8)
+            // let arrayResult7: any = await fetch(Credential)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -88,7 +80,7 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
-            // let arrayResult9: any = await fetch(textFile9)
+            // let arrayResult8: any = await fetch(EducationLevel)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -96,7 +88,7 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
-            // let arrayResult10: any = await fetch(textFile10)
+            // let arrayResult9: any = await fetch(ApplicantRequirementCredential)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -104,7 +96,7 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
-            // let arrayResult11: any = await fetch(textFile11)
+            // let arrayResult10: any = await fetch(Age)
             //     .then(response => response.text())
             //     .then((data: any) => {
             //         const lines = data.split('\n');
@@ -112,13 +104,29 @@ const ColumnChooser = () => {
             //         return cleanedLines
             //     })
 
+            // let arrayResult11: any = await fetch(OpportunityLink)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
+
+            // let arrayResult: any = await fetch(Opportunity)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
             // console.log(arrayResult1.length, arrayResult2.length, arrayResult3.length, arrayResult4.length, arrayResult5.length);
-
 
             // let buffer: any = []
 
-            // for (let i = 0; i < 833; i++) {
-            //     buffer.push([arrayResult1[i], arrayResult2[i], arrayResult3[i], arrayResult4[i], arrayResult5[i], arrayResult6[i], arrayResult7[i], arrayResult8[i], arrayResult9[i], arrayResult10[i], arrayResult11[i]])
+            // for (let i = 0; i < arrayResult1.length; i++) {
+            //     //     // buffer.push([arrayResult1[i], "Address", "City", "Zip COde", "Neighborhood"])
+            //     buffer.push([arrayResult1[i], arrayResult2[i], arrayResult3[i], arrayResult4[i], arrayResult5[i], arrayResult6[i], arrayResult7[i], arrayResult8[i], arrayResult9[i], arrayResult10[i], arrayResult11[i], arrayResult[i]])
             // }
 
             // console.log("buffer.length", buffer.length);
@@ -133,30 +141,24 @@ const ColumnChooser = () => {
             //     );
             // });
 
-            // console.log("uniqueResult", uniqueResult);
+            // console.log("uniqueResult", arrayResult2.length);
 
             // console.error('uniqueArray:', uniqueResult);
 
+            // const uniqueArray = [...new Set(arrayResult2)];
 
-            // let result = await stemRead({ list: buffer.slice(800, 900) })
+            // console.log("uniqueArray", buffer.slice(0, 200)); // Output: [1, 2, 3]
+            // const lines = fileContents.split('\n');
+            // const cleanedLines = lines.map(line => line.trim()).filter(line => line !== '');
+            // console.log(cleanedLines);
+
+
+            // let result = await stemRead({ list: buffer.slice(3200, 3410) })
             let result = await stemRead({})
             if (result.isOkay) setTypeResult(result.result)
 
         }
         fetchData()
-
-
-
-        // const uniqueArray = [...new Set(arrayResult)];
-
-        // console.log("arrayResult", arrayResult); // Output: [1, 2, 3]
-        // const lines = fileContents.split('\n');
-        // const cleanedLines = lines.map(line => line.trim()).filter(line => line !== '');
-
-        // console.log(cleanedLines);
-
-
-
 
     }, []);
 
