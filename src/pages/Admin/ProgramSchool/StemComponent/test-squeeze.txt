@@ -1,0 +1,58 @@
+Poker Hand #TM3139002950: Tournament #135832816, Bounty Hunters Daily Double $10.80 Hold'em No Limit - Level17(1,250/2,500) - 2024/04/02 12:50:44
+Table '61' 8-max Seat #5 is the button
+Seat 1: a2bb34b6 (33,438 in chips)
+Seat 2: 32042927 (52,404 in chips)
+Seat 3: 8075990f (66,771 in chips)
+Seat 4: 2edb6bf (109,311 in chips)
+Seat 5: Hero (24,354 in chips)
+Seat 6: f4d88438 (45,266 in chips)
+Seat 7: 1bf160bf (48,131 in chips)
+Seat 8: 5182d44a (53,369 in chips)
+2edb6bf: posts the ante 350
+8075990f: posts the ante 350
+a2bb34b6: posts the ante 350
+5182d44a: posts the ante 350
+1bf160bf: posts the ante 350
+Hero: posts the ante 350
+f4d88438: posts the ante 350
+32042927: posts the ante 350
+f4d88438: posts small blind 1,250
+1bf160bf: posts big blind 2,500
+ HOLE CARDS 
+Dealt to a2bb34b6
+Dealt to 32042927
+Dealt to 8075990f
+Dealt to 2edb6bf
+Dealt to Hero [Ah Ks]
+Dealt to f4d88438
+Dealt to 1bf160bf
+Dealt to 5182d44a
+5182d44a: folds
+a2bb34b6: raises 5,000 to 7,500
+32042927: folds
+8075990f: calls 7,500
+2edb6bf: folds
+Hero: raises 16,504 to 24,004 and is all-in
+f4d88438: folds
+1bf160bf: folds
+a2bb34b6: raises 9,084 to 33,088 and is all-in
+8075990f: folds
+Uncalled bet (9,084) returned to a2bb34b6
+a2bb34b6: shows [Ac Qh]
+Hero: shows [Ah Ks]
+ FLOP  [2s Qd Qc]
+ TURN  [2s Qd Qc] [3s]
+ RIVER  [2s Qd Qc 3s] [3h]
+ SHOWDOWN 
+a2bb34b6 collected 62,058 from pot
+ SUMMARY 
+Total pot 62,058 | Rake 0 | Jackpot 0 | Bingo 0 | Fortune 0 | Tax 0
+Board [2s Qd Qc 3s 3h]
+Seat 1: a2bb34b6 showed [Ac Qh] and won (62,058) with Queens Full over Treys
+Seat 2: 32042927 folded before Flop
+Seat 3: 8075990f folded before Flop
+Seat 4: 2edb6bf folded before Flop
+Seat 5: Hero (button) showed [Ah Ks] and lost with Pair of Queens and Pair of Treys
+Seat 6: f4d88438 (small blind) folded before Flop
+Seat 7: 1bf160bf (big blind) folded before Flop
+Seat 8: 5182d44a folded before Flop

@@ -8,10 +8,16 @@ import { setPageTitle } from '../../../../store/themeConfigSlice';
 import { stemRead } from '../../../../api/admin/stem'
 import StemModal from './StemModal'
 
+
+import org from './org.txt'
+import city from './city.txt'
+import address from './address.txt'
+import zip from './zip.txt'
+import neighborhood from './neighborhood.txt'
+
+
 import Opportunity from './tempData.txt'
-
 import ProgramSchoolOrg from './tempData1.txt'
-
 import ProgramSchoolOrgType from './tempData2.txt'
 import CredentialsSchool from './tempData3.txt'
 import SpecificAreaofStudy from './tempData4.txt'
@@ -27,6 +33,47 @@ const ColumnChooser = () => {
 
     useEffect(() => {
         async function fetchData() {
+
+            // let orgData: any = await fetch(org)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
+            // let cityData: any = await fetch(city)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
+            // let addressData: any = await fetch(address)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
+            // let zipData: any = await fetch(zip)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
+            // let neighborhoodData: any = await fetch(neighborhood)
+            //     .then(response => response.text())
+            //     .then((data: any) => {
+            //         const lines = data.split('\n');
+            //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
+            //         return cleanedLines
+            //     })
+
 
             // let arrayResult1: any = await fetch(ProgramSchoolOrg)
             //     .then(response => response.text())
@@ -120,12 +167,13 @@ const ColumnChooser = () => {
             //         const cleanedLines = lines.map((line: any) => line.trim()).filter((line: any) => line !== '');
             //         return cleanedLines
             //     })
-            // console.log(arrayResult1.length, arrayResult2.length, arrayResult3.length, arrayResult4.length, arrayResult5.length);
+            // // console.log(arrayResult1.length, arrayResult2.length, arrayResult3.length, arrayResult4.length, arrayResult5.length);
 
             // let buffer: any = []
 
             // for (let i = 0; i < arrayResult1.length; i++) {
             //     //     // buffer.push([arrayResult1[i], "Address", "City", "Zip COde", "Neighborhood"])
+            //     // buffer.push([orgData[i], addressData[i], cityData[i], zipData[i], neighborhoodData[i]])
             //     buffer.push([arrayResult1[i], arrayResult2[i], arrayResult3[i], arrayResult4[i], arrayResult5[i], arrayResult6[i], arrayResult7[i], arrayResult8[i], arrayResult9[i], arrayResult10[i], arrayResult11[i], arrayResult[i]])
             // }
 
@@ -141,19 +189,17 @@ const ColumnChooser = () => {
             //     );
             // });
 
-            // console.log("uniqueResult", arrayResult2.length);
-
             // console.error('uniqueArray:', uniqueResult);
 
-            // const uniqueArray = [...new Set(arrayResult2)];
+            // const uniqueArray = [...new Set(uniqueResult)];
 
-            // console.log("uniqueArray", buffer.slice(0, 200)); // Output: [1, 2, 3]
+            // console.log("uniqueArray", uniqueResult.length); // Output: [1, 2, 3]
             // const lines = fileContents.split('\n');
             // const cleanedLines = lines.map(line => line.trim()).filter(line => line !== '');
             // console.log(cleanedLines);
 
 
-            // let result = await stemRead({ list: buffer.slice(3200, 3410) })
+            // let result = await stemRead({ list: buffer.slice(3400, 3583) })
             let result = await stemRead({})
             if (result.isOkay) setTypeResult(result.result)
 
