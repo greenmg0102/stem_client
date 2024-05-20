@@ -9,6 +9,7 @@ const Lists = lazy(() => import('../pages/Lists'));
 const Keywords = lazy(() => import('../pages/Keywords'));
 const Guides = lazy(() => import('../pages/Guides'));
 const IntegrationSearch = lazy(() => import('../pages/IntegrationSearch'));
+const IntegrationSearchId = lazy(() => import('../pages/IntegrationSearchId'));
 
 const ProgramAdmin = lazy(() => import('../pages/Admin/ProgramSchool/ProgramAdmin'));
 const CredentialAdmin = lazy(() => import('../pages/Admin/ProgramSchool/CredentialAdmin'));
@@ -161,8 +162,11 @@ const routes = [
         path: '/integration-search',
         element: <IntegrationSearch />,
     },
-
-
+    {
+        path: '/integration-search-id/:id',
+        element: <IntegrationSearchId />,
+    },
+    
     {
         path: '/admin/program',
         element: <ProgramAdmin />,

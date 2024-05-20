@@ -24,35 +24,53 @@ const IntegrationSearch = () => {
         opportunityLink: "",
     });
 
-    const [pageInfo, setPageInfo] = useState({
-        total: 23,
-        pageNumber: 0,
-        pageLimit: 20,
-    })
+    const PAGE_SIZES = [10, 20, 30, 50, 100];
+    const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
+    const [page, setPage] = useState(1);
+    const [totalCount, setTotalCount] = useState(0);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const [recordsData, setRecordsData] = useState([]);
+
+    useEffect(() => {
+        setPage(1);
+    }, [pageSize]);
 
     const [searchParameter, setSearchParameter] = useState("")
     const [bufferSearch, setBufferSearch] = useState("")
-    const [searchResult, setSearchResult] = useState<any>([])
 
     useEffect(() => {
 
         let data = {
             ...stemValue,
-            ...pageInfo,
+            page: page,
+            pageSize: pageSize,
             searchParameter: searchParameter
         }
 
         async function fetchData() {
+
+            setIsLoading(true)
             let result = await integrationRead(data)
-            if (result.isOkay) setSearchResult(result.result)
+            setIsLoading(false)
+
+            if (result.isOkay) {
+                setRecordsData(result.result)
+                setTotalCount(result.totalCount)
+            }
         }
         fetchData()
-
-    }, [stemValue, pageInfo, searchParameter])
+    }, [stemValue, pageSize, page, searchParameter])
 
     useEffect(() => {
         dispatch(setPageTitle('IntegrationSearch'));
     });
+
+    const bufferFilter = (total: any) => {
+        setStemValue(total)
+        setPage(1)
+        setPageSize(PAGE_SIZES[0])
+    }
 
     return (
         <div>
@@ -62,24 +80,30 @@ const IntegrationSearch = () => {
                     description={""}
                 />
                 <div className='p-4 flex justify-between items-start flex-wrap'>
-                    <div className='w-full xl:w-[40%] p-2 mb-4 py-24'>
-                        <p className='font-bold mb-8 text-center text-[24px]'>Filter Category </p>
+                    <div className='w-full xl:w-[30%] p-2 mb-4 pt-16'>
+                        {/* <p className='font-bold mb-14 text-center text-[24px]'>Filter Category</p> */}
+
                         <SearchFilter
                             stemValue={stemValue}
-                            setStemValue={(total: any) => setStemValue(total)}
+                            setStemValue={(total: any) => bufferFilter(total)}
                         />
+
                     </div>
-                    <div className='w-full xl:w-[60%] p-2'>
+                    <div className='w-full xl:w-[70%] p-2'>
+                        {/* <p className='font-bold text-center text-[24px]'>Filter Result</p> */}
                         <IntegratingSearchModule
-                            pageInfo={pageInfo}
-                            setPageInfo={(pageInfo: any) => setPageInfo(pageInfo)}
-                            searchResult={searchResult}
-                            searchParameter={searchParameter}
+                            page={page}
+                            pageSize={pageSize}
+                            isLoading={isLoading}
+                            PAGE_SIZES={PAGE_SIZES}
+                            totalCount={totalCount}
+                            recordsData={recordsData}
                             bufferSearch={bufferSearch}
+                            setPage={(page: any) => setPage(page)}
+                            setPageSize={(value: any) => setPageSize(value)}
                             setBufferSearch={(value: any) => setBufferSearch(value)}
                             setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
                         />
-
                     </div>
                 </div>
             </div>
