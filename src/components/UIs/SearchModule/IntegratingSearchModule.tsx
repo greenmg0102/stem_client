@@ -6,8 +6,6 @@ import clsx from 'clsx'
 
 const IntegratingSearchModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
-    console.log("bufferSearchDataList", bufferSearchDataList);
-
     const [viewType, setViewType] = useState('list')
 
     const handleKeyPress = (event: any) => {

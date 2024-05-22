@@ -49,7 +49,7 @@ const IntegrationSearch = () => {
             searchParameter: searchParameter
         }
 
-        handleSearch(searchParameter);
+        if (searchParameter !== "") handleSearch(searchParameter);
 
         async function fetchData() {
 
