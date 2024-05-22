@@ -29,7 +29,6 @@ const StemItemSearch = ({ category, title, placeholder, gatherValue, stemValue }
 
                 fetchOptions(value).then((newOptions) => {
                     if (fetchId !== fetchRef.current) {
-                        // for fetch callback order
                         return;
                     }
 
@@ -49,6 +48,7 @@ const StemItemSearch = ({ category, title, placeholder, gatherValue, stemValue }
                 notFoundContent={fetching ? <Spin size="small" /> : null}
                 {...props}
                 options={options}
+                className=''
             />
         );
     }

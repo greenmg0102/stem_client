@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import debounce from 'lodash/debounce';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import IntegratingSearchModule from '../components/UIs/SearchModule/IntegratingSearchModule';
 import { setPageTitle } from '../store/themeConfigSlice';
 import SearchFilter from '../pages/IntegrationSearch/SearchFilter'
-import { integrationRead } from '../api/user/integration'
+import { integrationRead, realTiemintegrationRead } from '../api/user/integration'
 
 const IntegrationSearch = () => {
 
@@ -29,15 +30,15 @@ const IntegrationSearch = () => {
     const [page, setPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
+    const [isRealLoading, setIsRealLoading] = useState<any>(null);
 
     const [recordsData, setRecordsData] = useState([]);
-
-    useEffect(() => {
-        setPage(1);
-    }, [pageSize]);
+    const [bufferSearchDataList, setBufferSearchDataList] = useState<any>(null);
 
     const [searchParameter, setSearchParameter] = useState("")
     const [bufferSearch, setBufferSearch] = useState("")
+
+    useEffect(() => { setPage(1); }, [pageSize]);
 
     useEffect(() => {
 
@@ -47,6 +48,8 @@ const IntegrationSearch = () => {
             pageSize: pageSize,
             searchParameter: searchParameter
         }
+
+        handleSearch(searchParameter);
 
         async function fetchData() {
 
@@ -60,6 +63,7 @@ const IntegrationSearch = () => {
             }
         }
         fetchData()
+
     }, [stemValue, pageSize, page, searchParameter])
 
     useEffect(() => {
@@ -72,6 +76,29 @@ const IntegrationSearch = () => {
         setPageSize(PAGE_SIZES[0])
     }
 
+    const handleSearch = debounce((hint: string) => {
+
+        let data = { ...stemValue, page: 1, pageSize: 10, searchParameter: hint }
+
+        async function fetchData() {
+
+            setIsRealLoading(true)
+            let result = await realTiemintegrationRead(data)
+            setIsRealLoading(false)
+
+            if (result.isOkay) {
+                setBufferSearchDataList(result.result)
+            }
+        }
+        fetchData()
+
+    }, 800);
+
+    const bufferSearchHint = (hint: string) => {
+        setBufferSearch(hint);
+        handleSearch(hint);
+    };
+
     return (
         <div>
             <div className="pt-5">
@@ -81,16 +108,12 @@ const IntegrationSearch = () => {
                 />
                 <div className='p-4 flex justify-between items-start flex-wrap'>
                     <div className='w-full xl:w-[30%] p-2 mb-4 pt-16'>
-                        {/* <p className='font-bold mb-14 text-center text-[24px]'>Filter Category</p> */}
-
                         <SearchFilter
                             stemValue={stemValue}
                             setStemValue={(total: any) => bufferFilter(total)}
                         />
-
                     </div>
                     <div className='w-full xl:w-[70%] p-2'>
-                        {/* <p className='font-bold text-center text-[24px]'>Filter Result</p> */}
                         <IntegratingSearchModule
                             page={page}
                             pageSize={pageSize}
@@ -99,9 +122,12 @@ const IntegrationSearch = () => {
                             totalCount={totalCount}
                             recordsData={recordsData}
                             bufferSearch={bufferSearch}
+                            isRealLoading={isRealLoading}
+                            bufferSearchDataList={bufferSearchDataList}
                             setPage={(page: any) => setPage(page)}
                             setPageSize={(value: any) => setPageSize(value)}
-                            setBufferSearch={(value: any) => setBufferSearch(value)}
+                            setBufferSearch={(value: any) => bufferSearchHint(value)}
+                            setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
                             setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
                         />
                     </div>

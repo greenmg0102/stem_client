@@ -3,7 +3,7 @@ import StemItemSearch from '../../pages/Admin/ProgramSchool/StemComponent/StemIt
 
 const SearchFilter = ({ stemValue, setStemValue }: any) => {
 
-    const gatherValue = (type: string, valueList: any) => setStemValue({ ...stemValue, [type]: valueList }) 
+    const gatherValue = (type: string, valueList: any) => setStemValue({ ...stemValue, [type]: valueList })
 
     return (
         <div className='w-full'>
@@ -62,6 +62,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         placeholder={"Credential"}
                     />
                 </div>
+                <p className='mt-4'><span className='text-red-500 font-bold mr-2 mb-0'>*</span>In all search categories, you can search for multiple options.</p>
             </div>
         </div>
     );

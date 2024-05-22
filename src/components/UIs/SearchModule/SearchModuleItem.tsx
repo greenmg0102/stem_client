@@ -4,9 +4,6 @@ import SearchModuleItemCard from './SearchModuleItemCard'
 
 const SearchModuleItem = ({ item, viewType }: any) => {
 
-    console.log("viewType",viewType);
-    
-
     const navigate = useNavigate();
 
     return (
