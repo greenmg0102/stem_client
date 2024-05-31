@@ -3,8 +3,9 @@ import { useState, Fragment } from 'react';
 import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Input } from 'antd';
-
-import { stemCreate } from '../../../../api/admin/stem'
+import { ExcelRenderer } from 'react-excel-renderer';
+import { stemCreate, stemDumpCreate } from '../../../../api/admin/stem'
+import { unRepeatedArrayExtracting, unRepeatedArrayArrayExtracting } from './prefixProcess'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -33,6 +34,157 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
         courseLink: "",
         opportunityLink: "",
     });
+
+    const [excelData, setExcelData] = useState(null);
+
+    const handleFileUpload = async (event: any) => {
+
+        console.log('!!!');
+
+        const fileObj = event.target.files[0];
+        ExcelRenderer(fileObj, async (err: any, resp: any) => {
+            if (err) {
+                console.log(err);
+            } else {
+
+                let originHeader = resp.rows[0]
+                console.log("originHeader", originHeader);
+
+                let origingData = resp.rows.slice(1, resp.rows.length)
+                console.log("origingData", origingData);
+
+                let ProgramSchoolOrgTypeIndex = originHeader.indexOf("Program School / Org Type")
+                let ProgramSchoolOrgTypeList = origingData.map((item: any) => item[ProgramSchoolOrgTypeIndex])
+                let ProgramSchoolOrgType = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Program School / Org Type",
+                    list: ProgramSchoolOrgTypeList
+                })
+                await stemDumpCreate(ProgramSchoolOrgType)
+
+
+                let CredentialsSchoolIndex = originHeader.indexOf("Eligible Credits Transfer School / Credentials School")
+                let CredentialsSchoolList = origingData.map((item: any) => item[CredentialsSchoolIndex])
+                let CredentialsSchool = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Eligible Credits Transfer School / Credentials School",
+                    list: CredentialsSchoolList
+                })
+                await stemDumpCreate(CredentialsSchool)
+
+
+                let OpportunityIndex = originHeader.indexOf("Opportunity")
+                let OpportunityList = origingData.map((item: any) => item[OpportunityIndex])
+                let Opportunity = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Opportunity",
+                    list: OpportunityList
+                })
+                await stemDumpCreate(Opportunity)
+
+
+                let SpecificAreaOfStudyIndex = originHeader.indexOf("Specific Area of Study")
+                let SpecificAreaOfStudyList = origingData.map((item: any) => item[SpecificAreaOfStudyIndex])
+                let SpecificAreaOfStudy = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Specific Area of Study",
+                    list: SpecificAreaOfStudyList
+                })
+                await stemDumpCreate(SpecificAreaOfStudy)
+
+
+                let CareerPathCategoryIndex = originHeader.indexOf("Career Path Category")
+
+                console.log("CareerPathCategoryIndex", CareerPathCategoryIndex);
+
+                let CareerPathCategoryList = origingData.map((item: any) => item[CareerPathCategoryIndex])
+                let CareerPathCategory = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Career Path Category",
+                    list: CareerPathCategoryList
+                })
+                await stemDumpCreate(CareerPathCategory)
+
+
+                let CredentialIndex = originHeader.indexOf("Credential")
+                let CredentialList = origingData.map((item: any) => item[CredentialIndex])
+                let Credential = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Credential",
+                    list: CredentialList
+                })
+                await stemDumpCreate(Credential)
+
+
+                let ApplicantRequirementEducationLevelIndex = originHeader.indexOf("Applicant Requirement: Education Level")
+                let ApplicantRequirementEducationLevelList = origingData.map((item: any) => item[ApplicantRequirementEducationLevelIndex])
+                let ApplicantRequirementEducationLevel = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Education Level",
+                    list: ApplicantRequirementEducationLevelList
+                })
+                await stemDumpCreate(ApplicantRequirementEducationLevel)
+
+
+                let ApplicantRequirementCredentialIndex = originHeader.indexOf("Applicant Requirement: Credential")
+                let ApplicantRequirementCredentialList = origingData.map((item: any) => item[ApplicantRequirementCredentialIndex])
+                let ApplicantRequirementCredential = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Credential",
+                    list: ApplicantRequirementCredentialList
+                })
+                await stemDumpCreate(ApplicantRequirementCredential)
+
+
+                let ApplicantRequirementAgeIndex = originHeader.indexOf("Applicant Requirement: Age")
+                let ApplicantRequirementAgeList = origingData.map((item: any) => item[ApplicantRequirementAgeIndex])
+                let ApplicantRequirementAge = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Age",
+                    list: ApplicantRequirementAgeList
+                })
+                await stemDumpCreate(ApplicantRequirementAge)
+
+
+                let SchoolOrgIndex = originHeader.indexOf("School/Org")
+                let StreetAddressIndex = originHeader.indexOf("Program School / Org Street Address")
+                let CityIndex = originHeader.indexOf("Program School / Org City")
+                let ZipCodeIndex = originHeader.indexOf("Zip Code")
+                let NeighborhoodIndex = originHeader.indexOf("Neighborhood")
+
+                let ProgramSchoolOrgList = origingData.map((item: any) => {
+                    console.log("item", item);
+                    
+                    return {
+                        name: item[SchoolOrgIndex],
+                        address: item[StreetAddressIndex],
+                        city: item[CityIndex],
+                        zip: item[ZipCodeIndex],
+                        neighborhood: item[NeighborhoodIndex],
+                        status: 1
+                    }
+                })
+
+                let ProgramSchoolOrg = await unRepeatedArrayArrayExtracting({
+                    type: "un-repeated",
+                    name: "ProgramSchoolOrg",
+                    list: ProgramSchoolOrgList
+                })
+
+                console.log("ProgramSchoolOrg", ProgramSchoolOrg);
+
+                await stemDumpCreate(ProgramSchoolOrg)
+
+                // await stemDumpCreate({
+                //     type: "matched-way",
+                //     name: "Stem",
+                //     list: origingData
+                // })
+
+                // setExcelData(resp.rows);
+            }
+        });
+    };
 
     const gatherValue = (type: string, valueList: any) => {
         setStemValue({ ...stemValue, [type]: valueList })
@@ -275,11 +427,16 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                                                 </div>
                                             </Tab.Panel>
                                             <Tab.Panel>
-                                                <div className="active pt-5">
-                                                    <p className="mb-4 font-semibold flex items-center text-blue-400 ">
+                                                <div className="active pt-5 p-5">
+
+                                                    <p className="mb-4 font-semibold flex items-center text-blue-400">
                                                         <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1em" height="1em" fill="currentColor" className='text-blue-600 mr-1' aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
                                                         You can register bundle data at once using file like excel.
                                                     </p>
+
+                                                    <div className='w-full py-4 flex justify-center items-ce'>
+                                                        <input type="file" onChange={handleFileUpload} />
+                                                    </div>
 
                                                 </div>
                                             </Tab.Panel>

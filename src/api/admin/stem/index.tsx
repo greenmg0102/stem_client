@@ -11,6 +11,13 @@ export async function stemCreate(data: any): Promise<any> {
     return result
 }
 
+
+export async function stemDumpCreate(data: any): Promise<any> {
+    const result = await axios.post("/admin/stem/dump-create", data).then((result: any) => { return result.data })
+    return result
+}
+
+
 export const apiList: any = {
     "programSchoolOrg": {
         link: "/admin/stem/program-school-org/",

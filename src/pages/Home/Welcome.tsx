@@ -1,6 +1,48 @@
 import { NavLink } from 'react-router-dom';
 
+// import { useEffect, useState } from 'react';
+// import { stateList, countryList } from './temp'
+
 const Welcome = () => {
+
+    // const [CityStatecountry, setCityStatecountry] = useState([])
+
+    // useEffect(() => {
+
+    //     const originData = stateList
+
+    //     let real: any = []
+
+    //     async function fecthData() {
+
+    //         for (let i = 0; i < 3; i++) {
+
+    //             var headers = new Headers();
+    //             headers.append("X-CSCAPI-KEY", "YVdOOVdCQkRyNjNvYTB3dzh3bE9LZ29hVVZsOWhmR0lFT2dSUWtMTg==");
+
+    //             var requestOptions: any = {
+    //                 method: 'GET',
+    //                 headers: headers,
+    //                 redirect: 'follow'
+    //             };
+
+    //             let result: any = await fetch("https://api.countrystatecity.in/v1/countries/IN/states/MH/cities", requestOptions)
+    //                 .then(response => response.text())
+    //                 .then(result => { return result })
+
+    //             var processedResult = JSON.parse(result).map((item: any) => `${item.name}, ${originData[i].name}, ${countryList.filter((each: any) => originData[i].country_id === each.id)[0].name}`);
+
+    //             real = [...real, ...processedResult]
+
+    //         }
+
+    //         console.log("originData", real[0], real.length);
+
+    //     }
+
+    //     fecthData()
+
+    // }, [])
 
     return (
         <div className="mb-5 flex items-center justify-center">
