@@ -18,6 +18,12 @@ export async function stemDumpCreate(data: any): Promise<any> {
 }
 
 
+export async function stemWholeCreate(data: any): Promise<any> {
+    const result = await axios.post("/admin/stem/stem-stream", data).then((result: any) => { return result.data })
+    return result
+}
+
+
 export const apiList: any = {
     "programSchoolOrg": {
         link: "/admin/stem/program-school-org/",

@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import withReactContent from 'sweetalert2-react-content';
 import { Input } from 'antd';
 import { ExcelRenderer } from 'react-excel-renderer';
-import { stemCreate, stemDumpCreate } from '../../../../api/admin/stem'
+import { stemCreate, stemDumpCreate, stemWholeCreate } from '../../../../api/admin/stem'
 import { unRepeatedArrayExtracting, unRepeatedArrayArrayExtracting } from './prefixProcess'
 
 import 'swiper/css';
@@ -35,6 +35,20 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
         opportunityLink: "",
     });
 
+    const [updateStatus, setUpdateStatus] = useState<any>({
+        "Program School / Org Type": false,
+        "Eligible Credits Transfer School / Credentials School": false,
+        "Opportunity": false,
+        "Specific Area of Study": false,
+        "Career Path Category": false,
+        "Credential": false,
+        "Applicant Requirement: Education Level": false,
+        "Applicant Requirement: Credential": false,
+        "Applicant Requirement: Age": false,
+    })
+
+    const [percent, setPercent] = useState(0)
+
     const [excelData, setExcelData] = useState(null);
 
     const handleFileUpload = async (event: any) => {
@@ -50,7 +64,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 let originHeader = resp.rows[0]
                 console.log("originHeader", originHeader);
 
-                let origingData = resp.rows.slice(1, resp.rows.length)
+                let origingData = resp.rows.slice(1, resp.rows.length).filter((item: any) => item.length !== 0)
                 console.log("origingData", origingData);
 
                 let ProgramSchoolOrgTypeIndex = originHeader.indexOf("Program School / Org Type")
@@ -61,6 +75,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ProgramSchoolOrgTypeList
                 })
                 await stemDumpCreate(ProgramSchoolOrgType)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": false,
+                    "Opportunity": false,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let CredentialsSchoolIndex = originHeader.indexOf("Eligible Credits Transfer School / Credentials School")
@@ -71,7 +97,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: CredentialsSchoolList
                 })
                 await stemDumpCreate(CredentialsSchool)
-
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": false,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
                 let OpportunityIndex = originHeader.indexOf("Opportunity")
                 let OpportunityList = origingData.map((item: any) => item[OpportunityIndex])
@@ -81,7 +118,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: OpportunityList
                 })
                 await stemDumpCreate(Opportunity)
-
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
                 let SpecificAreaOfStudyIndex = originHeader.indexOf("Specific Area of Study")
                 let SpecificAreaOfStudyList = origingData.map((item: any) => item[SpecificAreaOfStudyIndex])
@@ -91,6 +139,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: SpecificAreaOfStudyList
                 })
                 await stemDumpCreate(SpecificAreaOfStudy)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let CareerPathCategoryIndex = originHeader.indexOf("Career Path Category")
@@ -104,6 +164,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: CareerPathCategoryList
                 })
                 await stemDumpCreate(CareerPathCategory)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let CredentialIndex = originHeader.indexOf("Credential")
@@ -114,6 +186,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: CredentialList
                 })
                 await stemDumpCreate(Credential)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let ApplicantRequirementEducationLevelIndex = originHeader.indexOf("Applicant Requirement: Education Level")
@@ -124,6 +208,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ApplicantRequirementEducationLevelList
                 })
                 await stemDumpCreate(ApplicantRequirementEducationLevel)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let ApplicantRequirementCredentialIndex = originHeader.indexOf("Applicant Requirement: Credential")
@@ -134,6 +230,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ApplicantRequirementCredentialList
                 })
                 await stemDumpCreate(ApplicantRequirementCredential)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": true,
+                    "Applicant Requirement: Age": false,
+                })
 
 
                 let ApplicantRequirementAgeIndex = originHeader.indexOf("Applicant Requirement: Age")
@@ -144,6 +252,18 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ApplicantRequirementAgeList
                 })
                 await stemDumpCreate(ApplicantRequirementAge)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "Program School / Org Type": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": true,
+                    "Applicant Requirement: Age": true,
+                })
 
 
                 let SchoolOrgIndex = originHeader.indexOf("School/Org")
@@ -153,8 +273,6 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 let NeighborhoodIndex = originHeader.indexOf("Neighborhood")
 
                 let ProgramSchoolOrgList = origingData.map((item: any) => {
-                    console.log("item", item);
-                    
                     return {
                         name: item[SchoolOrgIndex],
                         address: item[StreetAddressIndex],
@@ -163,7 +281,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                         neighborhood: item[NeighborhoodIndex],
                         status: 1
                     }
-                })
+                }).filter((item: any) => item.name !== undefined)
 
                 let ProgramSchoolOrg = await unRepeatedArrayArrayExtracting({
                     type: "un-repeated",
@@ -171,10 +289,31 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ProgramSchoolOrgList
                 })
 
-                console.log("ProgramSchoolOrg", ProgramSchoolOrg);
-
                 await stemDumpCreate(ProgramSchoolOrg)
 
+                // await sendStringToNest(origingData)
+
+                const chunkSize = 100;
+                const iterations = Math.ceil(origingData.length / chunkSize);
+
+
+                for (let i = 0; i < iterations; i++) {
+                    console.log('!', i);
+
+                    setPercent((previous: any) => Number(((100 / iterations) * (i + 1)).toFixed(0)))
+
+                    const start = i * chunkSize;
+                    const end = Math.min(start + chunkSize, origingData.length);
+                    const list = origingData.slice(start, end);
+
+                    await stemWholeCreate({
+                        i,
+                        list,
+                    });
+                }
+
+                coloredToast('Database updated with new Excel file.', 'success')
+                setTypeModal(false)
                 // await stemDumpCreate({
                 //     type: "matched-way",
                 //     name: "Stem",
@@ -185,6 +324,40 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
             }
         });
     };
+
+    // const sendStringToNest = async (data: any) => {
+
+    //     // const string = JSON.stringify(array);
+
+    //     // const chunkSize = 1024; // Define the chunk size as per your requirement
+    //     // const chunks = [];
+
+    //     // for (let i = 0; i < string.length; i += chunkSize) {
+    //     //     const chunk = string.slice(i, i + chunkSize);
+    //     //     chunks.push(chunk);
+    //     // }
+
+    //     const stream = new ReadableStream({
+    //         start(controller) {
+    //             const encoder = new TextEncoder();
+    //             const encodedData = encoder.encode(JSON.stringify(data));
+    //             controller.enqueue(encodedData);
+    //             controller.close();
+    //         },
+    //     });
+
+
+    //     const response = await fetch('http://localhost:8000/api/v1/admin/stem/stem-stream', {
+    //         method: 'POST',
+    //         body: stream,
+    //         headers: {
+    //             'Content-Type': 'application/octet-stream',
+    //         },
+    //     });
+
+    //     // Handle the response from the Nest.js backend
+    //     // ...
+    // };
 
     const gatherValue = (type: string, valueList: any) => {
         setStemValue({ ...stemValue, [type]: valueList })
@@ -434,10 +607,61 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                                                         You can register bundle data at once using file like excel.
                                                     </p>
 
-                                                    <div className='w-full py-4 flex justify-center items-ce'>
-                                                        <input type="file" onChange={handleFileUpload} />
-                                                    </div>
+                                                    <div className='w-full py-4 flex justify-center items-start flex-wrap'>
 
+                                                        {/* 
+                                                        <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative'>
+                                                            <input type="file" onChange={handleFileUpload} className="opacity-0 absolute" />
+                                                            <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center">
+                                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+                                                            </div>
+                                                        </div> */}
+                                                        <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative mt-8'>
+                                                            <input type="file" onChange={handleFileUpload} className=" h-[600px] opacity-0 absolute" />
+                                                            <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center" onClick={handleFileUpload}>
+                                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                        <div className='w-full xl:w-2/3 mb-4 p-4'>
+                                                            {Object.keys(updateStatus).map((key: any, index: any) =>
+                                                                <div className='flex justify-start items-center mb-2 transition-all' key={index}>
+                                                                    {updateStatus[key] ?
+                                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+                                                                        :
+                                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                                    }
+                                                                    <p className='ml-2'>{key}</p>
+                                                                </div>
+                                                            )}
+                                                            <div className='flex justify-start items-start mb-2 transition-all'>
+                                                                {percent !== 0 ?
+                                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+                                                                    :
+                                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                                }
+                                                                <div className='w-full'>
+                                                                    <div className='flex justify-between items-center'>
+                                                                        <p className='ml-2'>Program School / Org</p>
+                                                                        <p className='mr-12'>{percent}%</p>
+                                                                    </div>
+                                                                    <div className='relative w-[calc(100%-2em)] rounded-[8px] bg-gray-300 h-[8px] mt-1'>
+                                                                        <div
+                                                                            className='absolute bg-blue-500 rounded-[8px] h-[8px] transition-all'
+                                                                            style={{
+                                                                                width: `${percent}%`
+                                                                            }}
+                                                                        >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </Tab.Panel>
                                         </Tab.Panels>
