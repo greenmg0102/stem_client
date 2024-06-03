@@ -2,27 +2,17 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
-import IntegratingSearchModule from '../components/UIs/SearchModule/IntegratingSearchModule';
+import OpportnityListModule from './OpportunitiesExtract/OpportunityList';
 import { setPageTitle } from '../store/themeConfigSlice';
-import SearchFilter from '../pages/IntegrationSearch/SearchFilter'
-import { integrationRead, realTiemintegrationRead } from '../api/user/integration'
+import OpportunityFilter from './OpportunitiesExtract/OpportunityFilter'
+import { stemAccordingtoOpportunityRead } from '../api/user/opportunity'
 
-const IntegrationSearch = () => {
+const OpportunitiesExtract = () => {
 
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
-        programSchoolOrg: [],
-        programSchoolOrgType: [],
-        credentialSchool: [],
-        Opportunity: [],
-        field: [],
-        credential: [],
-        areaStudy: [],
-        educationLieve: [],
-        applicantRequirementCredential: [],
-        courseLink: "",
-        opportunityLink: "",
+        Opportunity: undefined
     });
 
     const PAGE_SIZES = [10, 20, 30, 50, 100];
@@ -54,7 +44,7 @@ const IntegrationSearch = () => {
         async function fetchData() {
 
             setIsLoading(true)
-            let result = await integrationRead(data)
+            let result = await stemAccordingtoOpportunityRead(data)
             setIsLoading(false)
 
             if (result.isOkay) {
@@ -82,13 +72,13 @@ const IntegrationSearch = () => {
 
         async function fetchData() {
 
-            setIsRealLoading(true)
-            let result = await realTiemintegrationRead(data)
-            setIsRealLoading(false)
+            // setIsRealLoading(true)
+            // let result = await realTiemintegrationRead(data)
+            // setIsRealLoading(false)
 
-            if (result.isOkay) {
-                setBufferSearchDataList(result.result)
-            }
+            // if (result.isOkay) {
+            //     setBufferSearchDataList(result.result)
+            // }
         }
         fetchData()
 
@@ -103,18 +93,18 @@ const IntegrationSearch = () => {
         <div>
             <div className="pt-5">
                 <SearchBanner
-                    title={"Integration Search"}
+                    title={"Stem Data Extractiong According to the Opportunity"}
                     description={""}
                 />
                 <div className='p-4 flex justify-between items-start flex-wrap'>
                     <div className='w-full xl:w-[30%] p-2 mb-4 pt-16'>
-                        <SearchFilter
-                            stemValue={stemValue}
-                            setStemValue={(total: any) => bufferFilter(total)}
+                        <OpportunityFilter
+                            opportunityString={stemValue.Opportunity}
+                            setStemValue={(value: any) => setStemValue({ ...stemValue, Opportunity: value })}
                         />
                     </div>
                     <div className='w-full xl:w-[70%] p-2'>
-                        <IntegratingSearchModule
+                        <OpportnityListModule
                             page={page}
                             pageSize={pageSize}
                             isLoading={isLoading}
@@ -137,4 +127,4 @@ const IntegrationSearch = () => {
     );
 };
 
-export default IntegrationSearch;
+export default OpportunitiesExtract;
