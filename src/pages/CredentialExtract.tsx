@@ -5,14 +5,14 @@ import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import CredentialExtractListModule from './CredentialExtract/CredentialExtractList';
 import { setPageTitle } from '../store/themeConfigSlice';
 import CredentialExtractFilter from './CredentialExtract/CredentialExtractFilter'
-import { stemAccordingtoOpportunityRead } from '../api/user/opportunity'
+import { stemAccordingtoCredentialRead } from '../api/user/credential'
 
 const CredentialExtract = () => {
 
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
-        Opportunity: undefined
+        credential: undefined
     });
 
     const PAGE_SIZES = [10, 20, 30, 50, 100];
@@ -44,7 +44,7 @@ const CredentialExtract = () => {
         async function fetchData() {
 
             setIsLoading(true)
-            let result = await stemAccordingtoOpportunityRead(data)
+            let result = await stemAccordingtoCredentialRead(data)
             setIsLoading(false)
 
             if (result.isOkay) {
@@ -100,7 +100,7 @@ const CredentialExtract = () => {
                     <div className='w-full xl:w-[30%] p-2 mb-4 pt-16'>
                         <CredentialExtractFilter
                             opportunityString={stemValue.Opportunity}
-                            setStemValue={(value: any) => setStemValue({ ...stemValue, Opportunity: value })}
+                            setStemValue={(value: any) => setStemValue({ ...stemValue, credential: value })}
                         />
                     </div>
                     <div className='w-full xl:w-[70%] p-2'>
