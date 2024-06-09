@@ -12,6 +12,7 @@ const IntegrationSearch = lazy(() => import('../pages/IntegrationSearch'));
 const IntegrationSearchId = lazy(() => import('../pages/IntegrationSearchId'));
 const OpportunitiesExtract = lazy(() => import('../pages/OpportunitiesExtract'));
 const CredentialExtract = lazy(() => import('../pages/CredentialExtract'));
+const GeneralFieldFilterExtract = lazy(() => import('../pages/GeneralFieldExtract'));
 
 
 const ProgramAdmin = lazy(() => import('../pages/Admin/ProgramSchool/ProgramAdmin'));
@@ -177,7 +178,11 @@ const routes = [
         path: '/credential-extract',
         element: <CredentialExtract />,
     },
-
+    {
+        path: '/general-field-extract',
+        element: <GeneralFieldFilterExtract />,
+    },
+    
     
     
     {

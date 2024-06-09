@@ -19,14 +19,14 @@ const Index = () => {
         <div className="pt-5 pt-12 pb-12">
             <div>
                 <Welcome />
-                <div className='flex justify-center items-center flex-col'>
+                {/* <div className='flex justify-center items-center flex-col'>
                     <div className='w-3/5'>
                         <Resource />
                         <Organizations />
                         <UsersList />
                         <Lists />
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
