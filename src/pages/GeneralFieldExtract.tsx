@@ -1,18 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import GeneralFieldListModule from './GeneralFieldExtract/GeneralFieldList';
 import { setPageTitle } from '../store/themeConfigSlice';
-import GeneralFieldFilter from './GeneralFieldExtract/GeneralFieldFilter'
-import { stemAccordingtoGeneralRead } from '../api/user/general'
+import GeneralFieldFilter from './GeneralFieldExtract/GeneralFieldFilter';
+import { stemAccordingtoGeneralRead } from '../api/user/general';
 
 const GeneralFieldFilterExtract = () => {
-
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
-        field: undefined
+        field: undefined,
     });
 
     const PAGE_SIZES = [10, 20, 30, 50, 100];
@@ -25,85 +24,86 @@ const GeneralFieldFilterExtract = () => {
     const [recordsData, setRecordsData] = useState([]);
     const [bufferSearchDataList, setBufferSearchDataList] = useState<any>(null);
 
-    const [searchParameter, setSearchParameter] = useState("")
-    const [bufferSearch, setBufferSearch] = useState("")
-
-    useEffect(() => { setPage(1); }, [pageSize]);
+    const [searchParameter, setSearchParameter] = useState("");
+    const [bufferSearch, setBufferSearch] = useState("");
 
     useEffect(() => {
+        setPage(1);
+    }, [pageSize]);
 
+    useEffect(() => {
+        dispatch(setPageTitle('IntegrationSearch'));
+    }, [dispatch]);
+
+    const bufferFilter = (total: any) => {
+        setStemValue(total);
+        setPage(1);
+        setPageSize(PAGE_SIZES[0]);
+    };
+
+    const handleSearch = useCallback(
+        debounce(async (hint) => {
+            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
+            console.log('###', data);
+
+            setIsLoading(true);
+            let result = await stemAccordingtoGeneralRead(data);
+            setIsLoading(false);
+
+            if (result.isOkay) {
+                setRecordsData(result.result);
+                setTotalCount(result.totalCount);
+            }
+        }, 800),
+        [stemValue, page, pageSize]
+    );
+
+    useEffect(() => {
         let data = {
             ...stemValue,
             page: page,
             pageSize: pageSize,
-            searchParameter: searchParameter
-        }
-
-        if (searchParameter !== "") handleSearch(searchParameter);
+            searchParameter: searchParameter,
+        };
 
         async function fetchData() {
-
-            setIsLoading(true)
-            let result = await stemAccordingtoGeneralRead(data)
-            setIsLoading(false)
+            setIsLoading(true);
+            let result = await stemAccordingtoGeneralRead(data);
+            setIsLoading(false);
 
             if (result.isOkay) {
-                setRecordsData(result.result)
-                setTotalCount(result.totalCount)
+                setRecordsData(result.result);
+                setTotalCount(result.totalCount);
             }
         }
-        fetchData()
 
-    }, [stemValue, pageSize, page, searchParameter])
-
-    useEffect(() => {
-        dispatch(setPageTitle('IntegrationSearch'));
-    });
-
-    const bufferFilter = (total: any) => {
-        setStemValue(total)
-        setPage(1)
-        setPageSize(PAGE_SIZES[0])
-    }
-
-    const handleSearch = debounce((hint: string) => {
-
-        let data = { ...stemValue, page: 1, pageSize: 10, searchParameter: hint }
-
-        async function fetchData() {
-
-            // setIsRealLoading(true)
-            // let result = await realTiemintegrationRead(data)
-            // setIsRealLoading(false)
-
-            // if (result.isOkay) {
-            //     setBufferSearchDataList(result.result)
-            // }
+        if (searchParameter !== "") {
+            handleSearch(searchParameter);
+        } else {
+            fetchData();
         }
-        fetchData()
-
-    }, 800);
+    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);
-        handleSearch(hint);
+        setSearchParameter(hint);
     };
 
     return (
         <div>
             <div className="pt-5">
                 <SearchBanner
-                    title={"Stem Data Extractiong According to the Career Path category"}
+                    title={"STEM Data Extracting According to the Career Path category"}
                     description={""}
                 />
-                <div className='p-4 flex justify-between items-start flex-wrap'>
-                    <div className='w-full xl:w-[30%] p-2 mb-4 pt-16'>
+                <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
+                    <div className='w-full xl:w-[30%] p-2 mb-4'>
                         <GeneralFieldFilter
                             generalString={stemValue.field}
-                            setStemValue={(value: any) => setStemValue({ ...stemValue, field: value })}
+                            setStemValue={(value: any) => bufferFilter({ ...stemValue, field: value })}
                         />
                     </div>
-                    <div className='w-full xl:w-[70%] p-2'>
+                    <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                         <GeneralFieldListModule
                             page={page}
                             pageSize={pageSize}

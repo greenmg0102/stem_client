@@ -15,8 +15,7 @@ export async function opportunityFilerRead(): Promise<any> {
     return result
 }
 
-
 export async function stemAccordingtoOpportunityRead(data: any): Promise<any> {
-    const result = await axios.post("/user/opportunity/stem-accordingto-opportunity-read ", data).then((result: any) => { return result.data })
+    const result = await axios.post("/user/opportunity/stem-accordingto-opportunity-read", data).then((result: any) => { return result.data })
     return result
 }

@@ -347,7 +347,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
     //     });
 
 
-    //     const response = await fetch('http://104.128.55.140:8000/api/v1/admin/stem/stem-stream', {
+    //     const response = await fetch('http://104.128.55.14:8000/api/v1/admin/stem/stem-stream', {
     //         method: 'POST',
     //         body: stream,
     //         headers: {

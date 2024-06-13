@@ -38,7 +38,7 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
                         onClick={() => setStemValue(item._id)}
                     >
                         <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", credentialString === item._id ? "text-blue-700 font-bold" : "text-gray-600")}>{item._id}</p>
-                        <p className="text-gray-600 font-bold">{item.count}</p>
+                        <p className="text-gray-600 font-bold text-[12px]">({item.count})</p>
                     </div>
                 )}
             </div>

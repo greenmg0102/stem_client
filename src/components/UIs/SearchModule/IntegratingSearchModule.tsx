@@ -16,9 +16,9 @@ const IntegratingSearchModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, bu
     };
 
     return (
-        <div className='w-full flex justify-center py-8'>
+        <div className='w-full flex justify-center py-8 pt-0'>
             <div className="w-full flex justify-between items-start">
-                <div className="w-full p-2">
+                <div className="w-full p-2 pt-0">
                     <div className="flex justify-between items-center mb-2">
                         <div className="flex mb-2 items-center">
                             <p className="mr-2">Total result: {totalCount}</p>

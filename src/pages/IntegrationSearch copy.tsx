@@ -1,13 +1,14 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import IntegratingSearchModule from '../components/UIs/SearchModule/IntegratingSearchModule';
 import { setPageTitle } from '../store/themeConfigSlice';
-import SearchFilter from '../pages/IntegrationSearch/SearchFilter';
-import { integrationRead, realTiemintegrationRead } from '../api/user/integration';
+import SearchFilter from '../pages/IntegrationSearch/SearchFilter'
+import { integrationRead, realTiemintegrationRead } from '../api/user/integration'
 
 const IntegrationSearch = () => {
+
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
@@ -34,25 +35,25 @@ const IntegrationSearch = () => {
     const [recordsData, setRecordsData] = useState([]);
     const [bufferSearchDataList, setBufferSearchDataList] = useState<any>(null);
 
-    const [searchParameter, setSearchParameter] = useState("");
-    const [bufferSearch, setBufferSearch] = useState("");
+    const [searchParameter, setSearchParameter] = useState("")
+    const [bufferSearch, setBufferSearch] = useState("")
 
-    useEffect(() => {
-        setPage(1);
-    }, [pageSize]);
+    useEffect(() => { setPage(1); }, [pageSize]);
 
     useEffect(() => {
         dispatch(setPageTitle('IntegrationSearch'));
-    }, [dispatch]);
+    });
 
     const bufferFilter = (total: any) => {
-        setStemValue(total);
-        setPage(1);
-        setPageSize(PAGE_SIZES[0]);
-    };
+        setStemValue(total)
+        setPage(1)
+        setPageSize(PAGE_SIZES[0])
+    }
 
-    const handleSearch = useCallback(debounce(async (hint) => {
+    const handleSearch = debounce(async (hint) => {
         let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
+        console.log('###', data);
+
         setIsLoading(true);
         setIsRealLoading(true);
 
@@ -62,17 +63,16 @@ const IntegrationSearch = () => {
         setIsRealLoading(false);
 
         if (result.isOkay) {
+            console.log('result', result);
             setBufferSearchDataList(result.result);
             setRecordsData(result.result);
             setTotalCount(result.totalCount);
         }
-    }, 800), [stemValue, page, pageSize]);
+    }, 800);
 
     useEffect(() => {
-        if (searchParameter !== ""){
-         handleSearch(searchParameter);
-        }
-    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
+        if (searchParameter !== "") handleSearch(searchParameter);
+    }, [stemValue, pageSize, page, searchParameter]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);

@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-axios.defaults.baseURL = 'http://104.128.55.140:8000/api/v1/';
+axios.defaults.baseURL = 'http://104.128.55.14:8000/api/v1/';
 
 // Add a request interceptor to attach the token to all requests
 const axiosAuthMiddleware = {
