@@ -66,7 +66,7 @@ const IntegratingSearchModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, bu
                                 <path d="M18.5 18.5L22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"></path>
                             </svg>
                         </button>
-                        <div className={clsx("transition-all", Array.isArray(bufferSearchDataList) && bufferSearchDataList.length > 0 ? "absolute w-full max-h-[300px] shadow-lg bg-gray-50 overflow-y-auto -bottom-0 p-4 border border-blue-500 transform translate-y-full z-[99]" : "hidden border border-[0px] h-0 p-0")}>
+                        {/* <div className={clsx("transition-all", Array.isArray(bufferSearchDataList) && bufferSearchDataList.length > 0 ? "absolute w-full max-h-[300px] shadow-lg bg-gray-50 overflow-y-auto -bottom-0 p-4 border border-blue-500 transform translate-y-full z-[99]" : "hidden border border-[0px] h-0 p-0")}>
 
                             <div className="flex justify-between items-between items-center mb-2">
                                 <div className="w-[calc(100%-2em)] flex justify-center">
@@ -81,7 +81,7 @@ const IntegratingSearchModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, bu
                                     item={item}
                                 />
                             )}
-                        </div>
+                        </div> */}
                     </div>
                     {/* </ClickAwayListener> */}
 

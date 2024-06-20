@@ -69,9 +69,7 @@ const IntegrationSearch = () => {
     }, 800), [stemValue, page, pageSize]);
 
     useEffect(() => {
-        if (searchParameter !== ""){
          handleSearch(searchParameter);
-        }
     }, [stemValue, pageSize, page, searchParameter, handleSearch]);
 
     const bufferSearchHint = (hint: string) => {

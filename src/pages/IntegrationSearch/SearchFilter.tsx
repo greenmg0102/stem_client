@@ -22,7 +22,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         stemValue={stemValue}
                         gatherValue={(valueList: any) => gatherValue('programSchoolOrgType', valueList)}
                         category={"programSchoolOrgType"}
-                        title={"Program School / Org Type"}
+                        title={"Referral Program School/Org Type"}
                         placeholder={"Select Program School / Org / Type"}
                     />
                 </div>

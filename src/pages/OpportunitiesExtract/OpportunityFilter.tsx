@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { Input } from 'antd';
+import { Definitions } from './Definitions'
 import { opportunityFilerRead } from '../../api/user/opportunity'
 import clsx from 'clsx'
 
@@ -34,14 +35,23 @@ export default function OpportunityFilter({ opportunityString, setStemValue }: a
                 {list.map((item: any, index: any) =>
                     <div
                         key={index}
-                        className="flex justify-between items-center mb-4 cursor-pointer"
+                        className={clsx(
+                            Definitions.find((each: any) => each.title === item._id) ? "border border-dashed border-gray-500 cursor-pointer rounded-[8px] p-2 mt-2" : "hidden"
+                        )}
                         onClick={() => setStemValue(item._id)}
                     >
-                        <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", opportunityString === item._id ? "text-blue-700 font-bold" : "text-gray-600")}>{item._id}</p>
-                        <p className="text-gray-600 font-bold text-[12px]">({item.count})</p>
+                        <div
+                            className="flex justify-between items-center mb-1"
+                        >
+                            <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", opportunityString === item._id ? "text-blue-700 font-bold" : "text-gray-700")}>{item._id}</p>
+                            <p className="text-gray-700 font-bold text-[12px]">({item.count})</p>
+                        </div>
+                        <p className="text-[12px] text-gray-500">
+                            {Definitions.find((each: any) => each.title === item._id)?.description}
+                        </p>
                     </div>
                 )}
             </div>
-        </div>
+        </div >
     )
 }
