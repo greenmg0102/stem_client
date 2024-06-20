@@ -4,7 +4,7 @@ import SearchModuleItem from '../../components/UIs/SearchModule/SearchModuleItem
 import RealSearchItem from '../../components/UIs/SearchModule/RealSearchItem'
 import clsx from 'clsx'
 
-const GeneralFieldListModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
+const GeneralFieldListModule = ({ setSortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
     const [viewType, setViewType] = useState('list')
 
@@ -37,14 +37,19 @@ const GeneralFieldListModule = ({ page, pageSize, PAGE_SIZES, isRealLoading, buf
                                 <option value={'card'} disabled>Card View</option>
                                 <option value={'map'} disabled>Map View</option>
                             </select>
-                            {/* <select className="form-select text-white-dark w-[150px]">
-                                <option>A ~ Z</option>
-                                <option>Newest</option>
-                                <option>Oldest</option>
-                                <option>Recently Updated</option>
-                                <option>Relevance</option>
-                                <option>Z ~ A</option>
-                            </select> */}
+
+                            <select
+                                className="form-select text-white-dark w-[200px]"
+                                onClick={(e: any) => setSortCondition(e.target.value)}
+                            >
+                                <option value={'credentialSchool.school:1'}>School : A ~ Z</option>
+                                <option value={'credentialSchool.school:0'}>School : Z ~ A</option>
+                                <option value={'credential.credential:1'}>Credential : A ~ Z</option>
+                                <option value={'credential.credential:0'}>Credential : Z ~ A</option>
+                                <option value={'opportunity.opportunity:1'}>Opportunity : A ~ Z</option>
+                                <option value={'opportunity.opportunity:0'}>Opportunity : Z ~ A</option>
+                            </select>
+
                         </div>
                     </div>
 

@@ -24,6 +24,7 @@ const IntegrationSearch = () => {
         opportunityLink: "",
     });
 
+    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -52,7 +53,7 @@ const IntegrationSearch = () => {
     };
 
     const handleSearch = useCallback(debounce(async (hint) => {
-        let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
+        let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
         setIsLoading(true);
         setIsRealLoading(true);
 
@@ -66,11 +67,11 @@ const IntegrationSearch = () => {
             setRecordsData(result.result);
             setTotalCount(result.totalCount);
         }
-    }, 800), [stemValue, page, pageSize]);
+    }, 800), [stemValue, page, pageSize, sortCondition]);
 
     useEffect(() => {
-         handleSearch(searchParameter);
-    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
+        handleSearch(searchParameter);
+    }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);
@@ -89,6 +90,7 @@ const IntegrationSearch = () => {
                         <SearchFilter
                             stemValue={stemValue}
                             setStemValue={(total: any) => bufferFilter(total)}
+
                         />
                     </div>
                     <div className='w-full xl:w-[70%] p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
@@ -101,10 +103,12 @@ const IntegrationSearch = () => {
                             recordsData={recordsData}
                             bufferSearch={bufferSearch}
                             isRealLoading={isRealLoading}
+                            sortCondition={sortCondition}
                             bufferSearchDataList={bufferSearchDataList}
                             setPage={(page: any) => setPage(page)}
                             setPageSize={(value: any) => setPageSize(value)}
                             setBufferSearch={(value: any) => bufferSearchHint(value)}
+                            setSortCondition={(total: any) => setSortCondition(total)}
                             setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
                             setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
                         />

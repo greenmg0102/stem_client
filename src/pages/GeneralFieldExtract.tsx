@@ -14,6 +14,7 @@ const GeneralFieldFilterExtract = () => {
         field: undefined,
     });
 
+    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -43,7 +44,7 @@ const GeneralFieldFilterExtract = () => {
 
     const handleSearch = useCallback(
         debounce(async (hint) => {
-            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
+            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
             console.log('###', data);
 
             setIsLoading(true);
@@ -55,7 +56,7 @@ const GeneralFieldFilterExtract = () => {
                 setTotalCount(result.totalCount);
             }
         }, 800),
-        [stemValue, page, pageSize]
+        [stemValue, page, pageSize, sortCondition]
     );
 
     useEffect(() => {
@@ -64,6 +65,7 @@ const GeneralFieldFilterExtract = () => {
             page: page,
             pageSize: pageSize,
             searchParameter: searchParameter,
+            sortCondition: sortCondition
         };
 
         async function fetchData() {
@@ -82,7 +84,7 @@ const GeneralFieldFilterExtract = () => {
         } else {
             fetchData();
         }
-    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
+    }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);
@@ -93,7 +95,7 @@ const GeneralFieldFilterExtract = () => {
         <div>
             <div className="pt-5">
                 <SearchBanner
-                    title={"STEM Data Extracting According to the Career Path category"}
+                    title={"STEM Data Extracting According to the Field Study Pathways"}
                     description={""}
                 />
                 <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
@@ -116,6 +118,7 @@ const GeneralFieldFilterExtract = () => {
                             bufferSearchDataList={bufferSearchDataList}
                             setPage={(page: any) => setPage(page)}
                             setPageSize={(value: any) => setPageSize(value)}
+                            setSortCondition={(total: any) => setSortCondition(total)}
                             setBufferSearch={(value: any) => bufferSearchHint(value)}
                             setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
                             setSearchParameter={(parameter: any) => setSearchParameter(parameter)}

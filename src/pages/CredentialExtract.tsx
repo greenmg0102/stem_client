@@ -13,7 +13,8 @@ const CredentialExtract = () => {
     const [stemValue, setStemValue] = useState<any>({
         credential: undefined,
     });
-
+    
+    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -43,7 +44,7 @@ const CredentialExtract = () => {
 
     const handleSearch = useCallback(
         debounce(async (hint) => {
-            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
+            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
             console.log('###', data);
 
             setIsLoading(true);
@@ -55,7 +56,7 @@ const CredentialExtract = () => {
                 setTotalCount(result.totalCount);
             }
         }, 800),
-        [stemValue, page, pageSize]
+        [stemValue, page, pageSize, sortCondition]
     );
 
     useEffect(() => {
@@ -64,6 +65,7 @@ const CredentialExtract = () => {
             page: page,
             pageSize: pageSize,
             searchParameter: searchParameter,
+            sortCondition: sortCondition 
         };
 
         async function fetchData() {
@@ -82,7 +84,7 @@ const CredentialExtract = () => {
         } else {
             fetchData();
         }
-    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
+    }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);
@@ -115,6 +117,7 @@ const CredentialExtract = () => {
                             isRealLoading={isRealLoading}
                             bufferSearchDataList={bufferSearchDataList}
                             setPage={(page: any) => setPage(page)}
+                            setSortCondition={(total: any) => setSortCondition(total)}
                             setPageSize={(value: any) => setPageSize(value)}
                             setBufferSearch={(value: any) => bufferSearchHint(value)}
                             setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}

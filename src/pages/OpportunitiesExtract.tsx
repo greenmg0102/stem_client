@@ -14,6 +14,7 @@ const OpportunitiesExtract = () => {
         Opportunity: undefined,
     });
 
+    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -43,9 +44,7 @@ const OpportunitiesExtract = () => {
 
     const handleSearch = useCallback(
         debounce(async (hint) => {
-            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint };
-            console.log('###', data);
-
+        let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
             setIsLoading(true);
             let result = await stemAccordingtoOpportunityRead(data);
             setIsLoading(false);
@@ -55,7 +54,7 @@ const OpportunitiesExtract = () => {
                 setTotalCount(result.totalCount);
             }
         }, 800),
-        [stemValue, page, pageSize]
+        [stemValue, page, pageSize, sortCondition]
     );
 
     useEffect(() => {
@@ -64,6 +63,7 @@ const OpportunitiesExtract = () => {
             page: page,
             pageSize: pageSize,
             searchParameter: searchParameter,
+            sortCondition: sortCondition
         };
 
         async function fetchData() {
@@ -82,7 +82,7 @@ const OpportunitiesExtract = () => {
         } else {
             fetchData();
         }
-    }, [stemValue, pageSize, page, searchParameter, handleSearch]);
+    }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
     const bufferSearchHint = (hint: string) => {
         setBufferSearch(hint);
@@ -113,10 +113,12 @@ const OpportunitiesExtract = () => {
                             recordsData={recordsData}
                             bufferSearch={bufferSearch}
                             isRealLoading={isRealLoading}
+                            sortCondition={sortCondition}
                             bufferSearchDataList={bufferSearchDataList}
                             setPage={(page: any) => setPage(page)}
                             setPageSize={(value: any) => setPageSize(value)}
                             setBufferSearch={(value: any) => bufferSearchHint(value)}
+                            setSortCondition={(total: any) => setSortCondition(total)}
                             setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
                             setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
                         />
