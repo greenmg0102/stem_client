@@ -95,7 +95,7 @@ const GeneralFieldFilterExtract = () => {
         <div>
             <div className="pt-5">
                 <SearchBanner
-                    title={"STEM Data Extracting According to the Field Study Pathways"}
+                    title={"STEM Data Extracting According to the Pathways"}
                     description={""}
                 />
                 <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>

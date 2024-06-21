@@ -130,7 +130,7 @@ const CredentialModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal
                                                         You can register one document at a time.
                                                     </p>
 
-                                                    <input type="text" value={value} placeholder="Credential School..." className="form-input my-4" onChange={(e: any) => setValue(e.target.value)} />
+                                                    <input type="text" value={value} placeholder="School..." className="form-input my-4" onChange={(e: any) => setValue(e.target.value)} />
                                                     <p className={isError ? 'text-red-500' : 'invisible'}>Please fulfill the input.</p>
 
                                                 </div>

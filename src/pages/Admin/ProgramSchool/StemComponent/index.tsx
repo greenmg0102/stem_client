@@ -251,7 +251,7 @@ const ColumnChooser = () => {
         // { accessor: 'id', title: 'ID' },
         { accessor: 'schoolOrg.name', title: 'Program School / Org' },
         { accessor: 'schoolOrgType.type', title: 'Program School / Org Type' },
-        { accessor: 'credentialSchool.school', title: 'Credential School' },
+        { accessor: 'credentialSchool.school', title: 'School' },
         { accessor: 'field.field', title: 'General Study field' },
         { accessor: 'opportunity.opportunity', title: 'Opportunity' },
         { accessor: 'credential.credential', title: 'Credential' },
@@ -391,7 +391,7 @@ const ColumnChooser = () => {
                             },
                             {
                                 accessor: 'credentialSchool.school',
-                                title: 'Credential School',
+                                title: 'School',
                                 sortable: true,
                                 hidden: hideCols.includes('credentialSchool.school'),
                             },

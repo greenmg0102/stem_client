@@ -4,7 +4,7 @@ const SearchModuleItemCard = ({ item }: any) => {
     return (
         <div className='w-full border p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]'  >
 
-            <p className="font-bold">Credential School</p>
+            <p className="font-bold">School</p>
             <p>{item.credentialSchool && item.credentialSchool.school}</p>
 
             <div className="flex justify-start items-start flex-wrap mt-4">

@@ -515,8 +515,8 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                                                                 stemValue={stemValue}
                                                                 gatherValue={(valueList: any) => gatherValue('credentialSchool', valueList)}
                                                                 category={"credentialSchool"}
-                                                                title={"Credential School"}
-                                                                placeholder={"Credential School"}
+                                                                title={"School"}
+                                                                placeholder={"School"}
                                                             />
                                                         </div>
                                                         <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
@@ -533,8 +533,8 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                                                                 stemValue={stemValue}
                                                                 gatherValue={(valueList: any) => gatherValue('field', valueList)}
                                                                 category={"field"}
-                                                                title={"General Field Study"}
-                                                                placeholder={"General Field Study"}
+                                                                title={"Pathway"}
+                                                                placeholder={"Pathway"}
                                                             />
                                                         </div>
                                                         <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
