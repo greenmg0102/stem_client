@@ -109,7 +109,7 @@ const Sidebar = () => {
                                 </NavLink>
                             </li>
 
-                            {/* <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
+                            <h2 className="py-3 px-7 flex items-center uppercase font-extrabold bg-white-light/30 dark:bg-dark dark:bg-opacity-[0.08] -mx-4 mb-1">
                                 <svg className="w-4 h-5 flex-none hidden" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" strokeLinejoin="round">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                 </svg>
@@ -118,6 +118,9 @@ const Sidebar = () => {
 
                             <li className="nav-item">
                                 <ul>
+                                    <li>
+                                        <NavLink to="/admin/stem">Stem Admin</NavLink>
+                                    </li>
                                     <li className="menu nav-item">
                                         <button type="button" className={`${currentMenu === 'programSchool' ? 'active' : ''} nav-link group w-full`} onClick={() => toggleMenu('programSchool')}>
                                             <div className="flex items-center">
@@ -134,12 +137,12 @@ const Sidebar = () => {
 
                                         <AnimateHeight duration={300} height={currentMenu === 'programSchool' ? 'auto' : 0}>
                                             <ul className="sub-menu text-gray-500">
-                                                <li>
+                                                {/* <li>
                                                     <NavLink to="/admin/single-classification">Single Classification</NavLink>
                                                 </li>
                                                 <li>
                                                     <NavLink to="/admin/program">Program Org Admin</NavLink>
-                                                </li>
+                                                </li> */}
                                                 <li>
                                                     <NavLink to="/admin/stem">Stem Admin</NavLink>
                                                 </li>
@@ -147,7 +150,7 @@ const Sidebar = () => {
                                         </AnimateHeight>
                                     </li>
                                 </ul>
-                            </li> */}
+                            </li>
 
                         </ul>
                         {/* <ul className="relative font-semibold space-y-0.5 p-4 py-0">

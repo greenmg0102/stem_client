@@ -454,69 +454,218 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                                     </button>
                                 </div>
                                 <div className="p-5 pt-2">
-                                    <div className="active pt-5 p-5">
-
-                                        <p className="mb-4 font-semibold flex items-center text-blue-400">
-                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1em" height="1em" fill="currentColor" className='text-blue-600 mr-1' aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
-                                            You can register bundle data at once using file like excel.
-                                        </p>
-
-                                        <div className='w-full py-4 flex justify-center items-start flex-wrap'>
-
-                                            {/* 
-    <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative'>
-        <input type="file" onChange={handleFileUpload} className="opacity-0 absolute" />
-        <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center">
-            <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
-        </div>
-    </div> */}
-                                            <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative mt-8'>
-                                                <input type="file" onChange={handleFileUpload} className=" h-[600px] opacity-0 absolute" />
-                                                <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center" onClick={handleFileUpload}>
-                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
-                                                </div>
-                                            </div>
-
-
-
-
-
-                                            <div className='w-full xl:w-2/3 mb-4 p-4'>
-                                                {Object.keys(updateStatus).map((key: any, index: any) =>
-                                                    <div className='flex justify-start items-center mb-2 transition-all' key={index}>
-                                                        {updateStatus[key] ?
-                                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
-                                                            :
-                                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                    <Tab.Group>
+                                        <Tab.List className="mt-3 flex flex-wrap border-b border-white-light dark:border-[#191e3a]">
+                                            <Tab as={Fragment}>
+                                                {({ selected }) => (
+                                                    <button
+                                                        className={
+                                                            `${selected ? '!border-white-light !border-b-white  text-primary !outline-none dark:!border-[#191e3a] dark:!border-b-black' : ''}
+                                                            dark:hover:border-b-black -mb-[1px] block border border-transparent p-3.5 py-2 hover:text-primary`
                                                         }
-                                                        <p className='ml-2'>{key}</p>
-                                                    </div>
+                                                    >
+                                                        Single
+                                                    </button>
                                                 )}
-                                                <div className='flex justify-start items-start mb-2 transition-all'>
-                                                    {percent !== 0 ?
-                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
-                                                        :
-                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
-                                                    }
-                                                    <div className='w-full'>
-                                                        <div className='flex justify-between items-center'>
-                                                            <p className='ml-2'>Program School / Org</p>
-                                                            <p className='mr-12'>{percent}%</p>
+                                            </Tab>
+                                            <Tab as={Fragment}>
+                                                {({ selected }) => (
+                                                    <button
+                                                        className={
+                                                            `${selected ? '!border-white-light !border-b-white  text-primary !outline-none dark:!border-[#191e3a] dark:!border-b-black' : ''}
+                                                            dark:hover:border-b-black -mb-[1px] block border border-transparent p-3.5 py-2 hover:text-primary`
+                                                        }
+                                                    >
+                                                        Bundle
+                                                    </button>
+                                                )}
+                                            </Tab>
+                                        </Tab.List>
+                                        <Tab.Panels>
+                                            <Tab.Panel>
+                                                <div className="active pt-5">
+                                                    <p className="mb-4 font-semibold flex items-center text-blue-400 ">
+                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1em" height="1em" fill="currentColor" className='text-blue-600 mr-1' aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                        You can register one document at a time.
+                                                    </p>
+
+                                                    <p className={isError ? 'text-red-500' : 'invisible'}>Please fulfill the input.</p>
+
+                                                    <div className='flex justify-start items-center flex-wrap'>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('programSchoolOrg', valueList)}
+                                                                category={"programSchoolOrg"}
+                                                                title={"Program School / Org"}
+                                                                placeholder={"Select Program School / Org"}
+                                                            />
                                                         </div>
-                                                        <div className='relative w-[calc(100%-2em)] rounded-[8px] bg-gray-300 h-[8px] mt-1'>
-                                                            <div
-                                                                className='absolute bg-blue-500 rounded-[8px] h-[8px] transition-all'
-                                                                style={{
-                                                                    width: `${percent}%`
-                                                                }}
-                                                            >
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('programSchoolOrgType', valueList)}
+                                                                category={"programSchoolOrgType"}
+                                                                title={"Program School / Org Type"}
+                                                                placeholder={"Select Program School / Org / Type"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('credentialSchool', valueList)}
+                                                                category={"credentialSchool"}
+                                                                title={"School"}
+                                                                placeholder={"School"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('Opportunity', valueList)}
+                                                                category={"Opportunity"}
+                                                                title={"Opportunity"}
+                                                                placeholder={"Opportunity"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('field', valueList)}
+                                                                category={"field"}
+                                                                title={"Pathway"}
+                                                                placeholder={"Pathway"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('credential', valueList)}
+                                                                category={"credential"}
+                                                                title={"Credential"}
+                                                                placeholder={"Credential"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('areaStudy', valueList)}
+                                                                category={"areaStudy"}
+                                                                title={"Specific Area of Study"}
+                                                                placeholder={"Specific Area of Study"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('educationLieve', valueList)}
+                                                                category={"educationLieve"}
+                                                                title={"Applicant Requirement: Education Level"}
+                                                                placeholder={"Applicant Requirement: Education Level"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <StemItemSearch
+                                                                stemValue={stemValue}
+                                                                gatherValue={(valueList: any) => gatherValue('applicantRequirementCredential', valueList)}
+                                                                category={"applicantRequirementCredential"}
+                                                                title={"Applicant Requirement: Credential"}
+                                                                placeholder={"Applicant Requirement: Credential"}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <p className='text-[14px] font-bold text-gray-600 mb-2'>Course Link</p>
+                                                            <Input
+                                                                placeholder="Course Link"
+                                                                name={"courseLink"}
+                                                                value={stemValue["courseLink"]}
+                                                                onChange={(e: any) => setStemValue({ ...stemValue, [e.target.name]: e.target.value })}
+                                                            />
+                                                        </div>
+                                                        <div className='w-full xl:w-1/3 p-1 mb-2 transition-all'>
+                                                            <p className='text-[14px] font-bold text-gray-600 mb-2'>Opportunity Link</p>
+                                                            <Input
+                                                                placeholder="Opportunity Link"
+                                                                name={"opportunityLink"}
+                                                                value={stemValue["opportunityLink"]}
+                                                                onChange={(e: any) => setStemValue({ ...stemValue, [e.target.name]: e.target.value })}
+                                                            />
+                                                        </div>
+                                                    </div>
+
+                                                    {/* <p className="">Program School / Org Name</p>
+                                                    <input type="text" value={value.name} name="name" placeholder="Name..." className="form-input my-4" onChange={(e: any) => setValue({ ...value, [e.target.name]: e.target.value })} /> */}
+
+
+                                                </div>
+                                            </Tab.Panel>
+                                            <Tab.Panel>
+                                                <div className="active pt-5 p-5">
+
+                                                    <p className="mb-4 font-semibold flex items-center text-blue-400">
+                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1em" height="1em" fill="currentColor" className='text-blue-600 mr-1' aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                        You can register bundle data at once using file like excel.
+                                                    </p>
+
+                                                    <div className='w-full py-4 flex justify-center items-start flex-wrap'>
+
+                                                        {/* 
+                                                        <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative'>
+                                                            <input type="file" onChange={handleFileUpload} className="opacity-0 absolute" />
+                                                            <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center">
+                                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+                                                            </div>
+                                                        </div> */}
+                                                        <div className='w-full xl:w-1/3 mb-4 p-4 flex justify-center items-center relative mt-8'>
+                                                            <input type="file" onChange={handleFileUpload} className=" h-[600px] opacity-0 absolute" />
+                                                            <div className="border border-dashed rounded-[8px] border-gray-300 absolute top-0 left-0 w-full h-[300px] pointer-events-none flex justify-center items-center" onClick={handleFileUpload}>
+                                                                <svg viewBox="64 64 896 896" focusable="false" data-icon="upload" width="5em" height="5em" fill="currentColor" aria-hidden="true"><path d="M400 317.7h73.9V656c0 4.4 3.6 8 8 8h60c4.4 0 8-3.6 8-8V317.7H624c6.7 0 10.4-7.7 6.3-12.9L518.3 163a8 8 0 00-12.6 0l-112 141.7c-4.1 5.3-.4 13 6.3 13zM878 626h-60c-4.4 0-8 3.6-8 8v154H214V634c0-4.4-3.6-8-8-8h-60c-4.4 0-8 3.6-8 8v198c0 17.7 14.3 32 32 32h684c17.7 0 32-14.3 32-32V634c0-4.4-3.6-8-8-8z"></path></svg>
+                                                            </div>
+                                                        </div>
+
+
+
+
+
+                                                        <div className='w-full xl:w-2/3 mb-4 p-4'>
+                                                            {Object.keys(updateStatus).map((key: any, index: any) =>
+                                                                <div className='flex justify-start items-center mb-2 transition-all' key={index}>
+                                                                    {updateStatus[key] ?
+                                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+                                                                        :
+                                                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                                    }
+                                                                    <p className='ml-2'>{key}</p>
+                                                                </div>
+                                                            )}
+                                                            <div className='flex justify-start items-start mb-2 transition-all'>
+                                                                {percent !== 0 ?
+                                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1.3em" height="1.3em" className='text-blue-500' fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+                                                                    :
+                                                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="info-circle" width="1.3em" height="1.3em" className='text-red-500' fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M464 336a48 48 0 1096 0 48 48 0 10-96 0zm72 112h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V456c0-4.4-3.6-8-8-8z"></path></svg>
+                                                                }
+                                                                <div className='w-full'>
+                                                                    <div className='flex justify-between items-center'>
+                                                                        <p className='ml-2'>Program School / Org</p>
+                                                                        <p className='mr-12'>{percent}%</p>
+                                                                    </div>
+                                                                    <div className='relative w-[calc(100%-2em)] rounded-[8px] bg-gray-300 h-[8px] mt-1'>
+                                                                        <div
+                                                                            className='absolute bg-blue-500 rounded-[8px] h-[8px] transition-all'
+                                                                            style={{
+                                                                                width: `${percent}%`
+                                                                            }}
+                                                                        >
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                            </Tab.Panel>
+                                        </Tab.Panels>
+                                    </Tab.Group>
 
                                     <div className="flex justify-end items-center mt-4">
                                         <button onClick={() => setTypeModal(false)} type="button" className="btn btn-outline-danger">
