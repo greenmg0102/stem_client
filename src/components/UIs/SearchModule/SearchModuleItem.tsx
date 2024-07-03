@@ -7,7 +7,11 @@ const SearchModuleItem = ({ item, viewType }: any) => {
     const navigate = useNavigate();
 
     return (
-        <div onClick={() => navigate(`/integration-search-id/${item._id}`)} >
+        // <div onClick={() => navigate(`/integration-search-id/${item._id}`)} >
+
+        <div
+            onClick={() => window.open(`/integration-search-id/${item._id}`, '_blank')}
+        >
 
             {viewType === "list" ? <SearchModuleItemList item={item} /> : null}
             {viewType === "card" ? <SearchModuleItemCard item={item} /> : null}
