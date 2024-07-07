@@ -78,6 +78,7 @@ const IntegrationSearch = () => {
         handleSearch(hint);
     };
 
+
     return (
         <div>
             <div className="pt-5">

@@ -47,19 +47,19 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                 <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
-                        gatherValue={(valueList: any) => gatherValue('field', valueList)}
-                        category={"field"}
-                        title={"Pathway"}
-                        placeholder={"Pathway"}
+                        gatherValue={(valueList: any) => gatherValue('credential', valueList)}
+                        category={"credential"}
+                        title={"Credential"}
+                        placeholder={"Credential"}
                     />
                 </div>
                 <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
-                        gatherValue={(valueList: any) => gatherValue('credential', valueList)}
-                        category={"credential"}
-                        title={"Credential"}
-                        placeholder={"Credential"}
+                        gatherValue={(valueList: any) => gatherValue('field', valueList)}
+                        category={"field"}
+                        title={"Pathway"}
+                        placeholder={"Pathway"}
                     />
                 </div>
                 <p className='mt-4'><span className='text-red-500 font-bold mr-2 mb-0'>*</span>In all search categories, you can search for multiple options.</p>

@@ -10,6 +10,7 @@ const Keywords = lazy(() => import('../pages/Keywords'));
 const Guides = lazy(() => import('../pages/Guides'));
 const IntegrationSearch = lazy(() => import('../pages/IntegrationSearch'));
 const IntegrationSearchId = lazy(() => import('../pages/IntegrationSearchId'));
+const SearchByGroup = lazy(() => import('../pages/searchByGroup'))
 const OpportunitiesExtract = lazy(() => import('../pages/OpportunitiesExtract'));
 const CredentialExtract = lazy(() => import('../pages/CredentialExtract'));
 const GeneralFieldFilterExtract = lazy(() => import('../pages/GeneralFieldExtract'));
@@ -167,6 +168,10 @@ const routes = [
         element: <IntegrationSearch />,
     },
     {
+        path: '/search-by-group',
+        element: <SearchByGroup />,
+    },
+    {
         path: '/integration-search-id/:id',
         element: <IntegrationSearchId />,
     },
@@ -182,9 +187,10 @@ const routes = [
         path: '/general-field-extract',
         element: <GeneralFieldFilterExtract />,
     },
-    
-    
-    
+
+
+
+
     {
         path: '/admin/program',
         element: <ProgramAdmin />,
@@ -202,7 +208,7 @@ const routes = [
         element: <StemAdmin />,
     },
 
-    
+
 
 
 
