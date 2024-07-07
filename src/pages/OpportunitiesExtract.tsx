@@ -6,8 +6,11 @@ import OpportunityListModule from './OpportunitiesExtract/OpportunityList';
 import { setPageTitle } from '../store/themeConfigSlice';
 import OpportunityFilter from './OpportunitiesExtract/OpportunityFilter';
 import { stemAccordingtoOpportunityRead } from '../api/user/opportunity';
+import { useUser } from "@clerk/clerk-react";
 
 const OpportunitiesExtract = () => {
+
+    const { isSignedIn, user, isLoaded } = useUser();
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
@@ -44,7 +47,7 @@ const OpportunitiesExtract = () => {
 
     const handleSearch = useCallback(
         debounce(async (hint) => {
-        let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
+            let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
             setIsLoading(true);
             let result = await stemAccordingtoOpportunityRead(data);
             setIsLoading(false);
@@ -89,44 +92,53 @@ const OpportunitiesExtract = () => {
         setSearchParameter(hint);
     };
 
-    return (
-        <div>
-            <div className="pt-5">
-                <SearchBanner
-                    title={"STEM Data Extracting According to the Opportunity"}
-                    description={""}
-                />
-                <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
-                    <div className='w-full xl:w-[30%] p-2 mb-4'>
-                        <OpportunityFilter
-                            opportunityString={stemValue.Opportunity}
-                            setStemValue={(value: any) => bufferFilter({ ...stemValue, Opportunity: value })}
-                        />
-                    </div>
-                    <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
-                        <OpportunityListModule
-                            page={page}
-                            pageSize={pageSize}
-                            isLoading={isLoading}
-                            PAGE_SIZES={PAGE_SIZES}
-                            totalCount={totalCount}
-                            recordsData={recordsData}
-                            bufferSearch={bufferSearch}
-                            isRealLoading={isRealLoading}
-                            sortCondition={sortCondition}
-                            bufferSearchDataList={bufferSearchDataList}
-                            setPage={(page: any) => setPage(page)}
-                            setPageSize={(value: any) => setPageSize(value)}
-                            setBufferSearch={(value: any) => bufferSearchHint(value)}
-                            setSortCondition={(total: any) => setSortCondition(total)}
-                            setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
-                            setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
-                        />
+    if (!isLoaded) {
+        // Handle loading state
+        return <div>Loading...</div>;
+    }
+
+    if (isSignedIn) {
+        return (
+            <div>
+                <div className="pt-5">
+                    <SearchBanner
+                        title={"STEM Data Extracting According to the Opportunity"}
+                        description={""}
+                    />
+                    <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
+                        <div className='w-full xl:w-[30%] p-2 mb-4'>
+                            <OpportunityFilter
+                                opportunityString={stemValue.Opportunity}
+                                setStemValue={(value: any) => bufferFilter({ ...stemValue, Opportunity: value })}
+                            />
+                        </div>
+                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                            <OpportunityListModule
+                                page={page}
+                                pageSize={pageSize}
+                                isLoading={isLoading}
+                                PAGE_SIZES={PAGE_SIZES}
+                                totalCount={totalCount}
+                                recordsData={recordsData}
+                                bufferSearch={bufferSearch}
+                                isRealLoading={isRealLoading}
+                                sortCondition={sortCondition}
+                                bufferSearchDataList={bufferSearchDataList}
+                                setPage={(page: any) => setPage(page)}
+                                setPageSize={(value: any) => setPageSize(value)}
+                                setBufferSearch={(value: any) => bufferSearchHint(value)}
+                                setSortCondition={(total: any) => setSortCondition(total)}
+                                setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
+                                setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return <div>Please sign in to view this page.</div>;
+    }
 };
 
 export default OpportunitiesExtract;

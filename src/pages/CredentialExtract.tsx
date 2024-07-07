@@ -6,14 +6,17 @@ import CredentialExtractListModule from './CredentialExtract/CredentialExtractLi
 import { setPageTitle } from '../store/themeConfigSlice';
 import CredentialExtractFilter from './CredentialExtract/CredentialExtractFilter';
 import { stemAccordingtoCredentialRead } from '../api/user/credential';
+import { useUser } from "@clerk/clerk-react";
 
 const CredentialExtract = () => {
+
+    const { isSignedIn, user, isLoaded } = useUser();
     const dispatch = useDispatch();
 
     const [stemValue, setStemValue] = useState<any>({
         credential: undefined,
     });
-    
+
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
@@ -65,7 +68,7 @@ const CredentialExtract = () => {
             page: page,
             pageSize: pageSize,
             searchParameter: searchParameter,
-            sortCondition: sortCondition 
+            sortCondition: sortCondition
         };
 
         async function fetchData() {
@@ -91,43 +94,52 @@ const CredentialExtract = () => {
         setSearchParameter(hint);
     };
 
-    return (
-        <div>
-            <div className="pt-5">
-                <SearchBanner
-                    title={"STEM Data Extracting According to the Credential"}
-                    description={""}
-                />
-                <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
-                    <div className='w-full xl:w-[30%] p-2 mb-4'>
-                        <CredentialExtractFilter
-                            credentialString={stemValue.credential}
-                            setStemValue={(value: any) => bufferFilter({ ...stemValue, credential: value })}
-                        />
-                    </div>
-                    <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
-                        <CredentialExtractListModule
-                            page={page}
-                            pageSize={pageSize}
-                            isLoading={isLoading}
-                            PAGE_SIZES={PAGE_SIZES}
-                            totalCount={totalCount}
-                            recordsData={recordsData}
-                            bufferSearch={bufferSearch}
-                            isRealLoading={isRealLoading}
-                            bufferSearchDataList={bufferSearchDataList}
-                            setPage={(page: any) => setPage(page)}
-                            setSortCondition={(total: any) => setSortCondition(total)}
-                            setPageSize={(value: any) => setPageSize(value)}
-                            setBufferSearch={(value: any) => bufferSearchHint(value)}
-                            setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
-                            setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
-                        />
+    if (!isLoaded) {
+        // Handle loading state
+        return <div>Loading...</div>;
+    }
+
+    if (isSignedIn) {
+        return (
+            <div>
+                <div className="pt-5">
+                    <SearchBanner
+                        title={"STEM Data Extracting According to the Credential"}
+                        description={""}
+                    />
+                    <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
+                        <div className='w-full xl:w-[30%] p-2 mb-4'>
+                            <CredentialExtractFilter
+                                credentialString={stemValue.credential}
+                                setStemValue={(value: any) => bufferFilter({ ...stemValue, credential: value })}
+                            />
+                        </div>
+                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                            <CredentialExtractListModule
+                                page={page}
+                                pageSize={pageSize}
+                                isLoading={isLoading}
+                                PAGE_SIZES={PAGE_SIZES}
+                                totalCount={totalCount}
+                                recordsData={recordsData}
+                                bufferSearch={bufferSearch}
+                                isRealLoading={isRealLoading}
+                                bufferSearchDataList={bufferSearchDataList}
+                                setPage={(page: any) => setPage(page)}
+                                setSortCondition={(total: any) => setSortCondition(total)}
+                                setPageSize={(value: any) => setPageSize(value)}
+                                setBufferSearch={(value: any) => bufferSearchHint(value)}
+                                setBufferSearchDataList={(value: any) => setBufferSearchDataList(value)}
+                                setSearchParameter={(parameter: any) => setSearchParameter(parameter)}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return <div>Please sign in to view this page.</div>;
+    }
 };
 
 export default CredentialExtract;
