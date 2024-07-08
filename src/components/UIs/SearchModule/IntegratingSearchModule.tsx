@@ -92,8 +92,6 @@ const IntegratingSearchModule = ({ setSortCondition, page, pageSize, PAGE_SIZES,
         }
     };
 
-    console.log('recordData', proccessedRecordsData);
-
     return (
         <div className='w-full flex justify-center py-8 pt-0'>
             <div className="w-full flex justify-between items-start">
