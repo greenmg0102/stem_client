@@ -14,7 +14,6 @@ const SearchModuleItem = ({ item, viewType }: any) => {
         >
 
             {viewType === "list" ? <SearchModuleItemList item={item} /> : null}
-            {viewType === "card" ? <SearchModuleItemCard item={item} /> : null}
 
         </div>
     );
