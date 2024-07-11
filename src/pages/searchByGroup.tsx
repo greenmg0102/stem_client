@@ -114,6 +114,10 @@ export default function SearchByGroup() {
         if (type === "Opportunity") {
             setStemValue({ ...stemValue, [type]: valueList, credential: [] })
             setLoadingStatus({ ...loadingStatus, credentialCheck: true })
+
+            setCredentialList([])
+            setbufferCredentialList([])
+
             let result = await credentialFromOpportunity({
                 data: valueList[0].value
             })
@@ -142,6 +146,13 @@ export default function SearchByGroup() {
         } else if (type === "field") {
             setStemValue({ ...stemValue, [type]: valueList, credential: [], Opportunity: [] })
             setLoadingStatus({ ...loadingStatus, opportunityCheck: true })
+
+            setOpportunityList([])
+            setbufferOpportunityList([])
+            setCredentialList([])
+            setbufferCredentialList([])
+
+
             let result = await opportunutyFromPathway({
                 data: valueList[0].value
             })
