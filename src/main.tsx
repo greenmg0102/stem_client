@@ -23,9 +23,6 @@ import { ClerkProvider } from '@clerk/clerk-react'
 
 const PUBLISHABLE_KEY = "pk_test_bGl2ZS1ncnViLTkuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
-console.log("PUBLISHABLE_KEY", PUBLISHABLE_KEY);
-
-
 if (!PUBLISHABLE_KEY) {
     throw new Error("Missing Publishable Key")
 }

@@ -1,3 +1,9 @@
+export const BookMarkDefinitions = [
+    {
+        title: 'searchBookMark',
+        description: "oweioqweawefoi"
+    },
+]
 export const Definitions = [
     {
         title: 'Apprenticeship',

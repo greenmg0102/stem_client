@@ -13,3 +13,7 @@
     background-color: lightgray;
     /* Set the color of the scrollbar track */
 }
+
+.ant-btn{
+    background: rgb(107, 201, 133) !important;
+}

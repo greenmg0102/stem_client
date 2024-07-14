@@ -1,20 +1,26 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Alert } from 'antd';
+import { Alert, Drawer, message, Popconfirm } from 'antd';
+import type { PopconfirmProps } from 'antd';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import SearchFilter from '../pages/IntegrationSearch/SearchFilter';
 import debounce from 'lodash/debounce';
 import clsx from 'clsx';
-import { Definitions } from './OpportunitiesExtract/Definitions'
+import { Definitions, BookMarkDefinitions } from './OpportunitiesExtract/Definitions'
 import IntegratingSearchModule from '../components/UIs/SearchModule/IntegratingSearchModule';
 import { integrationRead, realTiemintegrationRead } from '../api/user/integration';
+import { bookmarkCreate, bookmarkRead } from '../api/user/bookmark';
+
 import { groupListGet, credentialFromOpportunity, pathwayFromCredential, opportunutyFromPathway } from '../api/user/groupBySearch';
 import StemItemSearch from '../pages/Admin/ProgramSchool/StemComponent/StemItemSearch'
+import { categroyCredential } from '../utils/categroyCredential'
 import { useUser } from "@clerk/clerk-react";
 
 export default function SearchByGroup() {
-    const { isSignedIn, user, isLoaded } = useUser();
+
+    const [messageApi, contextHolder] = message.useMessage();
+    const { isSignedIn, user, isLoaded }: any = useUser();
 
     const [stemValue, setStemValue] = useState<any>({
         programSchoolOrg: [],
@@ -47,8 +53,8 @@ export default function SearchByGroup() {
     const [pathwayList, setPathwayList] = useState([])
 
     const [bufferOpportunityList, setbufferOpportunityList] = useState<any>([])
-    const [bufferCredentialList, setbufferCredentialList] = useState<any>([])
     const [bufferPathwayList, setbufferPathwayList] = useState<any>([])
+    const [bufferCredentialList, setbufferCredentialList] = useState<any>([])
 
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
@@ -64,19 +70,53 @@ export default function SearchByGroup() {
     const [searchParameter, setSearchParameter] = useState("");
     const [bufferSearch, setBufferSearch] = useState("");
 
+    const [bookmark, setBookmark] = useState<any>([])
+    const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        if (credentialList.length > 0) {
+            let result = categroyCredential(credentialList)
+            setbufferCredentialList(result)
+        }
+    }, [credentialList])
+
+    useEffect(() => {
+
+        console.log("useEffect1111");
+
+        async function fetchData() {
+
+            let data = {
+                type: 'search-by-group',
+                userId: user.id,
+            }
+            console.log("data", data);
+
+            let realCredential = await bookmarkRead(data)
+            setBookmark(realCredential.result)
+
+            console.log("realCredential", realCredential);
+
+
+        }
+        fetchData()
+
+    }, [user])
+
     useEffect(() => {
 
         async function fetchData() {
+
             let result = await groupListGet()
             if (result.isOkay) {
                 setOpportunityList(result.result.opportunityList)
                 setbufferOpportunityList(result.result.opportunityList)
 
-                setCredentialList(result.result.credentialList)
-                setbufferCredentialList(result.result.credentialList)
-
                 setPathwayList(result.result.generalFieldStudyList)
                 setbufferPathwayList(result.result.generalFieldStudyList)
+
+                setCredentialList(result.result.credentialList)
+                // setbufferCredentialList(result.result.credentialList)
             }
         }
         fetchData()
@@ -169,13 +209,54 @@ export default function SearchByGroup() {
         if (type === "Opportunity") {
             let real = opportunityList.filter((item: any) => item.opportunity.includes(e.target.value))
             setbufferOpportunityList(real)
-        } else if (type === "credential") {
-            let real = credentialList.filter((item: any) => item.credential.includes(e.target.value))
-            setbufferCredentialList(real)
         } else if (type === "field") {
             let real = pathwayList.filter((item: any) => item.field.includes(e.target.value))
             setbufferPathwayList(real)
+        } else if (type === "credential") {
+            let real = credentialList.filter((item: any) => item.credential.includes(e.target.value))
+            let result = categroyCredential(real)
+            console.log("result", result);
+            setbufferCredentialList(result)
         }
+    }
+
+    const confirm: PopconfirmProps['onConfirm'] = async (e) => {
+        if (
+            stemValue.Opportunity.length > 0 &&
+            stemValue.credential.length > 0
+        ) {
+            let data = {
+                type: 'search-by-group',
+                userId: user.id,
+                details: {
+                    field: stemValue.field,
+                    Opportunity: stemValue.Opportunity,
+                    credential: stemValue.credential,
+                    bufferSearch: bufferSearch
+                }
+            }
+            let result = await bookmarkCreate(data)
+
+            if (result.isOkay) {
+                messageApi.success('Okay, your bookmark was saved!');
+            } else {
+                messageApi.error('Plz set filtering option!');
+            }
+        } else {
+            messageApi.info('Plz set filtering option!');
+        }
+    };
+
+    const cancel: PopconfirmProps['onCancel'] = (e) => {
+        message.error('You ignored the saving current search filter');
+    };
+
+    const insertBook = (item: any) => {
+        console.log("insertBook", item);
+        setStemValue({ ...stemValue, Opportunity: item.details.Opportunity, credential: item.details.credential, field: item.details.field })
+        setSearchParameter(item.details.bufferSearch)
+        setBufferSearch(item.details.bufferSearch)
+
     }
 
     const onCheck = (type: any, checked: any) => {
@@ -183,8 +264,24 @@ export default function SearchByGroup() {
             console.log('type', type, "checked", checked);
             setStemValue({ ...stemValue, Opportunity: [], credential: [], field: [] })
         }
-
         setCheckable({ ...checkable, [type]: checked })
+    }
+
+    const onClose = () => {
+        setOpen(false);
+    };
+
+    function formatDate(dateStr: any) {
+        const dateObj = new Date(dateStr);
+
+        const yy = String(dateObj.getUTCFullYear()).slice(-2);
+        const mm = String(dateObj.getUTCMonth() + 1).padStart(2, '0');
+        const dd = String(dateObj.getUTCDate()).padStart(2, '0');
+        const hh = String(dateObj.getUTCHours()).padStart(2, '0');
+        const min = String(dateObj.getUTCMinutes()).padStart(2, '0');
+        const ss = String(dateObj.getUTCSeconds()).padStart(2, '0');
+
+        return `${yy}-${mm}-${dd} ${hh}:${min}:${ss}`;
     }
 
     if (!isLoaded) {
@@ -194,6 +291,47 @@ export default function SearchByGroup() {
     if (isSignedIn) {
         return (
             <div>
+                {contextHolder}
+                <Drawer title="Bookmark for Search By Group" onClose={onClose} open={open}>
+                    {bookmark.length > 0 && bookmark.map((item: any, index: any) =>
+                        <div
+                            key={index}
+                            className='border border-dashed border-gray-400 border-t-[0px] border-l-[0px] border-r-[0px] p-4 cursor-pointer hover:bg-gray-100'
+                            onClick={() => insertBook(item)}
+                        >
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Pathway
+                                </p>
+                                <p>: {item && item.details && item.details.field && item.details.field[0] && item.details.field[0].label}</p>
+                            </div>
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Opportunity
+                                </p>
+                                <p>: {item && item.details && item.details.Opportunity && item.details.Opportunity[0] && item.details.Opportunity[0].label}</p>
+                            </div>
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Credential
+                                </p>
+                                <p>: {item && item.details && item.details.credential && item.details.credential[0] && item.details.credential[0].label}</p>
+                            </div>
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Hint
+                                </p>
+                                <p>: {item && item.details && item.details.bufferSearch}</p>
+                            </div>
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Date
+                                </p>
+                                <p>: {formatDate(item && item.updatedAt)}</p>
+                            </div>
+                        </div>
+                    )}
+                </Drawer>
                 <div className="pt-5">
                     <SearchBanner
                         title={"Search By Group"}
@@ -212,9 +350,36 @@ export default function SearchByGroup() {
                         </div>
 
                     </div>
-                    <div className='p-4 flex justify-between items-start flex-wrap pt-8'>
-                        <div className='w-full xl:w-1/2 flex justify-between items-start p-2 mb-4'>
+                    <div className='flex justify-start items-center pt-4 px-8'>
+                        <Popconfirm
+                            title="Bookmark?"
+                            description="Save the current search filter?"
+                            onConfirm={confirm}
+                            onCancel={cancel}
+                            okText="Yes"
+                            cancelText="No"
+                        >
+                            <div
+                                className="btn btn-primary btn-sm cursor-pointer"
+                            >
+                                <p className='pr-2'>
+                                    Search Filter Bookmark
+                                </p>
+                                <Tippy content={BookMarkDefinitions.find((each: any) => each.title === "searchBookMark")?.description}>
+                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
+                                </Tippy>
+                            </div>
+                        </Popconfirm>
+                        <div
+                            className="btn btn-success btn-sm cursor-pointer ml-2"
+                            onClick={() => setOpen(true)}
+                        >
+                            Bookmark view
+                        </div>
 
+                    </div>
+                    <div className='p-4 flex justify-between items-start flex-wrap pt-1'>
+                        <div className='w-full xl:w-1/2 flex justify-between items-start p-2 mb-4'>
                             <div className='w-1/3 p-1 mb-2 transition-all'>
                                 <div className='flex justify-between items-center mb-1'>
                                     <div className='flex justify-start items-center'>
@@ -253,7 +418,7 @@ export default function SearchByGroup() {
                                             onClick={() => bufferGatherValue("field", [
                                                 {
                                                     key: item._id,
-                                                    label: "",
+                                                    label: item.field,
                                                     value: item._id
                                                 }
                                             ])}
@@ -284,6 +449,7 @@ export default function SearchByGroup() {
 
                                 <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)} />
 
+
                                 <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.Opportunity[0] && stemValue.Opportunity[0].key &&
@@ -303,7 +469,7 @@ export default function SearchByGroup() {
                                             onClick={() => bufferGatherValue("Opportunity", [
                                                 {
                                                     key: item._id,
-                                                    label: "",
+                                                    label: item.opportunity,
                                                     value: item._id
                                                 }
                                             ])}
@@ -343,30 +509,83 @@ export default function SearchByGroup() {
                                 <input type="text" placeholder="Some credentia..." className="mb-2 form-input" required onChange={(e: any) => onchange("credential", e)} />
 
                                 <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
-                                    {
-                                        stemValue && stemValue.credential[0] && stemValue.credential[0].key &&
-                                        bufferCredentialList.find((item: any) => item._id === stemValue.credential[0].key).credential
-                                    }
+                                    {stemValue && stemValue.credential[0] && stemValue.credential[0].label}
                                 </div>
 
                                 <div className='h-64 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
                                     {bufferCredentialList.length > 0 && bufferCredentialList.map((item: any, index: any) =>
                                         <div
                                             key={index}
-                                            className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
-                                                stemValue &&
-                                                    stemValue.credential[0] &&
-                                                    item._id === stemValue.credential[0].key ? "text-blue-500" : ""
-                                            )}
-                                            onClick={() => bufferGatherValue("credential", [
-                                                {
-                                                    key: item._id,
-                                                    label: "",
-                                                    value: item._id
-                                                }
-                                            ])}
                                         >
-                                            {item.credential}
+                                            {item && item.list ?
+                                                <div>
+                                                    <div
+                                                        key={index}
+                                                        className={clsx("flex justify-start transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start  text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                                            stemValue &&
+                                                                stemValue.credential[0] &&
+                                                                item._id === stemValue.credential[0].key ? "text-blue-500" : ""
+                                                        )}
+                                                        onClick={() => bufferGatherValue("credential", [
+                                                            {
+                                                                key: item._id,
+                                                                label: item.credential,
+                                                                value: item._id
+                                                            }
+                                                        ])}
+                                                    >
+                                                        <svg className='mt-[4px]' viewBox="64 64 896 896" focusable="false" data-icon="plus" width="0.8em" height="0.8em" fill="currentColor" aria-hidden="true"><path d="M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z"></path><path d="M192 474h672q8 0 8 8v60q0 8-8 8H160q-8 0-8-8v-60q0-8 8-8z"></path></svg>
+                                                        <p className='w-[calc(100%-0.8em)] pl-1'>
+                                                            {item.credential}
+                                                        </p>
+                                                    </div>
+                                                    {
+                                                        item.list.map((each: any, order: any) =>
+                                                            <div
+                                                                key={index + ":" + order}
+                                                                className={clsx("pl-2 flex justify-start transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start  text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                                                    stemValue &&
+                                                                        stemValue.credential[0] &&
+                                                                        each._id === stemValue.credential[0].key ? "text-blue-500" : ""
+                                                                )}
+                                                                onClick={() => bufferGatherValue("credential", [
+                                                                    {
+                                                                        key: each._id,
+                                                                        label: each.credential,
+                                                                        value: each._id
+                                                                    }
+                                                                ])}
+                                                            >
+                                                                {/* <svg className='mt-[4px]' viewBox="64 64 896 896" focusable="false" data-icon="minus" width="0.8em" height="0.8em" fill="currentColor" aria-hidden="true"><path d="M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z"></path></svg> */}
+                                                                <p className='w-[calc(100%-1em)] pl-1'>
+                                                                    {each.credential}
+                                                                </p>
+                                                            </div>
+                                                        )
+                                                    }
+                                                </div>
+                                                :
+                                                <div
+                                                    key={index}
+                                                    className={clsx("flex justify-start  transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                                        stemValue &&
+                                                            stemValue.credential[0] &&
+                                                            item._id === stemValue.credential[0].key ? "text-blue-500" : ""
+                                                    )}
+                                                    onClick={() => bufferGatherValue("credential", [
+                                                        {
+                                                            key: item._id,
+                                                            label: item.credential,
+                                                            value: item._id
+                                                        }
+                                                    ])}
+                                                >
+                                                    <svg className='mt-[4px]' viewBox="64 64 896 896" focusable="false" data-icon="check-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M699 353h-46.9c-10.2 0-19.9 4.9-25.9 13.3L469 584.3l-71.2-98.8c-6-8.3-15.6-13.3-25.9-13.3H325c-6.5 0-10.3 7.4-6.5 12.7l124.6 172.8a31.8 31.8 0 0051.7 0l210.6-292c3.9-5.3.1-12.7-6.4-12.7z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
+                                                    <p className='w-[calc(100%-1em)] pl-1'>
+                                                        {item.credential}
+                                                    </p>
+                                                </div>
+                                            }
                                         </div>
                                     )}
                                 </div>
