@@ -28,3 +28,39 @@ export const categroyCredential = (bufferCredentialList: any) => {
     return result
 
 }
+
+
+export const categroyCertifications = (bufferCredentialList: any) => {
+
+    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
+
+    let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
+        return {
+            value: filterOption[index] + " Certifications Category",
+            title: filterOption[index] + " Certifications Category",
+            children: []
+        }
+    })
+
+
+    bufferCredentialList.forEach((item: any, index: any) => {
+
+        if (filterOption.some((each: any, order: any) => item.includes(each))) {
+            filterOption.forEach((each: any, order: any) => {
+                if (item.includes(each)) {
+                    let real = result[order].children
+                    real.push({
+                        value: item,
+                        title: item
+                    })
+                }
+            })
+        } else result.push({
+            value: item,
+            title: item
+        })
+    })
+
+    return result
+
+}

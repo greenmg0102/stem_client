@@ -108,13 +108,13 @@ const CredentialExtract = () => {
                         description={""}
                     />
                     <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
-                        <div className='w-full xl:w-[30%] p-2 mb-4'>
+                        <div className='w-full xl:w-[20%] p-2 mb-4'>
                             <CredentialExtractFilter
                                 credentialString={stemValue.credential}
                                 setStemValue={(value: any) => bufferFilter({ ...stemValue, credential: value })}
                             />
                         </div>
-                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full xl:w-[80%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <CredentialExtractListModule
                                 page={page}
                                 pageSize={pageSize}
