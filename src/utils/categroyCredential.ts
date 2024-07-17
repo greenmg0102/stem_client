@@ -1,5 +1,4 @@
 export const categroyCredential = (bufferCredentialList: any) => {
-
     let filterOption = ["Adobe", "Microsoft", "CompTIA"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
@@ -26,7 +25,6 @@ export const categroyCredential = (bufferCredentialList: any) => {
     })
 
     return result
-
 }
 
 
@@ -41,7 +39,6 @@ export const categroyCertifications = (bufferCredentialList: any) => {
             children: []
         }
     })
-
 
     bufferCredentialList.forEach((item: any, index: any) => {
 
@@ -58,6 +55,48 @@ export const categroyCertifications = (bufferCredentialList: any) => {
         } else result.push({
             value: item,
             title: item
+        })
+    })
+
+    return result
+}
+
+
+export const menuCategroyCertifications = (bufferCredentialList: any) => {
+
+    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
+
+    let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
+        return {
+            key: filterOption[index] + " Certifications Category",
+            label: filterOption[index] + " Certifications Category",
+            children: [{
+                key: filterOption[index] + " Certifications Category",
+                label: filterOption[index] + " Certifications Category",
+            }]
+        }
+    })
+
+
+    bufferCredentialList.forEach((item: any, index: any) => {
+
+        if (filterOption.some((each: any, order: any) => item.includes(each))) {
+            filterOption.forEach((each: any, order: any) => {
+                if (item.includes(each)) {
+                    let real = result[order].children
+                    real.push({
+                        key: item,
+                        label: item
+                    })
+                    // real.unshift({
+                    //     key: item + " Certifications Category",
+                    //     label: item + " Certifications Category",
+                    // })
+                }
+            })
+        } else result.push({
+            key: item,
+            label: item
         })
     })
 

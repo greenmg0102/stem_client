@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react"
-import { TreeSelect } from 'antd';
+import { TreeSelect, Menu } from 'antd';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
 import type { TreeSelectProps } from 'antd';
 import { credentialFilerRead } from '../../api/user/credential'
-import { categroyCertifications } from '../../utils/categroyCredential'
+import { categroyCertifications, menuCategroyCertifications } from '../../utils/categroyCredential'
 import clsx from 'clsx'
+
 
 export default function CredentialExtractFilter({ credentialString, setStemValue }: any) {
 
     const [list, setList] = useState<any>([])
+    const [menuList, setMenuList] = useState<any>([])
     const [value, setValue] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
@@ -26,8 +30,11 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
             let result = await credentialFilerRead()
             if (result.isOkay) {
                 let real = [...result.result.filter((item: any) => item.toLowerCase())]
+
                 let bufferedResult = categroyCertifications(real)
+                let bufferedMenuResult = menuCategroyCertifications(real)
                 setList(bufferedResult)
+                setMenuList(bufferedMenuResult)
             }
             setIsLoading(false)
         }
@@ -51,54 +58,13 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
     //     fetchData()
     // }, [value])
 
-    const treeData = [
-        {
-            value: 'parent 1',
-            title: 'parent 1',
-            children: [
-                {
-                    value: 'parent 1-0',
-                    title: 'parent 1-0',
-                    children: [
-                        {
-                            value: 'leaf1',
-                            title: 'leaf1',
-                        },
-                        {
-                            value: 'leaf2',
-                            title: 'leaf2',
-                        },
-                        {
-                            value: 'leaf3',
-                            title: 'leaf3',
-                        },
-                        {
-                            value: 'leaf4',
-                            title: 'leaf4',
-                        },
-                        {
-                            value: 'leaf5',
-                            title: 'leaf5',
-                        },
-                        {
-                            value: 'leaf6',
-                            title: 'leaf6',
-                        },
-                    ],
-                },
-                {
-                    value: 'parent 1-1',
-                    title: 'parent 1-1',
-                    children: [
-                        {
-                            value: 'leaf11',
-                            title: <b style={{ color: '#08c' }}>leaf11</b>,
-                        },
-                    ],
-                },
-            ],
-        },
-    ];
+    const onClick: MenuProps['onClick'] = (e) => {
+
+        setValue(e.key);
+        setStemValue(e.key)
+    };
+
+
 
     return (
         <div>
@@ -119,6 +85,15 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
                 onChange={onChange}
                 treeData={list}
                 onPopupScroll={onPopupScroll}
+            />
+            <Menu
+                onClick={onClick}
+                style={{ width: "100%", height: 665 }}
+                defaultSelectedKeys={['1']}
+                defaultOpenKeys={['sub1']}
+                mode="inline"
+                items={menuList}
+                className="overflow-y-auto border rounded-bl-[8px] py-1"
             />
             {/* <Input
                 value={value}
