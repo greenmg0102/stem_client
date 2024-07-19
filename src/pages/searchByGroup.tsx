@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Alert, Drawer, message, Popconfirm } from 'antd';
-import type { PopconfirmProps } from 'antd';
+import { Alert, Drawer, message, Checkbox, Popconfirm } from 'antd';
+import type { PopconfirmProps, CheckboxProps } from 'antd';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
@@ -12,7 +12,7 @@ import IntegratingSearchModule from '../components/UIs/SearchModule/IntegratingS
 import { integrationRead, realTiemintegrationRead } from '../api/user/integration';
 import { bookmarkCreate, bookmarkRead } from '../api/user/bookmark';
 
-import { groupListGet, credentialFromOpportunity, pathwayFromCredential, opportunutyFromPathway } from '../api/user/groupBySearch';
+import { groupListGet, credentialFromOpportunity, credentialFromOccupation, pathwayFromCredential, opportunutyFromPathway, occupationFromPathway } from '../api/user/groupBySearch';
 import StemItemSearch from '../pages/Admin/ProgramSchool/StemComponent/StemItemSearch'
 import { categroyCredential } from '../utils/categroyCredential'
 import { useUser } from "@clerk/clerk-react";
@@ -34,6 +34,7 @@ export default function SearchByGroup() {
         applicantRequirementCredential: [],
         courseLink: "",
         opportunityLink: "",
+        isUniqueSchool: true
     });
 
     const [checkable, setCheckable] = useState({
@@ -48,11 +49,11 @@ export default function SearchByGroup() {
         fieldCheck: false
     })
 
-    const [opportunityList, setOpportunityList] = useState([])
+    const [specificFieldStudyList, setspecificFieldStudyList] = useState([])
     const [credentialList, setCredentialList] = useState([])
     const [pathwayList, setPathwayList] = useState([])
 
-    const [bufferOpportunityList, setbufferOpportunityList] = useState<any>([])
+    const [bufferspecificFieldStudyList, setbufferspecificFieldStudyList] = useState<any>([])
     const [bufferPathwayList, setbufferPathwayList] = useState<any>([])
     const [bufferCredentialList, setbufferCredentialList] = useState<any>([])
 
@@ -73,16 +74,19 @@ export default function SearchByGroup() {
     const [bookmark, setBookmark] = useState<any>([])
     const [open, setOpen] = useState(false);
 
+    const onChangeCheck: CheckboxProps['onChange'] = (e) => {
+        console.log(`checked = ${e.target.checked}`);
+        setStemValue({ ...stemValue, isUniqueSchool: e.target.checked })
+    };
+
     useEffect(() => {
         if (credentialList.length > 0) {
             let result = categroyCredential(credentialList)
-            setbufferCredentialList(result)
+            // setbufferCredentialList(result)
         }
     }, [credentialList])
 
     useEffect(() => {
-
-        console.log("useEffect1111");
 
         async function fetchData() {
 
@@ -95,9 +99,6 @@ export default function SearchByGroup() {
             let realCredential = await bookmarkRead(data)
             setBookmark(realCredential.result)
 
-            console.log("realCredential", realCredential);
-
-
         }
         fetchData()
 
@@ -109,11 +110,11 @@ export default function SearchByGroup() {
 
             let result = await groupListGet()
             if (result.isOkay) {
-                setOpportunityList(result.result.opportunityList)
-                setbufferOpportunityList(result.result.opportunityList)
-
                 setPathwayList(result.result.generalFieldStudyList)
                 setbufferPathwayList(result.result.generalFieldStudyList)
+
+                setspecificFieldStudyList(result.result.specificFieldStudyList)
+                // setbufferspecificFieldStudyList(result.result.specificFieldStudyList)
 
                 setCredentialList(result.result.credentialList)
                 // setbufferCredentialList(result.result.credentialList)
@@ -158,7 +159,7 @@ export default function SearchByGroup() {
             setCredentialList([])
             setbufferCredentialList([])
 
-            let result = await credentialFromOpportunity({
+            let result = await credentialFromOccupation({
                 data: valueList[0].value
             })
 
@@ -184,31 +185,31 @@ export default function SearchByGroup() {
             // }
 
         } else if (type === "field") {
+
             setStemValue({ ...stemValue, [type]: valueList, credential: [], Opportunity: [] })
             setLoadingStatus({ ...loadingStatus, opportunityCheck: true })
 
-            setOpportunityList([])
-            setbufferOpportunityList([])
+            setspecificFieldStudyList([])
+            setbufferspecificFieldStudyList([])
             setCredentialList([])
             setbufferCredentialList([])
 
-
-            let result = await opportunutyFromPathway({
+            let result = await occupationFromPathway({
                 data: valueList[0].value
             })
 
             if (result.isOkay) {
                 setLoadingStatus({ ...loadingStatus, opportunityCheck: false })
-                setOpportunityList(result.opportunityList)
-                setbufferOpportunityList(result.opportunityList)
+                setspecificFieldStudyList(result.specificFieldStudyList)
+                setbufferspecificFieldStudyList(result.specificFieldStudyList)
             }
         }
     }
 
     const onchange = (type: any, e: any) => {
         if (type === "Opportunity") {
-            let real = opportunityList.filter((item: any) => item.opportunity.includes(e.target.value))
-            setbufferOpportunityList(real)
+            let real = specificFieldStudyList.filter((item: any) => item.specificField.includes(e.target.value))
+            setbufferspecificFieldStudyList(real)
         } else if (type === "field") {
             let real = pathwayList.filter((item: any) => item.field.includes(e.target.value))
             setbufferPathwayList(real)
@@ -342,41 +343,44 @@ export default function SearchByGroup() {
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
                                 message="How to search the stem data"
-                                description={<p>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Opportunity</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.
-                                    Also, <span className='text-blue-600 font-bold'>Pathway</span> can be ignored.</p>}
+                                description={<p>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.
+                                    {/* Also, <span className='text-blue-600 font-bold'>Pathway</span> can be ignored. */}
+                                </p>}
                                 type="info"
                                 showIcon
                             />
                         </div>
 
                     </div>
-                    <div className='flex justify-start items-center pt-4 px-8'>
-                        <Popconfirm
-                            title="Bookmark?"
-                            description="Save the current search filter?"
-                            onConfirm={confirm}
-                            onCancel={cancel}
-                            okText="Yes"
-                            cancelText="No"
-                        >
-                            <div
-                                className="btn btn-primary btn-sm cursor-pointer"
+                    <div className='flex justify-between items-center'>
+                        <div className='flex justify-start items-center pt-4 px-8'>
+                            <Popconfirm
+                                title="Bookmark?"
+                                description="Save the current search filter?"
+                                onConfirm={confirm}
+                                onCancel={cancel}
+                                okText="Yes"
+                                cancelText="No"
                             >
-                                <p className='pr-2'>
-                                    Search Filter Bookmark
-                                </p>
-                                <Tippy content={BookMarkDefinitions.find((each: any) => each.title === "searchBookMark")?.description}>
-                                    <svg viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
-                                </Tippy>
+                                <div
+                                    className="btn btn-primary btn-sm cursor-pointer"
+                                >
+                                    <p className='pr-2'>
+                                        Search Filter Bookmark
+                                    </p>
+                                    <Tippy content={BookMarkDefinitions.find((each: any) => each.title === "searchBookMark")?.description}>
+                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
+                                    </Tippy>
+                                </div>
+                            </Popconfirm>
+                            <div
+                                className="btn btn-success btn-sm cursor-pointer mx-2"
+                                onClick={() => setOpen(true)}
+                            >
+                                Bookmark view
                             </div>
-                        </Popconfirm>
-                        <div
-                            className="btn btn-success btn-sm cursor-pointer ml-2"
-                            onClick={() => setOpen(true)}
-                        >
-                            Bookmark view
+                            {/* <Checkbox onChange={onChangeCheck}>Extracting School list</Checkbox> */}
                         </div>
-
                     </div>
                     <div className='p-4 flex justify-between items-start flex-wrap pt-1'>
                         <div className='w-full xl:w-1/2 flex justify-between items-start p-2 mb-4'>
@@ -433,7 +437,7 @@ export default function SearchByGroup() {
                                 <div className='flex justify-between items-center mb-1'>
                                     <div className='flex justify-start items-center'>
                                         <svg viewBox="64 64 896 896" focusable="false" data-icon="group" width="1em" height="1em" fill="currentColor" aria-hidden="true"><defs><style></style></defs><path d="M912 820.1V203.9c28-9.9 48-36.6 48-67.9 0-39.8-32.2-72-72-72-31.3 0-58 20-67.9 48H203.9C194 84 167.3 64 136 64c-39.8 0-72 32.2-72 72 0 31.3 20 58 48 67.9v616.2C84 830 64 856.7 64 888c0 39.8 32.2 72 72 72 31.3 0 58-20 67.9-48h616.2c9.9 28 36.6 48 67.9 48 39.8 0 72-32.2 72-72 0-31.3-20-58-48-67.9zM888 112c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24zM136 912c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm0-752c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24zm704 680H184V184h656v656zm48 72c-13.3 0-24-10.7-24-24s10.7-24 24-24 24 10.7 24 24-10.7 24-24 24z"></path><path d="M288 474h448c8.8 0 16-7.2 16-16V282c0-8.8-7.2-16-16-16H288c-8.8 0-16 7.2-16 16v176c0 8.8 7.2 16 16 16zm56-136h336v64H344v-64zm-56 420h448c8.8 0 16-7.2 16-16V566c0-8.8-7.2-16-16-16H288c-8.8 0-16 7.2-16 16v176c0 8.8 7.2 16 16 16zm56-136h336v64H344v-64z"></path></svg>
-                                        <p className='mx-2 text-gray-600 font-bold mb-0'>Opportunity</p>
+                                        <p className='mx-2 text-gray-600 font-bold mb-0'>Occupation</p>
                                         {loadingStatus.opportunityCheck ?
                                             <svg viewBox="64 64 896 896" focusable="false" data-icon="sync" width="1em" height="1em" fill="currentColor" aria-hidden="true" className="text-red-500 animate-spin"><path d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"></path></svg>
                                             :
@@ -449,16 +453,15 @@ export default function SearchByGroup() {
 
                                 <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)} />
 
-
                                 <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.Opportunity[0] && stemValue.Opportunity[0].key &&
-                                        bufferOpportunityList.find((item: any) => item._id === stemValue.Opportunity[0].key).opportunity
+                                        bufferspecificFieldStudyList.find((item: any) => item._id === stemValue.Opportunity[0].key).specificField
                                     }
                                 </div>
 
                                 <div className='h-64 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
-                                    {checkable.opportunityCheck === true && bufferOpportunityList.length > 0 && bufferOpportunityList.map((item: any, index: any) =>
+                                    {checkable.opportunityCheck === true && bufferspecificFieldStudyList.length > 0 && bufferspecificFieldStudyList.map((item: any, index: any) =>
                                         <div
                                             key={index}
                                             className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
@@ -469,12 +472,12 @@ export default function SearchByGroup() {
                                             onClick={() => bufferGatherValue("Opportunity", [
                                                 {
                                                     key: item._id,
-                                                    label: item.opportunity,
+                                                    label: item.specificField,
                                                     value: item._id
                                                 }
                                             ])}
                                         >
-                                            {item.opportunity}
+                                            {item.specificField}
                                             {
                                                 Definitions.find((each: any) => each.title === item.opportunity) ?
                                                     <Tippy content={Definitions.find((each: any) => each.title === item.opportunity)?.description}>

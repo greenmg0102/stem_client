@@ -6,7 +6,7 @@ export async function integrationRead(data: any): Promise<any> {
 }
 
 export async function realTiemintegrationRead(data: any): Promise<any> {
-    const result = await axios.post("/user/integration-search/real-time-read", data).then((result: any) => { return result.data })
+    const result = await axios.post("/user/integration-search/real-time-read-group", data).then((result: any) => { return result.data })
     return result
 }
 
