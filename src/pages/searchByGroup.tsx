@@ -16,6 +16,56 @@ import { groupListGet, credentialFromOpportunity, credentialFromOccupation, path
 import StemItemSearch from '../pages/Admin/ProgramSchool/StemComponent/StemItemSearch'
 import { categroyCredential } from '../utils/categroyCredential'
 import { useUser } from "@clerk/clerk-react";
+import SearchByGroupModal from './searchByGroup/modal'
+
+
+const imageList: any = {
+    undefined: [],
+    "Science, Technology, Engineering, and Math": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/science/1.jpg",
+    ],
+    "Arts, Audio/Video Technology and Communications": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/art/1.jpg",
+    ],
+    "Information Technology": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/2.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/3.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/4.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/5.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/6.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/7.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/8.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/9.jpg"
+    ],
+    "Manufacturing": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/26.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/27.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/28.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
+    ],
+    "Agriculture, Food and Natural Resources": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/agriculture/1.jpg",
+    ],
+    "Health Science": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/10.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/11.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/12.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/13.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/14.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/15.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/16.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/17.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/18.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/19.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/20.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/21.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/22.jpg"
+    ]
+}
 
 export default function SearchByGroup() {
 
@@ -48,6 +98,8 @@ export default function SearchByGroup() {
         credentialCheck: false,
         fieldCheck: false
     })
+
+    const [isOpen, setIsOpen] = useState(undefined)
 
     const [specificFieldStudyList, setspecificFieldStudyList] = useState([])
     const [credentialList, setCredentialList] = useState([])
@@ -382,6 +434,11 @@ export default function SearchByGroup() {
                             {/* <Checkbox onChange={onChangeCheck}>Extracting School list</Checkbox> */}
                         </div>
                     </div>
+                    <SearchByGroupModal
+                        isOpen={isOpen}
+                        imageList={isOpen === undefined ? [] : imageList[isOpen]}
+                        setIsOpen={(isOpen: any) => setIsOpen(isOpen)}
+                    />
                     <div className='p-4 flex justify-between items-start flex-wrap pt-1'>
                         <div className='w-full xl:w-1/2 flex justify-between items-start p-2 mb-4'>
                             <div className='w-1/3 p-1 mb-2 transition-all'>
@@ -414,20 +471,32 @@ export default function SearchByGroup() {
                                     {bufferPathwayList.length > 0 && bufferPathwayList.map((item: any, index: any) =>
                                         <div
                                             key={index}
-                                            className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                            className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-start text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
                                                 stemValue &&
                                                     stemValue.field[0] &&
                                                     item._id === stemValue.field[0].key ? "text-blue-500" : ""
                                             )}
-                                            onClick={() => bufferGatherValue("field", [
-                                                {
-                                                    key: item._id,
-                                                    label: item.field,
-                                                    value: item._id
-                                                }
-                                            ])}
                                         >
-                                            {item.field}
+                                            {imageList[item.field] ?
+                                                <svg
+                                                    className='mt-1'
+                                                    onClick={() => setIsOpen(item.field)}
+                                                    viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
+                                                :
+                                                null
+                                            }
+                                            <p
+                                                className='pl-1'
+                                                onClick={() => bufferGatherValue("field", [
+                                                    {
+                                                        key: item._id,
+                                                        label: item.field,
+                                                        value: item._id
+                                                    }
+                                                ])}
+                                            >
+                                                {item.field}
+                                            </p>
                                         </div>
                                     )}
                                 </div>
