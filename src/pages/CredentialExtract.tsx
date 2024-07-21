@@ -15,6 +15,7 @@ const CredentialExtract = () => {
 
     const [stemValue, setStemValue] = useState<any>({
         credential: undefined,
+        isUnique: false
     });
 
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
@@ -72,6 +73,9 @@ const CredentialExtract = () => {
         };
 
         async function fetchData() {
+            setTotalCount(0)
+            setRecordsData([])
+
             setIsLoading(true);
             let result = await stemAccordingtoCredentialRead(data);
             setIsLoading(false);
@@ -115,6 +119,10 @@ const CredentialExtract = () => {
                         </div>
                         <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <CredentialExtractListModule
+
+                                isUnique={stemValue.isUnique}
+                                setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
+
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}

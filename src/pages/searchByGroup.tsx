@@ -37,6 +37,13 @@ const imageList: any = {
         "http://104.128.55.140:8000/uploads/assets/images/pathway/information/8.jpg",
         "http://104.128.55.140:8000/uploads/assets/images/pathway/information/9.jpg"
     ],
+    "Architecture and Construction": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/32.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/33.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/34.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/35.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/36.jpg"
+    ],
     "Manufacturing": [
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
@@ -46,6 +53,12 @@ const imageList: any = {
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
+    ],
+    "Transportation, Distribution and Logistics": [
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/37.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/38.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/39.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/40.jpg",
     ],
     "Agriculture, Food and Natural Resources": [
         "http://104.128.55.140:8000/uploads/assets/images/pathway/agriculture/1.jpg",
@@ -474,7 +487,8 @@ export default function SearchByGroup() {
                                             className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-start text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
                                                 stemValue &&
                                                     stemValue.field[0] &&
-                                                    item._id === stemValue.field[0].key ? "text-blue-500" : ""
+                                                    item._id === stemValue.field[0].key ? "text-blue-500" : "",
+                                                imageList[item.field] ? "" : "hidden"
                                             )}
                                         >
                                             {imageList[item.field] ?

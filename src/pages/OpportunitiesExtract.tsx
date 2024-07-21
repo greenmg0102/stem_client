@@ -15,6 +15,7 @@ const OpportunitiesExtract = () => {
 
     const [stemValue, setStemValue] = useState<any>({
         Opportunity: undefined,
+        isUnique: false
     });
 
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
@@ -70,8 +71,14 @@ const OpportunitiesExtract = () => {
         };
 
         async function fetchData() {
+            setTotalCount(0)
+            setRecordsData([])
+            
             setIsLoading(true);
             let result = await stemAccordingtoOpportunityRead(data);
+
+            console.log("result", result);
+            
             setIsLoading(false);
 
             if (result.isOkay) {
@@ -114,6 +121,10 @@ const OpportunitiesExtract = () => {
                         </div>
                         <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <OpportunityListModule
+
+                                isUnique={stemValue.isUnique}
+                                setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
+
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}

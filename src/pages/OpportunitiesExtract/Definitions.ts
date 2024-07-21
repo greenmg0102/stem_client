@@ -25,10 +25,10 @@ export const Definitions = [
         title: 'Early College',
         description: "Early college programs allow high school students to take college-level courses and earn credit toward a college degree while still in high school. These programs are designed to provide students with a more rigorous academic experience and help them transition to college-level work."
     },
-    {
-        title: 'Advanced Placement (AP)',
-        description: "Advanced Placement (AP) is a program created by the College Board that offers college-level curricula and exams to high school students. Students who achieve a certain score on AP exams may receive college credit or advanced placement in college courses, depending on the policies of the college or university they attend."
-    },
+    // {
+    //     title: 'Advanced Placement (AP)',
+    //     description: "Advanced Placement (AP) is a program created by the College Board that offers college-level curricula and exams to high school students. Students who achieve a certain score on AP exams may receive college credit or advanced placement in college courses, depending on the policies of the college or university they attend."
+    // },
     {
         title: 'Career and Technical Education',
         description: "educational programs that specialize in the skilled trades, applied sciences, modern technologies, and career preparation. CTE programs provide students with the academic and technical skills, knowledge, and training necessary to succeed in future careers and to become lifelong learners. These programs are designed to align education with workforce needs and often include work-based learning opportunities."
@@ -45,10 +45,10 @@ export const Definitions = [
         title: 'SOAR Program Credits',
         description: "SOAR (Students Occupationally and Academically Ready) Programs are designed to align secondary career and technical programs with postsecondary education. These programs help students prepare for high-demand careers by earning college credits while still in high school, ensuring a smooth transition from high school to college and careers. (Source: Department of Education specific to PA but conceptually similar programs exist in other states)"
     },
-    {
-        title: 'International Baccalaureate (IB)',
-        description: "an internationally recognized educational foundation offering four highly respected programs of international education for students aged 3 to 19. The program encourages both personal development and academic achievement, challenging students to think critically, to ask the right questions, and to think across disciplines."
-    },
+    // {
+    //     title: 'International Baccalaureate (IB)',
+    //     description: "an internationally recognized educational foundation offering four highly respected programs of international education for students aged 3 to 19. The program encourages both personal development and academic achievement, challenging students to think critically, to ask the right questions, and to think across disciplines."
+    // },
     {
         title: 'Non Degree Seeking - Dual Enrollment, College in High School)',
         description: "an individual who takes courses at a postsecondary institution without seeking a degree or formal credential. These students may enroll in classes for personal enrichment, professional development, or to gain specific skills or knowledge without intending to complete a degree program."

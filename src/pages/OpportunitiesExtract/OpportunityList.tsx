@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Checkbox } from 'antd';
 import { DataTable } from 'mantine-datatable';
 import SearchModuleItem from '../../components/UIs/SearchModule/SearchModuleItem'
 import RealSearchItem from '../../components/UIs/SearchModule/RealSearchItem'
 import clsx from 'clsx'
 
-const OpportnityListModule = ({ setSortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
+const OpportnityListModule = ({ setUnique, isUnique, setSortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
     const [viewType, setViewType] = useState('list')
 
@@ -29,6 +30,7 @@ const OpportnityListModule = ({ setSortCondition, page, pageSize, PAGE_SIZES, is
                                 null}
                         </div>
                         <div className="flex justify-start items-center">
+                            <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique}>Extracting Unique School</Checkbox>
                             <select
                                 className="form-select text-white-dark w-[130px] mr-1"
                                 onClick={(e: any) => setViewType(e.target.value)}
@@ -101,6 +103,7 @@ const OpportnityListModule = ({ setSortCondition, page, pageSize, PAGE_SIZES, is
                                     render: (data) => (
                                         <SearchModuleItem
                                             item={data}
+                                            isUnique={isUnique}
                                             viewType={viewType}
                                         />
                                     ),

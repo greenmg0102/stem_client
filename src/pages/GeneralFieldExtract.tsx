@@ -16,6 +16,7 @@ const GeneralFieldFilterExtract = () => {
 
     const [stemValue, setStemValue] = useState<any>({
         field: undefined,
+        isUnique: false
     });
 
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
@@ -73,6 +74,10 @@ const GeneralFieldFilterExtract = () => {
         };
 
         async function fetchData() {
+
+            setTotalCount(0)
+            setRecordsData([])
+
             setIsLoading(true);
             let result = await stemAccordingtoGeneralRead(data);
             setIsLoading(false);
@@ -117,6 +122,11 @@ const GeneralFieldFilterExtract = () => {
                         </div>
                         <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <GeneralFieldListModule
+
+
+                                isUnique={stemValue.isUnique}
+                                setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
+
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}

@@ -6,11 +6,8 @@ export async function opportunityRead(data: any): Promise<any> {
 }
 
 export async function opportunityFilerRead(): Promise<any> {
-    console.log('start ~~~');
 
     const result = await axios.get("/user/opportunity/filter-read").then((result: any) => { return result.data })
-    
-    console.log('end ~~~');
     
     return result
 }

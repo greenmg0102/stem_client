@@ -1,20 +1,13 @@
-import { useNavigate } from 'react-router-dom';
+
 import SearchModuleItemList from './SearchModuleItemList'
-import SearchModuleItemCard from './SearchModuleItemCard'
+import SearchModuleISchoolList from './SearchModuleISchoolList'
 
-const SearchModuleItem = ({ item, viewType }: any) => {
-
-    const navigate = useNavigate();
+const SearchModuleItem = ({ isUnique, item, viewType }: any) => {
 
     return (
-        // <div onClick={() => navigate(`/integration-search-id/${item._id}`)} >
-
-        <div
-            onClick={() => window.open(`/integration-search-id/${item._id}`, '_blank')}
-        >
-
-            {viewType === "list" ? <SearchModuleItemList item={item} /> : null}
-
+        <div>
+            {viewType === "list" && !isUnique ? <SearchModuleItemList item={item} /> : null}
+            {viewType === "list" && isUnique ? <SearchModuleISchoolList item={item} /> : null}
         </div>
     );
 };
