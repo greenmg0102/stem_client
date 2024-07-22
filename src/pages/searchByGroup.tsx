@@ -97,7 +97,7 @@ export default function SearchByGroup() {
         applicantRequirementCredential: [],
         courseLink: "",
         opportunityLink: "",
-        isUniqueSchool: true
+        isUniqueSchool: false
     });
 
     const [checkable, setCheckable] = useState({

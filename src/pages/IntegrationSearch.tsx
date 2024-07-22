@@ -25,6 +25,8 @@ const IntegrationSearch = () => {
         applicantRequirementCredential: [],
         courseLink: "",
         opportunityLink: "",
+
+        isUnique: false
     });
 
     const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
@@ -56,11 +58,17 @@ const IntegrationSearch = () => {
     };
 
     const handleSearch = useCallback(debounce(async (hint) => {
+
+        setTotalCount(0)
+        setRecordsData([])
+
         let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
         setIsLoading(true);
         setIsRealLoading(true);
 
         let result = await realTiemintegrationRead(data);
+
+        console.log('result', result);
 
         setIsLoading(false);
         setIsRealLoading(false);
@@ -73,6 +81,9 @@ const IntegrationSearch = () => {
     }, 800), [stemValue, page, pageSize, sortCondition]);
 
     useEffect(() => {
+
+
+
         handleSearch(searchParameter);
     }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
@@ -103,6 +114,10 @@ const IntegrationSearch = () => {
                         </div>
                         <div className='w-full xl:w-[70%] p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <IntegratingSearchModule
+
+                                isUnique={stemValue.isUnique}
+                                setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
+
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}

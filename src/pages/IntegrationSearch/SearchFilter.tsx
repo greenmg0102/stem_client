@@ -8,7 +8,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
     return (
         <div className='w-full'>
             <div className='flex justify-start items-center flex-wrap'>
-                <div className='w-full p-1 mb-2 transition-all'>
+                {/* <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
                         gatherValue={(valueList: any) => gatherValue('programSchoolOrg', valueList)}
@@ -16,8 +16,8 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         title={"Program School / Org"}
                         placeholder={"Select Program School / Org"}
                     />
-                </div>
-                <div className='w-full p-1 mb-2 transition-all'>
+                </div> */}
+                {/* <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
                         gatherValue={(valueList: any) => gatherValue('programSchoolOrgType', valueList)}
@@ -25,7 +25,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         title={"Referral Program School/Org Type"}
                         placeholder={"Select Program School / Org / Type"}
                     />
-                </div>
+                </div> */}
                 <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
@@ -35,7 +35,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         placeholder={"School"}
                     />
                 </div>
-                <div className='w-full p-1 mb-2 transition-all'>
+                {/* <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
                         gatherValue={(valueList: any) => gatherValue('Opportunity', valueList)}
@@ -43,7 +43,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         title={"Opportunity"}
                         placeholder={"Opportunity"}
                     />
-                </div>
+                </div> */}
                 <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
