@@ -22,61 +22,61 @@ import SearchByGroupModal from './searchByGroup/modal'
 const imageList: any = {
     undefined: [],
     "Science, Technology, Engineering, and Math": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/science/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/science/1.jpg",
     ],
     "Arts, Audio/Video Technology and Communications": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/art/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/art/1.jpg",
     ],
     "Information Technology": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/2.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/3.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/4.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/5.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/6.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/7.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/8.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/9.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/information/2.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/3.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/4.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/5.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/6.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/7.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/8.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/9.jpg"
     ],
     "Architecture and Construction": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/32.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/33.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/34.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/35.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/36.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/32.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/33.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/34.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/35.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/36.jpg"
     ],
     "Manufacturing": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/26.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/27.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/28.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/26.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/27.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/28.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
     ],
     "Transportation, Distribution and Logistics": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/37.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/38.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/39.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/40.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/37.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/38.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/39.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/40.jpg",
     ],
     "Agriculture, Food and Natural Resources": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/agriculture/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/agriculture/1.jpg",
     ],
     "Health Science": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/10.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/11.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/12.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/13.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/14.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/15.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/16.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/17.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/18.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/19.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/20.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/21.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/22.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/health/10.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/11.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/12.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/13.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/14.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/15.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/16.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/17.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/18.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/19.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/20.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/21.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/22.jpg"
     ]
 }
 
