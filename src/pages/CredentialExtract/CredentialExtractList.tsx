@@ -102,6 +102,7 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                                     title: '',
                                     render: (data) => (
                                         <SearchModuleItem
+                                            isUnique={isUnique}
                                             item={data}
                                             viewType={viewType}
                                         />

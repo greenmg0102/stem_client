@@ -105,6 +105,7 @@ const GeneralFieldListModule = ({ setUnique, isUnique, setSortCondition, page, p
                                     render: (data) => (
                                         <SearchModuleItem
                                             item={data}
+                                            isUnique={isUnique}
                                             viewType={viewType}
                                         />
                                     ),

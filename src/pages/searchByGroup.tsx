@@ -97,7 +97,7 @@ export default function SearchByGroup() {
         applicantRequirementCredential: [],
         courseLink: "",
         opportunityLink: "",
-        isUniqueSchool: false
+        isUnique: false
     });
 
     const [checkable, setCheckable] = useState({
@@ -679,6 +679,9 @@ export default function SearchByGroup() {
                         </div>
                         <div className='w-full xl:w-1/2 p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
                             <IntegratingSearchModule
+                                setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
+                                isUnique={stemValue.isUnique}
+
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}
