@@ -50,7 +50,7 @@ const ProgramSchoolOrgType = () => {
     return (
         <div>
             <div className="panel mt-6">
-                <h5 className="font-semibold text-lg dark:text-white-light mb-4">Program School / Org Type</h5>
+                <h5 className="font-semibold text-lg dark:text-white-light mb-4">CompTIA</h5>
                 <div className="flex items-start justify-between mb-5">
                     <input type="text" className="form-input w-auto" placeholder="Search..." value={search} onChange={(e) => setSearch(e.target.value)} />
                     <button
