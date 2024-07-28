@@ -67,206 +67,206 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 let origingData = resp.rows.slice(1, resp.rows.length).filter((item: any) => item.length !== 0)
                 console.log("origingData", origingData);
 
-                // let ProgramSchoolOrgTypeIndex = originHeader.indexOf("CompTIA")
-                // let ProgramSchoolOrgTypeList = origingData.map((item: any) => item[ProgramSchoolOrgTypeIndex])
-                // let ProgramSchoolOrgType = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "CompTIA",
-                //     list: ProgramSchoolOrgTypeList
-                // })
+                let ProgramSchoolOrgTypeIndex = originHeader.indexOf("CompTIA")
+                let ProgramSchoolOrgTypeList = origingData.map((item: any) => item[ProgramSchoolOrgTypeIndex])
+                let ProgramSchoolOrgType = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "CompTIA",
+                    list: ProgramSchoolOrgTypeList
+                })
 
-                // console.log("ProgramSchoolOrgType", ProgramSchoolOrgType);
+                console.log("ProgramSchoolOrgType", ProgramSchoolOrgType);
 
-                // await stemDumpCreate(ProgramSchoolOrgType)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": false,
-                //     "Opportunity": false,
-                //     "Specific Area of Study": false,
-                //     "Career Path Category": false,
-                //     "Credential": false,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
-
-
-                // let CredentialsSchoolIndex = originHeader.indexOf("Eligible Credits Transfer School / Credentials School")
-                // let CredentialsSchoolList = origingData.map((item: any) => item[CredentialsSchoolIndex])
-                // let CredentialsSchool = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Eligible Credits Transfer School / Credentials School",
-                //     list: CredentialsSchoolList
-                // })
-                // await stemDumpCreate(CredentialsSchool)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": false,
-                //     "Specific Area of Study": false,
-                //     "Career Path Category": false,
-                //     "Credential": false,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
-
-                // let OpportunityIndex = originHeader.indexOf("Opportunity")
-                // let OpportunityList = origingData.map((item: any) => item[OpportunityIndex])
-                // let Opportunity = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Opportunity",
-                //     list: OpportunityList
-                // })
-                // await stemDumpCreate(Opportunity)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": false,
-                //     "Career Path Category": false,
-                //     "Credential": false,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
-
-                // let SpecificAreaOfStudyIndex = originHeader.indexOf("Specific Area of Study")
-                // let SpecificAreaOfStudyList = origingData.map((item: any) => item[SpecificAreaOfStudyIndex])
-                // let SpecificAreaOfStudy = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Specific Area of Study",
-                //     list: SpecificAreaOfStudyList
-                // })
-                // await stemDumpCreate(SpecificAreaOfStudy)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": false,
-                //     "Credential": false,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
+                await stemDumpCreate(ProgramSchoolOrgType)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": false,
+                    "Opportunity": false,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
-                // let CareerPathCategoryIndex = originHeader.indexOf("Career Path Category")
+                let CredentialsSchoolIndex = originHeader.indexOf("Eligible Credits Transfer School / Credentials School")
+                let CredentialsSchoolList = origingData.map((item: any) => item[CredentialsSchoolIndex])
+                let CredentialsSchool = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Eligible Credits Transfer School / Credentials School",
+                    list: CredentialsSchoolList
+                })
+                await stemDumpCreate(CredentialsSchool)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": false,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
-                // console.log("CareerPathCategoryIndex", CareerPathCategoryIndex);
+                let OpportunityIndex = originHeader.indexOf("Opportunity")
+                let OpportunityList = origingData.map((item: any) => item[OpportunityIndex])
+                let Opportunity = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Opportunity",
+                    list: OpportunityList
+                })
+                await stemDumpCreate(Opportunity)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": false,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
-                // let CareerPathCategoryList = origingData.map((item: any) => item[CareerPathCategoryIndex])
-                // let CareerPathCategory = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Career Path Category",
-                //     list: CareerPathCategoryList
-                // })
-                // await stemDumpCreate(CareerPathCategory)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": true,
-                //     "Credential": false,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
-
-
-                // let CredentialIndex = originHeader.indexOf("Credential")
-                // let CredentialList = origingData.map((item: any) => item[CredentialIndex])
-                // let Credential = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Credential",
-                //     list: CredentialList
-                // })
-                // await stemDumpCreate(Credential)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": true,
-                //     "Credential": true,
-                //     "Applicant Requirement: Education Level": false,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
-
-
-                // let ApplicantRequirementEducationLevelIndex = originHeader.indexOf("Applicant Requirement: Education Level")
-                // let ApplicantRequirementEducationLevelList = origingData.map((item: any) => item[ApplicantRequirementEducationLevelIndex])
-                // let ApplicantRequirementEducationLevel = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Applicant Requirement: Education Level",
-                //     list: ApplicantRequirementEducationLevelList
-                // })
-                // await stemDumpCreate(ApplicantRequirementEducationLevel)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": true,
-                //     "Credential": true,
-                //     "Applicant Requirement: Education Level": true,
-                //     "Applicant Requirement: Credential": false,
-                //     "Applicant Requirement: Age": false,
-                // })
+                let SpecificAreaOfStudyIndex = originHeader.indexOf("Specific Area of Study")
+                let SpecificAreaOfStudyList = origingData.map((item: any) => item[SpecificAreaOfStudyIndex])
+                let SpecificAreaOfStudy = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Specific Area of Study",
+                    list: SpecificAreaOfStudyList
+                })
+                await stemDumpCreate(SpecificAreaOfStudy)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": false,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
-                // let ApplicantRequirementCredentialIndex = originHeader.indexOf("Applicant Requirement: Credential")
-                // let ApplicantRequirementCredentialList = origingData.map((item: any) => item[ApplicantRequirementCredentialIndex])
-                // let ApplicantRequirementCredential = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Applicant Requirement: Credential",
-                //     list: ApplicantRequirementCredentialList
-                // })
-                // await stemDumpCreate(ApplicantRequirementCredential)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": true,
-                //     "Credential": true,
-                //     "Applicant Requirement: Education Level": true,
-                //     "Applicant Requirement: Credential": true,
-                //     "Applicant Requirement: Age": false,
-                // })
+                let CareerPathCategoryIndex = originHeader.indexOf("Career Path Category")
+
+                console.log("CareerPathCategoryIndex", CareerPathCategoryIndex);
+
+                let CareerPathCategoryList = origingData.map((item: any) => item[CareerPathCategoryIndex])
+                let CareerPathCategory = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Career Path Category",
+                    list: CareerPathCategoryList
+                })
+                await stemDumpCreate(CareerPathCategory)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": false,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
 
 
-                // let ApplicantRequirementAgeIndex = originHeader.indexOf("Applicant Requirement: Age")
-                // let ApplicantRequirementAgeList = origingData.map((item: any) => item[ApplicantRequirementAgeIndex])
-                // let ApplicantRequirementAge = await unRepeatedArrayExtracting({
-                //     type: "un-repeated",
-                //     name: "Applicant Requirement: Age",
-                //     list: ApplicantRequirementAgeList
-                // })
-                // await stemDumpCreate(ApplicantRequirementAge)
-                // setUpdateStatus({
-                //     ...updateStatus,
-                //     "CompTIA": true,
-                //     "Eligible Credits Transfer School / Credentials School": true,
-                //     "Opportunity": true,
-                //     "Specific Area of Study": true,
-                //     "Career Path Category": true,
-                //     "Credential": true,
-                //     "Applicant Requirement: Education Level": true,
-                //     "Applicant Requirement: Credential": true,
-                //     "Applicant Requirement: Age": true,
-                // })
+                let CredentialIndex = originHeader.indexOf("Credential")
+                let CredentialList = origingData.map((item: any) => item[CredentialIndex])
+                let Credential = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Credential",
+                    list: CredentialList
+                })
+                await stemDumpCreate(Credential)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": false,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
+
+
+                let ApplicantRequirementEducationLevelIndex = originHeader.indexOf("Applicant Requirement: Education Level")
+                let ApplicantRequirementEducationLevelList = origingData.map((item: any) => item[ApplicantRequirementEducationLevelIndex])
+                let ApplicantRequirementEducationLevel = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Education Level",
+                    list: ApplicantRequirementEducationLevelList
+                })
+                await stemDumpCreate(ApplicantRequirementEducationLevel)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": false,
+                    "Applicant Requirement: Age": false,
+                })
+
+
+                let ApplicantRequirementCredentialIndex = originHeader.indexOf("Applicant Requirement: Credential")
+                let ApplicantRequirementCredentialList = origingData.map((item: any) => item[ApplicantRequirementCredentialIndex])
+                let ApplicantRequirementCredential = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Credential",
+                    list: ApplicantRequirementCredentialList
+                })
+                await stemDumpCreate(ApplicantRequirementCredential)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": true,
+                    "Applicant Requirement: Age": false,
+                })
+
+
+                let ApplicantRequirementAgeIndex = originHeader.indexOf("Applicant Requirement: Age")
+                let ApplicantRequirementAgeList = origingData.map((item: any) => item[ApplicantRequirementAgeIndex])
+                let ApplicantRequirementAge = await unRepeatedArrayExtracting({
+                    type: "un-repeated",
+                    name: "Applicant Requirement: Age",
+                    list: ApplicantRequirementAgeList
+                })
+                await stemDumpCreate(ApplicantRequirementAge)
+                setUpdateStatus({
+                    ...updateStatus,
+                    "CompTIA": true,
+                    "Eligible Credits Transfer School / Credentials School": true,
+                    "Opportunity": true,
+                    "Specific Area of Study": true,
+                    "Career Path Category": true,
+                    "Credential": true,
+                    "Applicant Requirement: Education Level": true,
+                    "Applicant Requirement: Credential": true,
+                    "Applicant Requirement: Age": true,
+                })
 
                 let SchoolOrgIndex = originHeader.indexOf("School/Org")
                 let StreetAddressIndex = originHeader.indexOf("Program School / Org Street Address")
