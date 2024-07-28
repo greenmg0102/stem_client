@@ -74,6 +74,9 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     name: "CompTIA",
                     list: ProgramSchoolOrgTypeList
                 })
+
+                console.log("ProgramSchoolOrgType", ProgramSchoolOrgType);
+
                 await stemDumpCreate(ProgramSchoolOrgType)
                 setUpdateStatus({
                     ...updateStatus,
@@ -289,7 +292,10 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                     list: ProgramSchoolOrgList
                 })
 
-                await stemDumpCreate(ProgramSchoolOrg)
+                console.log("ProgramSchoolOrg", ProgramSchoolOrg);
+                
+
+                // await stemDumpCreate(ProgramSchoolOrg)
 
                 // await sendStringToNest(origingData)
 
@@ -314,6 +320,9 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
 
                 coloredToast('Database updated with new Excel file.', 'success')
                 setTypeModal(false)
+
+
+
                 // await stemDumpCreate({
                 //     type: "matched-way",
                 //     name: "Stem",
