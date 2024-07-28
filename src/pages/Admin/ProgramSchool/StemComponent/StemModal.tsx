@@ -268,7 +268,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
 
                 let SchoolOrgIndex = originHeader.indexOf("School/Org")
                 let StreetAddressIndex = originHeader.indexOf("Program School / Org Street Address")
-                let CityIndex = originHeader.indexOf("Program School / Org City")
+                let CityIndex = originHeader.indexOf("CompTIA")
                 let ZipCodeIndex = originHeader.indexOf("Zip Code")
                 let NeighborhoodIndex = originHeader.indexOf("Neighborhood")
 
