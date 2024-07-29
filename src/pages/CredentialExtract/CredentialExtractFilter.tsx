@@ -78,7 +78,7 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
                 showSearch
                 style={{ width: '100%' }}
                 value={value}
-                dropdownStyle={{ maxHeight: 400, overflow: 'auto' }}
+                dropdownStyle={{ maxHeight: 200, overflow: 'auto' }}
                 placeholder="Please select"
                 allowClear
                 treeDefaultExpandAll
@@ -88,7 +88,7 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
             />
             <Menu
                 onClick={onClick}
-                style={{ width: "100%", height: 665 }}
+                style={{ width: "100%", height: 200 }}
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"

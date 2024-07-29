@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { Alert } from 'antd';
 import debounce from 'lodash/debounce';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import OpportunityListModule from './OpportunitiesExtract/OpportunityList';
@@ -73,12 +74,12 @@ const OpportunitiesExtract = () => {
         async function fetchData() {
             setTotalCount(0)
             setRecordsData([])
-            
+
             setIsLoading(true);
             let result = await stemAccordingtoOpportunityRead(data);
 
             console.log("result", result);
-            
+
             setIsLoading(false);
 
             if (result.isOkay) {
@@ -108,18 +109,28 @@ const OpportunitiesExtract = () => {
         return (
             <div>
                 <div className="pt-5">
-                    <SearchBanner
-                        title={"STEM Data Extracting According to the Opportunity"}
-                        description={""}
-                    />
+                    <div className='flex justify-around items-center flex-wrap'>
+                        <div className='w-full 2xl:w-[45%]'>
+                            <Alert
+                                message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Opportunity</span>?</p>}
+                                description={
+                                    <p className=''>
+                                        Sort by the type of  <span className='text-blue-500 font-bold'>Opportunity</span> such as Apprenticeship, Dual Enrollment, etc.
+                                    </p>
+                                }
+                                type="info"
+                                showIcon
+                            />
+                        </div>
+                    </div>
                     <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
-                        <div className='w-full xl:w-[30%] p-2 mb-4'>
+                        <div className='w-full p-2 mb-4'>
                             <OpportunityFilter
                                 opportunityString={stemValue.Opportunity}
                                 setStemValue={(value: any) => bufferFilter({ ...stemValue, Opportunity: value })}
                             />
                         </div>
-                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full p-2 pt-0 transition-all '>
                             <OpportunityListModule
 
                                 isUnique={stemValue.isUnique}

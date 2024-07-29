@@ -93,7 +93,7 @@ const IntegrationSearch = () => {
                             setStemValue={(total: any) => bufferFilter(total)}
                         />
                     </div>
-                    <div className='w-full xl:w-[70%] p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                    <div className='w-full xl:w-[70%] p-2 pt-0 '>
                         <IntegratingSearchModule
                             page={page}
                             pageSize={pageSize}

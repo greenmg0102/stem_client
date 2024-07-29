@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
+import { Alert } from 'antd';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import CredentialExtractListModule from './CredentialExtract/CredentialExtractList';
 import { setPageTitle } from '../store/themeConfigSlice';
@@ -110,6 +111,20 @@ const CredentialExtract = () => {
                         title={"STEM Data Extracting According to the Credential"}
                         description={""}
                     />
+                    <div className='flex justify-around items-center flex-wrap'>
+                        <div className='w-full 2xl:w-[45%]'>
+                            <Alert
+                                message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Credential</span>?</p>}
+                                description={
+                                    <p className=''>
+                                        Select a specific name of <span className='text-blue-500 font-bold'> Credentials </span>you're looking for.
+                                    </p>
+                                }
+                                type="info"
+                                showIcon
+                            />
+                        </div>
+                    </div>
                     <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
                         <div className='w-full xl:w-[30%] p-2 mb-4'>
                             <CredentialExtractFilter
@@ -117,7 +132,7 @@ const CredentialExtract = () => {
                                 setStemValue={(value: any) => bufferFilter({ ...stemValue, credential: value })}
                             />
                         </div>
-                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all '>
                             <CredentialExtractListModule
 
                                 isUnique={stemValue.isUnique}

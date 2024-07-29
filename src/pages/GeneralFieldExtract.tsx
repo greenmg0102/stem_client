@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import debounce from 'lodash/debounce';
+import { Alert } from 'antd';
 import SearchBanner from '../components/UIs/SearchModule/SearchBanner';
 import GeneralFieldListModule from './GeneralFieldExtract/GeneralFieldList';
 import { setPageTitle } from '../store/themeConfigSlice';
@@ -113,16 +114,29 @@ const GeneralFieldFilterExtract = () => {
                         title={"STEM Data Extracting According to the Pathways"}
                         description={""}
                     />
+                    <div className='flex justify-around items-center flex-wrap'>
+                        <div className='w-full 2xl:w-[45%]'>
+                            <Alert
+                                message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Pathway</span>?</p>}
+                                description={
+                                    <p className=''>
+                                        Search for <span className='text-blue-500 font-bold'>Pathway</span> related to a specific interest area such as Finance or Health Science
+                                    </p>
+                                }
+                                type="info"
+                                showIcon
+                            />
+                        </div>
+                    </div>
                     <div className='p-4 flex justify-between items-start flex-wrap pt-16 '>
-                        <div className='w-full xl:w-[30%] p-2 mb-4'>
+                        <div className='w-full p-2 mb-4'>
                             <GeneralFieldFilter
                                 generalString={stemValue.field}
                                 setStemValue={(value: any) => bufferFilter({ ...stemValue, field: value })}
                             />
                         </div>
-                        <div className='w-full xl:w-[70%] p-2 pt-0 transition-all border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full p-2 pt-0 transition-all '>
                             <GeneralFieldListModule
-
 
                                 isUnique={stemValue.isUnique}
                                 setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}

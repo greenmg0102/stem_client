@@ -31,14 +31,14 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                         </div>
                         <div className="flex justify-start items-center">
                             <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique}>Extracting Unique School</Checkbox>
-                            <select
+                            {/* <select
                                 className="form-select text-white-dark w-[130px] mr-1"
                                 onClick={(e: any) => setViewType(e.target.value)}
                             >
                                 <option value={'list'}>List View</option>
                                 <option value={'card'} disabled>Card View</option>
                                 <option value={'map'} disabled>Map View</option>
-                            </select>
+                            </select> */}
                             <select
                                 className="form-select text-white-dark w-[200px]"
                                 onClick={(e: any) => setSortCondition(e.target.value)}

@@ -97,8 +97,6 @@ export default function SearchByGroup() {
                 type: 'search-by-group',
                 userId: user.id,
             }
-            console.log("data", data);
-
             let realCredential = await bookmarkRead(data)
             setBookmark(realCredential.result)
 
@@ -600,7 +598,7 @@ export default function SearchByGroup() {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-full xl:w-1/2 p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full xl:w-1/2 p-2 pt-0 '>
                             <IntegratingSearchModule
                                 page={page}
                                 pageSize={pageSize}

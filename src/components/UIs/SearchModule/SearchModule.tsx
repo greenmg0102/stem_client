@@ -73,11 +73,11 @@ const SearchModule = () => {
                     <div className="flex justify-between items-center mb-2">
                         <p className="mb-2">Viewing {pageInfo.pageNumber + 1} ~ {pageInfo.pageLimit} of {searchParameter.totalNumber} results</p>
                         <div className="flex justify-start items-center">
-                            <select className="form-select text-white-dark w-[130px] mr-1">
+                            {/* <select className="form-select text-white-dark w-[130px] mr-1">
                                 <option>Card View</option>
                                 <option>List View</option>
                                 <option>Map View</option>
-                            </select>
+                            </select> */}
                             <select className="form-select text-white-dark w-[150px]">
                                 <option>A ~ Z</option>
                                 <option>Newest</option>

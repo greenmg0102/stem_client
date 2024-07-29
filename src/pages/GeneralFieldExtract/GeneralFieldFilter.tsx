@@ -24,21 +24,25 @@ export default function GeneralFieldFilter({ generalString, setStemValue }: any)
 
     return (
         <div>
-            <Input
+            {/* <Input
                 value={value}
                 placeholder="Hint, plz"
                 onChange={(e: any) => setValue(e.target.value)}
-            />
-            <div className="px-2 mt-4">
+            /> */}
 
+            <div className="px-2 flex justify-start items-start flex-wrap">
                 {list.map((item: any, index: any) =>
                     <div
                         key={index}
-                        className="flex justify-between items-center mb-4 cursor-pointer"
-                        onClick={() => setStemValue(item._id)}
+                        className="w-1/4 p-2"
                     >
-                        <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", generalString === item._id ? "text-blue-700 font-bold" : "text-gray-600")}>{item._id}</p>
-                        <p className="text-gray-600 font-bold text-[12px]">({item.count})</p>
+                        <div
+                            className="p-2 border border-dashed border-gray-500 cursor-pointer rounded-[8px] flex justify-between items-center mt-1 cursor-pointer  border border-dashed border-gray-500 cursor-pointer rounded-[8px]"
+                            onClick={() => setStemValue(item._id)}
+                        >
+                            <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", generalString === item._id ? "text-blue-700 font-bold" : "text-gray-600")}>{item._id}</p>
+                            <p className="text-gray-600 font-bold text-[12px]">({item.count})</p>
+                        </div>
                     </div>
                 )}
             </div>

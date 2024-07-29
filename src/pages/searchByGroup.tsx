@@ -159,7 +159,6 @@ export default function SearchByGroup() {
                 type: 'search-by-group',
                 userId: user.id,
             }
-            console.log("data", data);
 
             let realCredential = await bookmarkRead(data)
             setBookmark(realCredential.result)
@@ -364,10 +363,6 @@ export default function SearchByGroup() {
 
     }
 
-
-    console.log("*******************", stemValue);
-
-
     const onCheck = (type: any, checked: any) => {
         if (type === "opportunityCheck" && checked === false) {
             console.log('type', type, "checked", checked);
@@ -401,13 +396,19 @@ export default function SearchByGroup() {
         return (
             <div>
                 {contextHolder}
-                <Drawer title="Bookmark for Search By Group" onClose={onClose} open={open}>
+                <Drawer title="Bookmark for Search By Group" onClose={onClose} open={open} width={700}>
                     {bookmark.length > 0 && bookmark.map((item: any, index: any) =>
                         <div
                             key={index}
                             className='border border-dashed border-gray-400 border-t-[0px] border-l-[0px] border-r-[0px] p-4 cursor-pointer hover:bg-gray-100'
                             onClick={() => insertBook(item)}
                         >
+                            <div className='flex justify-start items-start'>
+                                <p className='w-[90px] font-semibold'>
+                                    Date
+                                </p>
+                                <p>: {formatDate(item && item.updatedAt)}</p>
+                            </div>
                             <div className='flex justify-start items-start'>
                                 <p className='w-[90px] font-semibold'>
                                     Pathway
@@ -418,7 +419,7 @@ export default function SearchByGroup() {
                                 <p className='w-[90px] font-semibold'>
                                     Occupation
                                 </p>
-                                <p>: {item && item.details && item.details.Opportunity && item.details.Opportunity[0] && item.details.Opportunity[0].label}</p>
+                                <p>: {item && item.details && item.details.Opportunity && item.details.Opportunity.specificField}</p>
                             </div>
                             <div className='flex justify-start items-start'>
                                 <p className='w-[90px] font-semibold'>
@@ -432,25 +433,18 @@ export default function SearchByGroup() {
                                 </p>
                                 <p>: {item && item.details && item.details.bufferSearch}</p>
                             </div>
-                            <div className='flex justify-start items-start'>
-                                <p className='w-[90px] font-semibold'>
-                                    Date
-                                </p>
-                                <p>: {formatDate(item && item.updatedAt)}</p>
-                            </div>
                         </div>
                     )}
                 </Drawer>
                 <div className="pt-5">
-                    <SearchBanner
+                    {/* <SearchBanner
                         title={"Search By Group"}
                         description={""}
-                    />
+                    /> */}
                     <div className='flex justify-around items-center flex-wrap'>
-
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
-                                message="How to search the stem data"
+                                message={<p>How to search for stem data by <span className='text-red-600 text-[18px] font-bold'>Group</span>?</p>}
                                 description={<p>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.
                                     {/* Also, <span className='text-blue-600 font-bold'>Pathway</span> can be ignored. */}
                                 </p>}
@@ -458,7 +452,6 @@ export default function SearchByGroup() {
                                 showIcon
                             />
                         </div>
-
                     </div>
                     <div className='flex justify-between items-center'>
                         <div className='flex justify-start items-center pt-4 px-8'>
