@@ -38,11 +38,11 @@ const imageList: any = {
         "http://104.128.55.140:8000/uploads/assets/images/pathway/information/9.jpg"
     ],
     "Architecture and Construction": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/32.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/33.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/34.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/35.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/36.jpg"
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/32.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/33.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/34.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/35.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/36.jpg"
     ],
     "Manufacturing": [
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
@@ -55,10 +55,10 @@ const imageList: any = {
         "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
     ],
     "Transportation, Distribution and Logistics": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/37.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/38.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/39.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/40.jpg",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/37.png",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/38.png",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/39.png",
+        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/40.png",
     ],
     "Agriculture, Food and Natural Resources": [
         "http://104.128.55.140:8000/uploads/assets/images/pathway/agriculture/1.jpg",
@@ -216,42 +216,9 @@ export default function SearchByGroup() {
     };
 
     const bufferGatherValue = async (type: string, valueList: any) => {
+        if (type === "field") {
 
-        if (type === "Opportunity") {
-            setStemValue({ ...stemValue, [type]: valueList, credential: [] })
-            setLoadingStatus({ ...loadingStatus, credentialCheck: true })
-
-            setCredentialList([])
-            setbufferCredentialList([])
-
-            let result = await credentialFromOccupation({
-                data: valueList[0].value
-            })
-
-            if (result.isOkay) {
-                setLoadingStatus({ ...loadingStatus, credentialCheck: false })
-                setCredentialList(result.credentialList)
-                setbufferCredentialList(result.credentialList)
-            }
-
-        } else if (type === "credential") {
-
-            setStemValue({ ...stemValue, [type]: valueList })
-            // setLoadingStatus({ ...loadingStatus, fieldCheck: true })
-            // let result = await pathwayFromCredential({
-            //     opprtunity: stemValue.Opportunity && stemValue.Opportunity[0] && stemValue.Opportunity[0].value ? stemValue.Opportunity[0].value : null,
-            //     credential: valueList[0].value,
-            // })
-
-            // if (result.isOkay) {
-            //     setLoadingStatus({ ...loadingStatus, fieldCheck: false })
-            //     setPathwayList(result.fieldList)
-            //     setbufferPathwayList(result.fieldList)
-            // }
-
-        } else if (type === "field") {
-
-            setStemValue({ ...stemValue, [type]: valueList, credential: [], Opportunity: [] })
+            setStemValue({ ...stemValue, field: valueList, credential: [], Opportunity: [] })
             setLoadingStatus({ ...loadingStatus, opportunityCheck: true })
 
             setspecificFieldStudyList([])
@@ -268,6 +235,42 @@ export default function SearchByGroup() {
                 setspecificFieldStudyList(result.specificFieldStudyList)
                 setbufferspecificFieldStudyList(result.specificFieldStudyList)
             }
+            return
+        }
+        else if (type === "Opportunity") {
+            setStemValue({ ...stemValue, Opportunity: valueList, credential: [] })
+            setLoadingStatus({ ...loadingStatus, credentialCheck: true })
+
+            setCredentialList([])
+            setbufferCredentialList([])
+
+            let result = await credentialFromOccupation({
+                data: valueList[0].value
+            })
+
+            if (result.isOkay) {
+                setLoadingStatus({ ...loadingStatus, credentialCheck: false })
+                setCredentialList(result.credentialList)
+                setbufferCredentialList(result.credentialList)
+            }
+
+            return
+        } else if (type === "credential") {
+
+            setStemValue({ ...stemValue, credential: valueList })
+            // setLoadingStatus({ ...loadingStatus, fieldCheck: true })
+            // let result = await pathwayFromCredential({
+            //     opprtunity: stemValue.Opportunity && stemValue.Opportunity[0] && stemValue.Opportunity[0].value ? stemValue.Opportunity[0].value : null,
+            //     credential: valueList[0].value,
+            // })
+
+            // if (result.isOkay) {
+            //     setLoadingStatus({ ...loadingStatus, fieldCheck: false })
+            //     setPathwayList(result.fieldList)
+            //     setbufferPathwayList(result.fieldList)
+            // }
+
+            return
         }
     }
 
@@ -287,7 +290,11 @@ export default function SearchByGroup() {
     }
 
     const confirm: PopconfirmProps['onConfirm'] = async (e) => {
+
+        console.log("stemValue", stemValue);
+
         if (
+            stemValue.field.length > 0 &&
             stemValue.Opportunity.length > 0 &&
             stemValue.credential.length > 0
         ) {
@@ -296,11 +303,17 @@ export default function SearchByGroup() {
                 userId: user.id,
                 details: {
                     field: stemValue.field,
-                    Opportunity: stemValue.Opportunity,
+                    Opportunity: {
+                        key: stemValue.Opportunity[0].key,
+                        specificField: stemValue.Opportunity[0].label,
+                        value: stemValue.Opportunity[0].key
+                    },
                     credential: stemValue.credential,
                     bufferSearch: bufferSearch
                 }
             }
+            console.log("$$$$$", data);
+
             let result = await bookmarkCreate(data)
 
             if (result.isOkay) {
@@ -317,13 +330,43 @@ export default function SearchByGroup() {
         message.error('You ignored the saving current search filter');
     };
 
-    const insertBook = (item: any) => {
-        console.log("insertBook", item);
-        setStemValue({ ...stemValue, Opportunity: item.details.Opportunity, credential: item.details.credential, field: item.details.field })
+    const insertBook = async (item: any) => {
+        // setStemValue({
+        //     ...stemValue,
+        //     Opportunity: [{
+        //         key: item.details.Opportunity.key,
+        //         specificField: item.details.Opportunity.specificField,
+        //         value: item.details.Opportunity.key
+        //     }],
+        //     credential: item.details.credential,
+        //     field: item.details.field
+        // })
+
+        console.log(1);
+
+        await bufferGatherValue("field", item.details.field)
+        console.log(2);
+
+        await bufferGatherValue("Opportunity", [
+            {
+                key: item.details.Opportunity._id,
+                label: item.details.Opportunity.specificField,
+                value: item.details.Opportunity._id
+            }
+        ])
+        console.log(3);
+
+        await bufferGatherValue("credential", item.details.credential)
+        console.log(4);
+
         setSearchParameter(item.details.bufferSearch)
         setBufferSearch(item.details.bufferSearch)
 
     }
+
+
+    console.log("*******************", stemValue);
+
 
     const onCheck = (type: any, checked: any) => {
         if (type === "opportunityCheck" && checked === false) {
@@ -373,7 +416,7 @@ export default function SearchByGroup() {
                             </div>
                             <div className='flex justify-start items-start'>
                                 <p className='w-[90px] font-semibold'>
-                                    Opportunity
+                                    Occupation
                                 </p>
                                 <p>: {item && item.details && item.details.Opportunity && item.details.Opportunity[0] && item.details.Opportunity[0].label}</p>
                             </div>
@@ -453,7 +496,7 @@ export default function SearchByGroup() {
                         setIsOpen={(isOpen: any) => setIsOpen(isOpen)}
                     />
                     <div className='p-4 flex justify-between items-start flex-wrap pt-1'>
-                        <div className='w-full xl:w-1/2 flex justify-between items-start p-2 mb-4'>
+                        <div className='w-full flex justify-between items-start p-2 mb-4'>
                             <div className='w-1/3 p-1 mb-2 transition-all'>
                                 <div className='flex justify-between items-center mb-1'>
                                     <div className='flex justify-start items-center'>
@@ -480,7 +523,7 @@ export default function SearchByGroup() {
                                     }
                                 </div>
 
-                                <div className='h-64 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
+                                <div className='h-32 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
                                     {bufferPathwayList.length > 0 && bufferPathwayList.map((item: any, index: any) =>
                                         <div
                                             key={index}
@@ -535,15 +578,13 @@ export default function SearchByGroup() {
                                 </div>
 
                                 <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)} />
-
                                 <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.Opportunity[0] && stemValue.Opportunity[0].key &&
                                         bufferspecificFieldStudyList.find((item: any) => item._id === stemValue.Opportunity[0].key).specificField
                                     }
                                 </div>
-
-                                <div className='h-64 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
+                                <div className='h-32 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
                                     {checkable.opportunityCheck === true && bufferspecificFieldStudyList.length > 0 && bufferspecificFieldStudyList.map((item: any, index: any) =>
                                         <div
                                             key={index}
@@ -578,7 +619,7 @@ export default function SearchByGroup() {
                             <div className='w-1/3 p-1 mb-2 transition-all'>
                                 <div className='flex justify-between items-center mb-1'>
                                     <div className='flex justify-start items-center'>
-                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="issues-close" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm72-112c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48zm400-188h-59.3c-2.6 0-5 1.2-6.5 3.3L763.7 538.1l-49.9-68.8a7.92 7.92 0 00-6.5-3.3H648c-6.5 0-10.3 7.4-6.5 12.7l109.2 150.7a16.1 16.1 0 0026 0l165.8-228.7c3.8-5.3 0-12.7-6.5-12.7zm-44 306h-64.2c-5.5 0-10.6 2.9-13.6 7.5a352.2 352.2 0 01-49.8 62.2A355.92 355.92 0 01651.1 840a355 355 0 01-138.7 27.9c-48.1 0-94.8-9.4-138.7-27.9a355.92 355.92 0 01-113.3-76.3A353.06 353.06 0 01184 650.5c-18.6-43.8-28-90.5-28-138.5s9.4-94.7 28-138.5c17.9-42.4 43.6-80.5 76.4-113.2 32.8-32.7 70.9-58.4 113.3-76.3a355 355 0 01138.7-27.9c48.1 0 94.8 9.4 138.7 27.9 42.4 17.9 80.5 43.6 113.3 76.3 19 19 35.6 39.8 49.8 62.2 2.9 4.7 8.1 7.5 13.6 7.5H892c6 0 9.8-6.3 7.2-11.6C828.8 178.5 684.7 82 517.7 80 278.9 77.2 80.5 272.5 80 511.2 79.5 750.1 273.3 944 512.4 944c169.2 0 315.6-97 386.7-238.4A8 8 0 00892 694z"></path></svg>
+                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="issues-close" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M464 688a48 48 0 1096 0 48 48 0 10-96 0zm72-112c4.4 0 8-3.6 8-8V296c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v272c0 4.4 3.6 8 8 8h48zm400-188h-59.3c-2.6 0-5 1.2-6.5 3.3L763.7 538.1l-49.9-68.8a7.92 7.92 0 00-6.5-3.3H648c-6.5 0-10.3 7.4-6.5 12.7l109.2 150.7a16.1 16.1 0 0026 0l165.8-228.7c3.8-5.3 0-12.7-6.5-12.7zm-44 306h-32.2c-5.5 0-10.6 2.9-13.6 7.5a352.2 352.2 0 01-49.8 62.2A355.92 355.92 0 01651.1 840a355 355 0 01-138.7 27.9c-48.1 0-94.8-9.4-138.7-27.9a355.92 355.92 0 01-113.3-76.3A353.06 353.06 0 01184 650.5c-18.6-43.8-28-90.5-28-138.5s9.4-94.7 28-138.5c17.9-42.4 43.6-80.5 76.4-113.2 32.8-32.7 70.9-58.4 113.3-76.3a355 355 0 01138.7-27.9c48.1 0 94.8 9.4 138.7 27.9 42.4 17.9 80.5 43.6 113.3 76.3 19 19 35.6 39.8 49.8 62.2 2.9 4.7 8.1 7.5 13.6 7.5H892c6 0 9.8-6.3 7.2-11.6C828.8 178.5 684.7 82 517.7 80 278.9 77.2 80.5 272.5 80 511.2 79.5 750.1 273.3 944 512.4 944c169.2 0 315.6-97 386.7-238.4A8 8 0 00892 694z"></path></svg>
                                         <p className='mx-2 text-gray-600 font-bold mb-0'>Credential</p>
                                         {loadingStatus.credentialCheck ?
                                             <svg viewBox="64 64 896 896" focusable="false" data-icon="sync" width="1em" height="1em" fill="currentColor" aria-hidden="true" className="text-red-500 animate-spin"><path d="M168 504.2c1-43.7 10-86.1 26.9-126 17.3-41 42.1-77.7 73.7-109.4S337 212.3 378 195c42.4-17.9 87.4-27 133.9-27s91.5 9.1 133.8 27A341.5 341.5 0 01755 268.8c9.9 9.9 19.2 20.4 27.8 31.4l-60.2 47a8 8 0 003 14.1l175.7 43c5 1.2 9.9-2.6 9.9-7.7l.8-180.9c0-6.7-7.7-10.5-12.9-6.3l-56.4 44.1C765.8 155.1 646.2 92 511.8 92 282.7 92 96.3 275.6 92 503.8a8 8 0 008 8.2h60c4.4 0 7.9-3.5 8-7.8zm756 7.8h-60c-4.4 0-7.9 3.5-8 7.8-1 43.7-10 86.1-26.9 126-17.3 41-42.1 77.8-73.7 109.4A342.45 342.45 0 01512.1 856a342.24 342.24 0 01-243.2-100.8c-9.9-9.9-19.2-20.4-27.8-31.4l60.2-47a8 8 0 00-3-14.1l-175.7-43c-5-1.2-9.9 2.6-9.9 7.7l-.7 181c0 6.7 7.7 10.5 12.9 6.3l56.4-44.1C258.2 868.9 377.8 932 512.2 932c229.2 0 415.5-183.7 419.8-411.8a8 8 0 00-8-8.2z"></path></svg>
@@ -598,11 +639,9 @@ export default function SearchByGroup() {
                                     {stemValue && stemValue.credential[0] && stemValue.credential[0].label}
                                 </div>
 
-                                <div className='h-64 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
+                                <div className='h-32 overflow-y-scroll border rounded-[4px] border-gray-300 p-[2px]'>
                                     {bufferCredentialList.length > 0 && bufferCredentialList.map((item: any, index: any) =>
-                                        <div
-                                            key={index}
-                                        >
+                                        <div key={index}>
                                             {item && item.list ?
                                                 <div>
                                                     <div
@@ -677,7 +716,7 @@ export default function SearchByGroup() {
                                 </div>
                             </div>
                         </div>
-                        <div className='w-full xl:w-1/2 p-2 pt-0 border border-dashed border-gray-500 border-t-[0px] border-b-[0px] border-r-[0px]'>
+                        <div className='w-full p-2 pt-4'>
                             <IntegratingSearchModule
                                 setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
                                 isUnique={stemValue.isUnique}

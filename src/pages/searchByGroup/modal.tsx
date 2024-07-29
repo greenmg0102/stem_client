@@ -10,7 +10,6 @@ const contentStyle: React.CSSProperties = {
 };
 
 export default function SearchByGroupModal({ isOpen, imageList, setIsOpen }: any) {
-    console.log("imageList", imageList);
 
     return (
         <Modal
