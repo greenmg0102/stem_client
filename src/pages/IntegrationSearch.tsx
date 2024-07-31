@@ -60,7 +60,7 @@ const IntegrationSearch = () => {
     const handleSearch = useCallback(debounce(async (hint) => {
 
         setTotalCount(0)
-        setRecordsData([])
+        setBufferSearchDataList([])
 
         let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
         setIsLoading(true);

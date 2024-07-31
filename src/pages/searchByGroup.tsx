@@ -189,6 +189,8 @@ export default function SearchByGroup() {
     }, [])
 
     const handleSearch = useCallback(debounce(async (hint) => {
+        setTotalCount(0)
+        setBufferSearchDataList([])
         let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
         setIsLoading(true);
         setIsRealLoading(true);
