@@ -455,36 +455,7 @@ export default function SearchByGroup() {
                             />
                         </div>
                     </div>
-                    <div className='flex justify-between items-center'>
-                        <div className='flex justify-start items-center pt-4 px-8'>
-                            <Popconfirm
-                                title="Bookmark?"
-                                description="Save the current search filter?"
-                                onConfirm={confirm}
-                                onCancel={cancel}
-                                okText="Yes"
-                                cancelText="No"
-                            >
-                                <div
-                                    className="btn btn-primary btn-sm cursor-pointer"
-                                >
-                                    <p className='pr-2'>
-                                        Search Filter Bookmark
-                                    </p>
-                                    <Tippy content={BookMarkDefinitions.find((each: any) => each.title === "searchBookMark")?.description}>
-                                        <svg viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
-                                    </Tippy>
-                                </div>
-                            </Popconfirm>
-                            <div
-                                className="btn btn-success btn-sm cursor-pointer mx-2"
-                                onClick={() => setOpen(true)}
-                            >
-                                Bookmark view
-                            </div>
-                            {/* <Checkbox onChange={onChangeCheck}>Extracting School list</Checkbox> */}
-                        </div>
-                    </div>
+
                     <SearchByGroupModal
                         isOpen={isOpen}
                         imageList={isOpen === undefined ? [] : imageList[isOpen]}
@@ -511,7 +482,7 @@ export default function SearchByGroup() {
                                 </div>
                                 <input type="text" placeholder="Some pathway..." className="mb-2 form-input" required onChange={(e: any) => onchange("field", e)} />
 
-                                <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
+                                <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.field[0] && stemValue.field[0].key &&
                                         bufferPathwayList.find((item: any) => item._id === stemValue.field[0].key).field
@@ -522,21 +493,14 @@ export default function SearchByGroup() {
                                     {bufferPathwayList.length > 0 && bufferPathwayList.map((item: any, index: any) =>
                                         <div
                                             key={index}
-                                            className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-start text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                            className={clsx("px-1 h-[32px] transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-between items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
                                                 stemValue &&
                                                     stemValue.field[0] &&
                                                     item._id === stemValue.field[0].key ? "text-blue-500" : "",
                                                 imageList[item.field] ? "" : "hidden"
                                             )}
                                         >
-                                            {imageList[item.field] ?
-                                                <svg
-                                                    className='mt-1'
-                                                    onClick={() => setIsOpen(item.field)}
-                                                    viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
-                                                :
-                                                null
-                                            }
+
                                             <p
                                                 className='pl-1'
                                                 onClick={() => bufferGatherValue("field", [
@@ -549,6 +513,15 @@ export default function SearchByGroup() {
                                             >
                                                 {item.field}
                                             </p>
+
+                                            {imageList[item.field] ?
+                                                <svg
+                                                    className='mt-1 animated-box'
+                                                    onClick={() => setIsOpen(item.field)}
+                                                    viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1.4em" height="1.4em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
+                                                :
+                                                null
+                                            }
                                         </div>
                                     )}
                                 </div>
@@ -573,7 +546,7 @@ export default function SearchByGroup() {
                                 </div>
 
                                 <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)} />
-                                <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
+                                <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.Opportunity[0] && stemValue.Opportunity[0].key &&
                                         bufferspecificFieldStudyList.find((item: any) => item._id === stemValue.Opportunity[0].key).specificField
@@ -583,7 +556,7 @@ export default function SearchByGroup() {
                                     {checkable.opportunityCheck === true && bufferspecificFieldStudyList.length > 0 && bufferspecificFieldStudyList.map((item: any, index: any) =>
                                         <div
                                             key={index}
-                                            className={clsx("transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
+                                            className={clsx("px-1 transition-all cursor-pointer hover:text-blue-500 font-semibold flex justify-start items-center text-[12px] py-1 border border-dashed border-gray-400 border-t-[0px] border-r-[0px] border-l-[0px]",
                                                 stemValue &&
                                                     stemValue.Opportunity[0] &&
                                                     item._id === stemValue.Opportunity[0].key ? "text-blue-500" : ""
@@ -630,7 +603,7 @@ export default function SearchByGroup() {
                                 </div>
                                 <input type="text" placeholder="Some credentia..." className="mb-2 form-input" required onChange={(e: any) => onchange("credential", e)} />
 
-                                <div className="h-[80px] mb-8 font-semibold text-gray-600 flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
+                                <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {stemValue && stemValue.credential[0] && stemValue.credential[0].label}
                                 </div>
 
@@ -709,6 +682,36 @@ export default function SearchByGroup() {
                                         </div>
                                     )}
                                 </div>
+                            </div>
+                        </div>
+                        <div className='flex justify-between items-center'>
+                            <div className='flex justify-start items-center pt-1 px-4'>
+                                <Popconfirm
+                                    title="Bookmark?"
+                                    description="Save the current search filter?"
+                                    onConfirm={confirm}
+                                    onCancel={cancel}
+                                    okText="Yes"
+                                    cancelText="No"
+                                >
+                                    <div
+                                        className="btn btn-primary btn-sm cursor-pointer"
+                                    >
+                                        <p className='pr-2'>
+                                            Search Filter Bookmark
+                                        </p>
+                                        <Tippy content={BookMarkDefinitions.find((each: any) => each.title === "searchBookMark")?.description}>
+                                            <svg viewBox="64 64 896 896" focusable="false" data-icon="question-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path><path d="M623.6 316.7C593.6 290.4 554 276 512 276s-81.6 14.5-111.6 40.7C369.2 344 352 380.7 352 420v7.6c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V420c0-44.1 43.1-80 96-80s96 35.9 96 80c0 31.1-22 59.6-56.1 72.7-21.2 8.1-39.2 22.3-52.1 40.9-13.1 19-19.9 41.8-19.9 64.9V620c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8v-22.7a48.3 48.3 0 0130.9-44.8c59-22.7 97.1-74.7 97.1-132.5.1-39.3-17.1-76-48.3-103.3zM472 732a40 40 0 1080 0 40 40 0 10-80 0z"></path></svg>
+                                        </Tippy>
+                                    </div>
+                                </Popconfirm>
+                                <div
+                                    className="btn btn-success btn-sm cursor-pointer mx-2"
+                                    onClick={() => setOpen(true)}
+                                >
+                                    Bookmark view
+                                </div>
+                                {/* <Checkbox onChange={onChangeCheck}>Extracting School list</Checkbox> */}
                             </div>
                         </div>
                         <div className='w-full p-2 pt-4'>

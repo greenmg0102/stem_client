@@ -17,3 +17,25 @@
 .ant-btn{
     background: rgb(107, 201, 133) !important;
 }
+
+@keyframes growShrink {
+    0% {
+      width: 1em;
+      height: 1em;
+    }
+    50% {
+      width: 1.5em;
+      height: 1.5em;
+    }
+    100% {
+      width: 1em;
+      height: 1em;
+    }
+  }
+  
+  /* Apply the animation to the element */
+  .animated-box {
+    width: 1em;
+    height: 1em;
+    animation: growShrink 0.8s infinite;
+  }
