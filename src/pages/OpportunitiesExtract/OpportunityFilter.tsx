@@ -24,13 +24,13 @@ export default function OpportunityFilter({ opportunityString, setStemValue }: a
     }, [value])
 
     return (
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start flex-wrap">
             {/* <Input
                 value={value}
                 placeholder="Basic usage"
                 onChange={(e: any) => setValue(e.target.value)}
             /> */}
-            <div className="w-3/4 pl-4">
+            <div className="w-full pl-4">
                 <div className="px-2 flex justify-start items-start flex-wrap">
 
                     {list.map((item: any, index: any) =>
@@ -54,9 +54,15 @@ export default function OpportunityFilter({ opportunityString, setStemValue }: a
                     )}
                 </div>
             </div>
-            <div className="w-1/4 p-2 rounded-[8px]">
+            <div className="w-full p-2 rounded-[8px] pt-4 px-8">
                 <p className="text-[17px] text-gray-500">
-                    {Definitions.find((each: any) => each.title === opportunityString)?.description}
+                    {
+                        Definitions.find((each: any) => each.title === opportunityString)?.description ??
+                        <div className="w-full flex justify-center items-center">
+                            {/* <p className="text-gray-800">Opportunity Description ?</p> */}
+                            {/* <svg viewBox="64 64 896 896" focusable="false" data-icon="border-top" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M872 144H152c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM208 310h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 498h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0-332h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 166h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm166-166h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 332h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm332 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0-332h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm166 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm-332 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm332 332h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm-332 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm332-498h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm-332 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm332 332h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm-332 0h-56c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h56c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8z"></path></svg> */}
+                        </div>
+                    }
                 </p>
             </div>
         </div>

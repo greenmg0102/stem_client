@@ -30,7 +30,7 @@ const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, 
                                 null}
                         </div>
                         <div className="flex justify-start items-center">
-                            <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique}>Extracting Unique School</Checkbox>
+                            <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique} style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>Extracting Unique School</Checkbox>
                             {/* <select
                                 className="form-select text-white-dark w-[130px] mr-1"
                                 onClick={(e: any) => setViewType(e.target.value)}
@@ -40,8 +40,9 @@ const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, 
                                 <option value={'map'} disabled>Map View</option>
                             </select> */}
                             <select
-                                className="form-select text-white-dark w-[200px]"
+                                className="form-select text-gray-900 w-[200px]"
                                 onClick={(e: any) => setSortCondition(e.target.value)}
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                             >
                                 <option value={'credentialSchool.school:1'} className="flex justify-start items-center">
                                     School : A ~ Z
@@ -66,6 +67,7 @@ const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, 
                             className={'form-input bg-white h-full placeholder:tracking-wider hidden ltr:pl-12 rtl:pr-12 peer !block'}
                             onChange={(e: any) => setBufferSearch(e.target.value)}
                             onKeyDown={(e: any) => handleKeyPress(e)}
+                            style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                         />
                         <button
                             type="button"
@@ -77,11 +79,12 @@ const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, 
                             </svg>
                         </button>
                     </div>
-                    <div className="mt-0">
+                    <div className="mt-8">
                         <DataTable
                             noRecordsText="No results match your search query"
                             highlightOnHover
                             className="whitespace-nowrap table-hover"
+                            style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                             records={bufferSearchDataList}
                             columns={[
                                 {

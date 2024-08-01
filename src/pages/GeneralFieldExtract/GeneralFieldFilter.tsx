@@ -34,10 +34,10 @@ export default function GeneralFieldFilter({ generalString, setStemValue }: any)
                 {list.map((item: any, index: any) =>
                     <div
                         key={index}
-                        className="w-1/4 p-2"
+                        className="w-1/4 p-2 h-[70px]"
                     >
                         <div
-                            className="p-2 border border-dashed border-gray-500 cursor-pointer rounded-[8px] flex justify-between items-center mt-1 cursor-pointer  border border-dashed border-gray-500 cursor-pointer rounded-[8px]"
+                            className="p-1 border border-dashed border-gray-500 cursor-pointer rounded-[8px] flex justify-between items-center mt-1 cursor-pointer  border border-dashed border-gray-500 cursor-pointer rounded-[8px]"
                             onClick={() => setStemValue(item._id)}
                         >
                             <p className={clsx("hover:text-blue-700 hover:font-bold transition-all", generalString === item._id ? "text-blue-700 font-bold" : "text-gray-600")}>{item._id}</p>

@@ -48,6 +48,7 @@ const StemItemSearch = ({ category, title, placeholder, gatherValue, stemValue }
                 notFoundContent={fetching ? <Spin size="small" /> : null}
                 {...props}
                 options={options}
+                style={{ width: '100%', backgroundColor: 'rgba(255, 255, 255, 0)' }}
                 className=''
             />
         );

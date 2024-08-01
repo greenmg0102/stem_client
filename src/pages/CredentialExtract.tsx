@@ -121,6 +121,7 @@ const CredentialExtract = () => {
                                     </p>
                                 }
                                 type="info"
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                                 showIcon
                             />
                         </div>

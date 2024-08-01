@@ -22,61 +22,61 @@ import SearchByGroupModal from './searchByGroup/modal'
 const imageList: any = {
     undefined: [],
     "Science, Technology, Engineering, and Math": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/science/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/science/1.jpg",
     ],
     "Arts, Audio/Video Technology and Communications": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/art/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/art/1.jpg",
     ],
     "Information Technology": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/2.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/3.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/4.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/5.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/6.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/7.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/8.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/information/9.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/information/2.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/3.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/4.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/5.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/6.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/7.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/8.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/information/9.jpg"
     ],
     "Architecture and Construction": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/32.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/33.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/34.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/35.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/architecture/36.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/architecture/32.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/architecture/33.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/architecture/34.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/architecture/35.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/architecture/36.jpg"
     ],
     "Manufacturing": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/26.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/27.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/28.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/24.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/25.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/26.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/27.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/28.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/29.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/30.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/manufacturing/31.jpg"
     ],
     "Transportation, Distribution and Logistics": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/37.png",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/38.png",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/39.png",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/transportation/40.png",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/37.png",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/38.png",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/39.png",
+        "http://localhost:8000/uploads/assets/images/pathway/transportation/40.png",
     ],
     "Agriculture, Food and Natural Resources": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/agriculture/1.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/agriculture/1.jpg",
     ],
     "Health Science": [
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/10.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/11.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/12.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/13.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/14.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/15.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/16.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/17.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/18.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/19.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/20.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/21.jpg",
-        "http://104.128.55.140:8000/uploads/assets/images/pathway/health/22.jpg"
+        "http://localhost:8000/uploads/assets/images/pathway/health/10.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/11.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/12.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/13.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/14.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/15.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/16.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/17.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/18.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/19.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/20.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/21.jpg",
+        "http://localhost:8000/uploads/assets/images/pathway/health/22.jpg"
     ]
 }
 
@@ -452,6 +452,7 @@ export default function SearchByGroup() {
                                 </p>}
                                 type="info"
                                 showIcon
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                             />
                         </div>
                     </div>
@@ -480,7 +481,8 @@ export default function SearchByGroup() {
                                         <span className="outline_checkbox bg-icon border-2 border-[#ebedf2] dark:border-white-dark block h-full rounded-full before:absolute before:left-1 before:bg-[#ebedf2] dark:before:bg-white-dark before:bottom-1 before:w-4 before:h-4 before:rounded-full before:bg-[url(/assets/images/close.svg)] before:bg-no-repeat before:bg-center peer-checked:before:left-7 peer-checked:before:bg-[url(/assets/images/checked.svg)] peer-checked:border-primary peer-checked:before:bg-primary before:transition-all before:duration-300"></span> */}
                                     </label>
                                 </div>
-                                <input type="text" placeholder="Some pathway..." className="mb-2 form-input" required onChange={(e: any) => onchange("field", e)} />
+                                <input type="text" placeholder="Some pathway..." className="mb-2 form-input" required onChange={(e: any) => onchange("field", e)}
+                                    style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }} />
 
                                 <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
@@ -545,7 +547,8 @@ export default function SearchByGroup() {
                                     </label>
                                 </div>
 
-                                <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)} />
+                                <input type="text" placeholder="Some opportunity..." className="mb-2 form-input" required onChange={(e: any) => onchange("Opportunity", e)}
+                                    style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }} />
                                 <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {
                                         stemValue && stemValue.Opportunity[0] && stemValue.Opportunity[0].key &&
@@ -601,7 +604,8 @@ export default function SearchByGroup() {
                                         <span className="outline_checkbox bg-icon border-2 border-[#ebedf2] dark:border-white-dark block h-full rounded-full before:absolute before:left-1 before:bg-[#ebedf2] dark:before:bg-white-dark before:bottom-1 before:w-4 before:h-4 before:rounded-full before:bg-[url(/assets/images/close.svg)] before:bg-no-repeat before:bg-center peer-checked:before:left-7 peer-checked:before:bg-[url(/assets/images/checked.svg)] peer-checked:border-primary peer-checked:before:bg-primary before:transition-all before:duration-300"></span> */}
                                     </label>
                                 </div>
-                                <input type="text" placeholder="Some credentia..." className="mb-2 form-input" required onChange={(e: any) => onchange("credential", e)} />
+                                <input type="text" placeholder="Some credentia..." className="mb-2 form-input" required onChange={(e: any) => onchange("credential", e)}
+                                    style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }} />
 
                                 <div className="h-[80px] mb-8 font-semibold text-blue-600 text-[20px] flex justify-center items-center px-1 border border-red-500 rounded-[6px] border-dashed">
                                     {stemValue && stemValue.credential[0] && stemValue.credential[0].label}

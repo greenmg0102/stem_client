@@ -35,7 +35,8 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                                 null}
                         </div>
                         <div className="flex justify-start items-center">
-                            <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique}>Extracting Unique School</Checkbox>
+                            <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique}
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>Extracting Unique School</Checkbox>
                             {/* <select
                                 className="form-select text-white-dark w-[130px] mr-1"
                                 onClick={(e: any) => setViewType(e.target.value)}
@@ -45,8 +46,9 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                                 <option value={'map'} disabled>Map View</option>
                             </select> */}
                             <select
-                                className="form-select text-white-dark w-[200px]"
+                                className="form-select text-gray-900 w-[200px]"
                                 onClick={(e: any) => setSortCondition(e.target.value)}
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                             >
                                 <option value={'credentialSchool.school:1'}>School : A ~ Z</option>
                                 <option value={'credentialSchool.school:0'}>School : Z ~ A</option>
@@ -63,6 +65,7 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                             type="text"
                             value={bufferSearch}
                             placeholder="Search..."
+                            style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                             className={'form-input bg-white h-full placeholder:tracking-wider hidden ltr:pl-12 rtl:pr-12 peer !block'}
                             onChange={(e: any) => setBufferSearch(e.target.value)}
                             onKeyDown={(e: any) => handleKeyPress(e)}
@@ -95,7 +98,7 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                     </div>
                     {/* </ClickAwayListener> */}
 
-                    <div className="mt-0">
+                    <div className="mt-12">
                         <DataTable
                             noRecordsText="No results match your search query"
                             highlightOnHover

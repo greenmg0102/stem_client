@@ -7,11 +7,11 @@ export const BookMarkDefinitions = [
 export const Definitions = [
     {
         title: 'Apprenticeship',
-        description: 'a paid job where the worker (or apprentice) learns and gains hands-on experience while earning wages. Apprenticeships combine on-the-job training with classroom instruction to prepare workers for specific trades or professions. They are designed to meet industry standards and typically involve a partnership between employers, labor unions, and education providers.'
+        description: 'A paid job where the worker (or apprentice) learns and gains hands-on experience while earning wages. Apprenticeships combine on-the-job training with classroom instruction to prepare workers for specific trades or professions. They are designed to meet industry standards and typically involve a partnership between employers, labor unions, and education providers.'
     },
     {
         title: 'Pre-Apprenticeship',
-        description: 'program is designed to prepare individuals to enter and succeed in an apprenticeship program. These programs provide training and support services that help participants meet the entry requirements for apprenticeships. This training often includes basic skills development, education on industry-specific knowledge, and exposure to the work environment.'
+        description: 'Program is designed to prepare individuals to enter and succeed in an apprenticeship program. These programs provide training and support services that help participants meet the entry requirements for apprenticeships. This training often includes basic skills development, education on industry-specific knowledge, and exposure to the work environment.'
     },
     {
         title: 'Dual Enrollment',
@@ -31,15 +31,15 @@ export const Definitions = [
     // },
     {
         title: 'Career and Technical Education',
-        description: "educational programs that specialize in the skilled trades, applied sciences, modern technologies, and career preparation. CTE programs provide students with the academic and technical skills, knowledge, and training necessary to succeed in future careers and to become lifelong learners. These programs are designed to align education with workforce needs and often include work-based learning opportunities."
+        description: "Educational programs that specialize in the skilled trades, applied sciences, modern technologies, and career preparation. CTE programs provide students with the academic and technical skills, knowledge, and training necessary to succeed in future careers and to become lifelong learners. These programs are designed to align education with workforce needs and often include work-based learning opportunities."
     },
     {
         title: 'Transfer From Secondary CTC (Career & Technical Centers)',
-        description: "specialized schools or educational facilities that provide CTE programs to high school students. These centers offer a variety of vocational training and technical education programs that prepare students for specific careers. Students typically attend these centers part-time while completing their academic coursework at their home high schools."
+        description: "Specialized schools or educational facilities that provide CTE programs to high school students. These centers offer a variety of vocational training and technical education programs that prepare students for specific careers. Students typically attend these centers part-time while completing their academic coursework at their home high schools."
     },
     {
         title: 'SMART Program',
-        description: "consists of micro-certifications and courses designed to foreground industry-aligned knowledge, skills, and attitudes required of Robotics Technicians in the industry. The goal of this pre-apprenticeship program is to develop and grow the workforce to be ready to enter internships, apprenticeship programs, certificate programs, and, in some cases, begin employment. The program prepares participants for the demands of the robotics and automation sectors by equipping them with relevant, practical skills."
+        description: "Consists of micro-certifications and courses designed to foreground industry-aligned knowledge, skills, and attitudes required of Robotics Technicians in the industry. The goal of this pre-apprenticeship program is to develop and grow the workforce to be ready to enter internships, apprenticeship programs, certificate programs, and, in some cases, begin employment. The program prepares participants for the demands of the robotics and automation sectors by equipping them with relevant, practical skills."
     },
     {
         title: 'SOAR Program Credits',
@@ -51,6 +51,6 @@ export const Definitions = [
     // },
     {
         title: 'Non Degree Seeking - Dual Enrollment, College in High School)',
-        description: "an individual who takes courses at a postsecondary institution without seeking a degree or formal credential. These students may enroll in classes for personal enrichment, professional development, or to gain specific skills or knowledge without intending to complete a degree program."
+        description: "An individual who takes courses at a postsecondary institution without seeking a degree or formal credential. These students may enroll in classes for personal enrichment, professional development, or to gain specific skills or knowledge without intending to complete a degree program."
     },
 ]

@@ -114,11 +114,12 @@ const OpportunitiesExtract = () => {
                             <Alert
                                 message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Opportunity</span>?</p>}
                                 description={
-                                    <p className=''>
+                                    <p>
                                         Sort by the type of  <span className='text-blue-500 font-bold'>Opportunity</span> such as Apprenticeship, Dual Enrollment, etc.
                                     </p>
                                 }
                                 type="info"
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                                 showIcon
                             />
                         </div>

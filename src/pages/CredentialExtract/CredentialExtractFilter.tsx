@@ -76,6 +76,7 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
             </div>
             <TreeSelect
                 showSearch
+                className="bg-opacity-0" 
                 style={{ width: '100%' }}
                 value={value}
                 dropdownStyle={{ maxHeight: 200, overflow: 'auto' }}
@@ -86,9 +87,11 @@ export default function CredentialExtractFilter({ credentialString, setStemValue
                 treeData={list}
                 onPopupScroll={onPopupScroll}
             />
+
+            {/* style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }} */}
             <Menu
                 onClick={onClick}
-                style={{ width: "100%", height: 200 }}
+                style={{ width: "100%", height: 200, backgroundColor: 'rgba(255, 255, 255, 0)' }}
                 defaultSelectedKeys={['1']}
                 defaultOpenKeys={['sub1']}
                 mode="inline"

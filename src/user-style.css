@@ -1,41 +1,55 @@
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
-    width: 4px;
-    /* Set the width of the scrollbar */
+  width: 4px;
+  /* Set the width of the scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgb(154, 153, 247);
-    /* Set the color of the scrollbar thumb */
+  background-color: rgb(154, 153, 247);
+  /* Set the color of the scrollbar thumb */
 }
 
 ::-webkit-scrollbar-track {
-    background-color: lightgray;
-    /* Set the color of the scrollbar track */
+  background-color: lightgray;
+  /* Set the color of the scrollbar track */
 }
 
-.ant-btn{
-    background: rgb(107, 201, 133) !important;
+.ant-select-selector {
+  background-color: rgba(255, 255, 255, 0) !important;
+}
+.ant-btn {
+  background: rgb(107, 201, 133) !important;
+}
+
+tbody,
+td {
+  background-color: #fafafa !important;
+}
+
+thead {
+  height: 0px;
 }
 
 @keyframes growShrink {
-    0% {
-      width: 1em;
-      height: 1em;
-    }
-    50% {
-      width: 1.5em;
-      height: 1.5em;
-    }
-    100% {
-      width: 1em;
-      height: 1em;
-    }
-  }
-  
-  /* Apply the animation to the element */
-  .animated-box {
+  0% {
     width: 1em;
     height: 1em;
-    animation: growShrink 0.8s infinite;
   }
+
+  50% {
+    width: 1.5em;
+    height: 1.5em;
+  }
+
+  100% {
+    width: 1em;
+    height: 1em;
+  }
+}
+
+/* Apply the animation to the element */
+.animated-box {
+  width: 1em;
+  height: 1em;
+  animation: growShrink 0.8s infinite;
+}

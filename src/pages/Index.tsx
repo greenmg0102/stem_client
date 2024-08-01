@@ -16,10 +16,8 @@ const Index = () => {
     });
 
     return (
-        <div className="pt-5 pt-12 pb-12">
-            <div>
-                <Welcome />
-            </div>
+        <div className="relative pt-5 pt-40 pb-12 relative">
+            <Welcome />
         </div>
     );
 };

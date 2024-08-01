@@ -112,6 +112,7 @@ const IntegrationSearch = () => {
                                         <li>Search for <span className='text-blue-500 font-bold'>Pathways</span>  related to a specific interest area such as Finance or Health Science.  </li>
                                     </ul>
                                 }
+                                style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
                                 type="info"
                                 showIcon
                             />
