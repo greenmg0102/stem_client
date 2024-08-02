@@ -55,7 +55,7 @@ export default function OpportunityFilter({ opportunityString, setStemValue }: a
                 </div>
             </div>
             <div className="w-full p-2 rounded-[8px] pt-4 px-8">
-                <p className="text-[17px] text-gray-500">
+                <p className="text-[17px] text-gray-500  border border-gray-400 border-dashed border-t-[0px] border-l-[0px] border-r-[0px] pb-4">
                     {
                         Definitions.find((each: any) => each.title === opportunityString)?.description ??
                         <div className="w-full flex justify-center items-center">

@@ -447,9 +447,11 @@ export default function SearchByGroup() {
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
                                 message={<p>How to search for stem data by <span className='text-red-600 text-[18px] font-bold'>Group</span>?</p>}
-                                description={<p>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.
-                                    {/* Also, <span className='text-blue-600 font-bold'>Pathway</span> can be ignored. */}
-                                </p>}
+                                description={
+                                    <ul className='list-disc pl-5'>
+                                        <li>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.</li>
+                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                    </ul>}
                                 type="info"
                                 showIcon
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}

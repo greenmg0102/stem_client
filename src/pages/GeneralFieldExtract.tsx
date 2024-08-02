@@ -119,9 +119,10 @@ const GeneralFieldFilterExtract = () => {
                             <Alert
                                 message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Pathway</span>?</p>}
                                 description={
-                                    <p className=''>
-                                        Search for <span className='text-blue-500 font-bold'>Pathway</span> related to a specific interest area such as Finance or Health Science
-                                    </p>
+                                    <ul className='list-disc pl-5'>
+                                        <li>Search for <span className='text-blue-500 font-bold'>Pathway</span> related to a specific interest area such as Finance or Health Science</li>
+                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                    </ul>
                                 }
                                 type="info"
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}

@@ -116,9 +116,10 @@ const CredentialExtract = () => {
                             <Alert
                                 message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Credential</span>?</p>}
                                 description={
-                                    <p className=''>
-                                        Select a specific name of <span className='text-blue-500 font-bold'> Credentials </span>you're looking for.
-                                    </p>
+                                    <ul className='list-disc pl-5'>
+                                        <li>Select a specific name of <span className='text-blue-500 font-bold'> Credentials </span>you're looking for.</li>
+                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                    </ul>
                                 }
                                 type="info"
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
