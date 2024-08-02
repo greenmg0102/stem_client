@@ -1099,8 +1099,8 @@ https://gaccpit.workforce.dev/apprenticeships/mechatronics-technician.html
 https://gaccpit.workforce.dev/apprenticeships/sales-engineer
 https://gaccpit.workforce.dev/apprenticeships/polymer-process-technician
 Intro to programming and intro computer science, beginner web development and working with specialized applications for design, web marketing, technical sales and customer success, business analytics, basics of Agile methodologies and familiarity with enterprise cybersecurity, Web3, and blockchain
-https://www.goodwillswpa.org/life-changing-services/education-and-training/the-goodwill-tech-academy/comptia-a/
-https://www.goodwillswpa.org/life-changing-services/education-and-training/the-goodwill-tech-academy/comptia-it-fundamentals/
+https://www.goodwillswpa.org/life-changing-services/education-and-training/the-goodwill-tech-academy/Program School / Org Type-a/
+https://www.goodwillswpa.org/life-changing-services/education-and-training/the-goodwill-tech-academy/Program School / Org Type-it-fundamentals/
 https://www.goodwillswpa.org/life-changing-services/education-and-training/the-goodwill-tech-academy/google-apps/
 https://pasafarming.org/soil-institute/farmer-training-development/diversified-vegetable-pre-apprenticeship/
 https://www.beattietech.com/fs/resource-manager/view/b17a7e40-48af-42cf-bff2-b601c745370f
@@ -2460,26 +2460,26 @@ https://careertraining.ptcollege.edu/training-programs/cisco-ccnp-security-scor-
 https://careertraining.ptcollege.edu/training-programs/cisco-ccnp-security-scor-svpn-vouchers-included/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/cissp/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/a-plus-certification-with-exam/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-certification-training-itf-a-plus-vouchers-included/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-certification-training-itf-a-plus-network-security-vouchers-included/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-certification-training-itf-a-plus-vouchers-included/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-certification-training-itf-a-plus-network-security-vouchers-included/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/cybersecurity-bootcamp/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/network-plus-a-plus-security-plus-certification-with-exam/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-a-plus-training-boot-camp/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cloud-essentials-plus/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cloud-essentials-plus-voucher-included/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cloud-training/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cloud-training-with-exam/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cloud-plus-training-boot-camp/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-cysa-plus-training-boot-camp/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-data-plus-training-boot-camp/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-it-fundamentals/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-a-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cloud-essentials-plus/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cloud-essentials-plus-voucher-included/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cloud-training/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cloud-training-with-exam/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cloud-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-cysa-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-data-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-it-fundamentals/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/software-engineering-boot-camp/?Category=computer-science
 https://careertraining.ptcollege.edu/training-programs/project-plus/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/linux-plus-certification-with-exam/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-network-plus-training-boot-camp/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-certification-training-network-plus-security-plus-vouchers-included/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-network-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-certification-training-network-plus-security-plus-vouchers-included/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/project-plus-certification-with-exam/?Category=information-technology
-https://careertraining.ptcollege.edu/training-programs/comptia-security-plus-training-boot-camp/?Category=information-technology
+https://careertraining.ptcollege.edu/training-programs/Program School / Org Type-security-plus-training-boot-camp/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/casp-certification-with-exam/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/ethical-hacking-dual-certification-boot-camp-ceh-and-pentest-plus/?Category=information-technology
 https://careertraining.ptcollege.edu/training-programs/ceh-certification/?Category=information-technology
@@ -2595,10 +2595,10 @@ CMPS 114 Problem-Solving With Information
 https://stormsurge-catalog.skillstorm.com/courses/aws-cloud-practitioner
 https://stormsurge-catalog.skillstorm.com/courses/aws-solutions-architect-associate
 MATH 180 College Algebra
-https://stormsurge-catalog.skillstorm.com/courses/comptia-a
-https://stormsurge-catalog.skillstorm.com/courses/comptia-network
-https://stormsurge-catalog.skillstorm.com/courses/comptia-project
-https://stormsurge-catalog.skillstorm.com/courses/comptia-security
+https://stormsurge-catalog.skillstorm.com/courses/Program School / Org Type-a
+https://stormsurge-catalog.skillstorm.com/courses/Program School / Org Type-network
+https://stormsurge-catalog.skillstorm.com/courses/Program School / Org Type-project
+https://stormsurge-catalog.skillstorm.com/courses/Program School / Org Type-security
 CMPS 110 Introduction to Computer Literacy and Information Technology
 https://stormsurge-catalog.skillstorm.com/courses/microsoft-azure-ai-solutions
 https://stormsurge-catalog.skillstorm.com/courses/microsoft-azure-ai-fundamentals
@@ -3392,7 +3392,7 @@ NUTR 1006: Intro. to Human Nutrition
 PHYS 0174: Basic Physics for Science and Engineering 1
 PSY 0010: Introduction to Psychology
 Network fundamentals, Network access, IP connectivity, IP services, Security fundamentals, Automation and programmability
-CompTIA A+ is a 16-week intensive course that is a hybrid method of instruction.This training focuses on teaching you basic software and hardware knowledge, like installation and configuration, to help you achieve one of the industry’s most influential certifications. You’ll learn a wide range of entry-level computer technician skills and leave fully prepared to pass your A+ certification exam.
+Program School / Org Type A+ is a 16-week intensive course that is a hybrid method of instruction.This training focuses on teaching you basic software and hardware knowledge, like installation and configuration, to help you achieve one of the industry’s most influential certifications. You’ll learn a wide range of entry-level computer technician skills and leave fully prepared to pass your A+ certification exam.
 Networking and cloud computing concepts, general IT knowledge or any general experience working in an IT environment, and general understanding of Microsoft Azure and Microsoft 365.
 Microsoft Word, Excel and Outlook.
 https://www.vettechinstitute.edu/catalog.pdf

@@ -21,7 +21,7 @@ const SearchModuleItemCard = ({ item }: any) => {
                     <p className="">{item.field && item.field.field}</p>
                 </div>
                 <div className="border rounded-[4px] p-2 mr-2 mb-2">
-                    <p className="font-bold">CompTIA</p>
+                    <p className="font-bold">Program School / Org Type</p>
                     <p className="">{item.schoolOrgType && item.schoolOrgType.type}</p>
                 </div>
             </div>

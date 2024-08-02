@@ -1,5 +1,5 @@
 export const categroyCredential = (bufferCredentialList: any) => {
-    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
+    let filterOption = ["Adobe", "Microsoft", "Program School / Org Type"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
         return {
@@ -30,7 +30,7 @@ export const categroyCredential = (bufferCredentialList: any) => {
 
 export const categroyCertifications = (bufferCredentialList: any) => {
 
-    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
+    let filterOption = ["Adobe", "Microsoft", "Program School / Org Type"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
         return {
@@ -64,7 +64,7 @@ export const categroyCertifications = (bufferCredentialList: any) => {
 
 export const menuCategroyCertifications = (bufferCredentialList: any) => {
 
-    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
+    let filterOption = ["Adobe", "Microsoft", "Program School / Org Type"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
         return {

@@ -1091,8 +1091,8 @@ Mechatronics Technician Apprenticeship
 Sales Engineer Apprenticeship
 Polymer Process Technician Apprenticeship
 Manufacturing Technician Level 1
-The Goodwill Academy- CompTIA A+
-The Goodwill Academy- CompTIA IT Fundamentals
+The Goodwill Academy- Program School / Org Type A+
+The Goodwill Academy- Program School / Org Type IT Fundamentals
 Digital Tools Boot Camp
 Planting, Farming
 Advertising Design
@@ -1693,12 +1693,12 @@ Science Department
 Science Department
 CISSP On-Demand: CISSP Certified Information Systems Security Professional
 CISSP: Certified Information System Security Professional
-CompTIA On-Demand: CompTIA A+ Certification for 1101/1102
-CompTIA On-Demand: CompTIA Advanced Security Practitioner (CASP+) Certification Training
-CompTIA On-Demand: IT Fundamentals+
-CompTIA On-Demand: CompTIA Network+ (N10-008) Certification Training
-CompTIA On-Demand: CompTIA Security + Certification Training
-CompTIA Advanced Security Practitioner (CASP+) Training
+Program School / Org Type On-Demand: Program School / Org Type A+ Certification for 1101/1102
+Program School / Org Type On-Demand: Program School / Org Type Advanced Security Practitioner (CASP+) Certification Training
+Program School / Org Type On-Demand: IT Fundamentals+
+Program School / Org Type On-Demand: Program School / Org Type Network+ (N10-008) Certification Training
+Program School / Org Type On-Demand: Program School / Org Type Security + Certification Training
+Program School / Org Type Advanced Security Practitioner (CASP+) Training
 Mechanic Training - Heavy Equipment Mechanic Technician
 Operator Training - Heavy Equipment Operator
 Automotive Technology
@@ -2451,28 +2451,28 @@ Cisco CCNP Security: SCOR & SISE (Vouchers Included)
 Cisco CCNP Security: SCOR & SVPN
 Cisco CCNP Security: SCOR & SVPN (Vouchers Included)
 Certified Information Systems Security Professional (CISSP)
-CompTIA A+ Certification Training (Vouchers Included)
-CompTIA Certification Training: ITF+ and A+ (Vouchers Included)
-CompTIA Certification Training: ITF+, A+, Network+, Security+ (Vouchers Included)
+Program School / Org Type A+ Certification Training (Vouchers Included)
+Program School / Org Type Certification Training: ITF+ and A+ (Vouchers Included)
+Program School / Org Type Certification Training: ITF+, A+, Network+, Security+ (Vouchers Included)
 Cybersecurity Boot Camp
-CompTIA Certification Training: A+, Network+, Security+ Online Course
-CompTIA A+ Training Boot Camp
-CompTIA Cloud Essentials+
-CompTIA Cloud Essentials+ (Voucher Included)
-CompTIA Cloud+ Certification Training
-CompTIA Cloud+ Certification Training (Voucher Included)
-CompTIA Cloud+ Training Boot Camp
-CompTIA CySA+ Training Boot Camp
-CompTIA Data+ Training Boot Camp
-CompTIA ITF+ Certification Training (Voucher Included)
+Program School / Org Type Certification Training: A+, Network+, Security+ Online Course
+Program School / Org Type A+ Training Boot Camp
+Program School / Org Type Cloud Essentials+
+Program School / Org Type Cloud Essentials+ (Voucher Included)
+Program School / Org Type Cloud+ Certification Training
+Program School / Org Type Cloud+ Certification Training (Voucher Included)
+Program School / Org Type Cloud+ Training Boot Camp
+Program School / Org Type CySA+ Training Boot Camp
+Program School / Org Type Data+ Training Boot Camp
+Program School / Org Type ITF+ Certification Training (Voucher Included)
 Software Engineering Boot Camp Online Course
-CompTIA Project+
-CompTIA Linux+ (Voucher Included)
-CompTIA Network+ Training Boot Camp
-CompTIA Certification Training: Network+, Security+ (Vouchers Included)
-CompTIA Project+ (Voucher Included)
-CompTIA Security+ Training Boot Camp
-CompTIA Advanced Security Practitioner (CASP) (Voucher Included)
+Program School / Org Type Project+
+Program School / Org Type Linux+ (Voucher Included)
+Program School / Org Type Network+ Training Boot Camp
+Program School / Org Type Certification Training: Network+, Security+ (Vouchers Included)
+Program School / Org Type Project+ (Voucher Included)
+Program School / Org Type Security+ Training Boot Camp
+Program School / Org Type Advanced Security Practitioner (CASP) (Voucher Included)
 Ethical Hacking Dual Certification Boot Camp (CEH and PenTest+)
 Certified Ethical Hacker (Voucher Included)
 Computer Hacking Forensics Investigator (CHFI) (Voucher Included)
@@ -2577,9 +2577,9 @@ Certified Java Developer (Voucher Included)
 Certificate Electrician Technology Program
 Pharmacy Technician
 SSCP Systems Security Certified Practitioner
-CompTIA Security+ Certification Training (Voucher Included)
+Program School / Org Type Security+ Certification Training (Voucher Included)
 Home Inspection Certificate
-CompTIA Network+ Certification Training (Voucher Included)
+Program School / Org Type Network+ Certification Training (Voucher Included)
 Natural Gas Plant Operations
 Heating, Ventilating, and Air-Conditioning
 College Now Program
@@ -2587,10 +2587,10 @@ Applied Computer Science
 AWS Cloud Practitioner
 AWS Cloud Practitioner
 Biological Sciences
-CompTIA A+
-CompTIA Network+
-CompTIA Project+
-CompTIA Security+
+Program School / Org Type A+
+Program School / Org Type Network+
+Program School / Org Type Project+
+Program School / Org Type Security+
 Information Technology
 Microsoft Azure AI Solutions
 Microsoft Azure AI Fundamentals

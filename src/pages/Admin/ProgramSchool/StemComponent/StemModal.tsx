@@ -36,7 +36,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
     });
 
     const [updateStatus, setUpdateStatus] = useState<any>({
-        "CompTIA": false,
+        "Program School / Org Type": false,
         "Eligible Credits Transfer School / Credentials School": false,
         "Opportunity": false,
         "Specific Area of Study": false,
@@ -67,11 +67,11 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 let origingData = resp.rows.slice(1, resp.rows.length).filter((item: any) => item.length !== 0)
                 console.log("origingData", origingData);
 
-                let ProgramSchoolOrgTypeIndex = originHeader.indexOf("CompTIA")
+                let ProgramSchoolOrgTypeIndex = originHeader.indexOf("Program School / Org Type")
                 let ProgramSchoolOrgTypeList = origingData.map((item: any) => item[ProgramSchoolOrgTypeIndex])
                 let ProgramSchoolOrgType = await unRepeatedArrayExtracting({
                     type: "un-repeated",
-                    name: "CompTIA",
+                    name: "Program School / Org Type",
                     list: ProgramSchoolOrgTypeList
                 })
 
@@ -80,7 +80,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(ProgramSchoolOrgType)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": false,
                     "Opportunity": false,
                     "Specific Area of Study": false,
@@ -102,7 +102,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(CredentialsSchool)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": false,
                     "Specific Area of Study": false,
@@ -123,7 +123,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(Opportunity)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": false,
@@ -144,7 +144,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(SpecificAreaOfStudy)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,
@@ -169,7 +169,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(CareerPathCategory)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,
@@ -191,7 +191,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(Credential)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,
@@ -213,7 +213,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(ApplicantRequirementEducationLevel)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,
@@ -235,7 +235,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(ApplicantRequirementCredential)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,
@@ -257,7 +257,7 @@ const StemModal = ({ typeModal, setTypeModal, setTypeResult }: { typeModal: bool
                 await stemDumpCreate(ApplicantRequirementAge)
                 setUpdateStatus({
                     ...updateStatus,
-                    "CompTIA": true,
+                    "Program School / Org Type": true,
                     "Eligible Credits Transfer School / Credentials School": true,
                     "Opportunity": true,
                     "Specific Area of Study": true,

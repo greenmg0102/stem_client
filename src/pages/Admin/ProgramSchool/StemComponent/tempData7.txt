@@ -16,7 +16,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 EMT
@@ -72,7 +72,7 @@ AHA HeartSaver First Aid
 AHA Heartsaver First Aid
 American Red Cross CPR
 ARM Institute SMART
-CompTIA A+
+Program School / Org Type A+
 EMT
 Environmental Protection Agency 608
 HIPAA
@@ -91,7 +91,7 @@ AHA HeartSaver First Aid
 AHA Heartsaver First Aid
 AMCA Physical Therapy Aide
 American Red Cross CPR
-CompTIA A+
+Program School / Org Type A+
 CPR
 EMT
 HIPAA
@@ -143,9 +143,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+
-CompTIA Security+
+Program School / Org Type A+
+Program School / Org Type Network+
+Program School / Org Type Security+
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -186,10 +186,10 @@ Type I, II, III and Universal Refrigerant Recovery and
 Universal Refrigerant 410A Safety & Training Certification
 Versa-Lok Basic Training
 WOW Certified Apprentice Webmaster, Web Designer
-CompTIA A+, Network+, and Linux+ OR Platform-specific training and certification (e.g. MS 365, Managing Modern Desktops, Azure Fundamentals, Support and Configure Windows, MS Teams)
-CompTIA Network+, Linux+, HTML/JS, Python
-CompTIA Network+, Linux+, Python/SQL, Platform Training and Certification (AWS, Azure, other)
-CompTIA Network+, Security+, and CySA+ OR PenTest+
+Program School / Org Type A+, Network+, and Linux+ OR Platform-specific training and certification (e.g. MS 365, Managing Modern Desktops, Azure Fundamentals, Support and Configure Windows, MS Teams)
+Program School / Org Type Network+, Linux+, HTML/JS, Python
+Program School / Org Type Network+, Linux+, Python/SQL, Platform Training and Certification (AWS, Azure, other)
+Program School / Org Type Network+, Security+, and CySA+ OR PenTest+
 CRM/CMS Certification(s)
 HTML/CSS, SQL, CRM cert (e.g., Salesforce, Adobe
 Network+, Linux+, Server+ and/or Microsoft-specific Certifications
@@ -288,8 +288,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -509,8 +509,8 @@ Mechatronics Technology Certificate
 Welding Technology Certificate
 Accounting Certificate (217)
 Applicable Credentials
-CompTIA A+ 220-1001 (Core 1) and CompTIA 220-1002 (Core 2)
-Comptia+ certificates in Cybersecurity Support Specialist, Administrative Computer Specialist or Network Support Specialist programs.
+Program School / Org Type A+ 220-1001 (Core 1) and Program School / Org Type 220-1002 (Core 2)
+Program School / Org Type+ certificates in Cybersecurity Support Specialist, Administrative Computer Specialist or Network Support Specialist programs.
 Course Completion Certificate
 Cybersecurity Support Specialist Certificate
 Heating & Air Conditioning Technology Certificate
@@ -553,7 +553,7 @@ Electrical Distribution Technology Certificate (702.1)
 Electrical Distribution Technology, A.S. (708.2)
 Apprenticeship Certificate
 Apprenticeship Certificate
-CompTIA A+
+Program School / Org Type A+
 
 
 
@@ -592,8 +592,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -684,9 +684,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -801,9 +801,9 @@ Automotive Technology, Associate (349.3)
 Automotive Technology, Certificate (350.3)
 Automotive Technology, Certificate (350.3)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Cybersecurity and IT Support Specialist, Associate (790)
 Cybersecurity and IT Support Specialist, Associate (791)
 Diagnostic Medical Sonography (554A, 554B, 554C)
@@ -856,9 +856,9 @@ Universal Refrigerant 410A Safety & Training Certification
 Versa-Lok Basic Training
 WOW Certified Apprentice Webmaster, Web Designer
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 NOCTI (National Occupational Competency Testing Institute) Certification
 Adobe Software Certifications
 Advertising Design Certification
@@ -868,9 +868,9 @@ American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 Certified Registered Central Service Technician (CRCST) exam offered by the Healthcare Sterile Processing Association (HSPA)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -990,9 +990,9 @@ PA State /National Registry Emergency Medical Technician Certification
 WOW Certified Apprentice Webmaster, Web Designer
 Adobe Software Certifications
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Microsoft Office Certified Web Developer Apprentice
 NOCTI (National Occupational Competency Testing Institute) Certification
 NOCTI (National Occupational Competency Testing Institute) Certification
@@ -1014,9 +1014,9 @@ NOCTI (National Occupational Competency Testing Institute) Certification
 OSHA Certification
 Pittsburgh Builders Association Credential
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 NOCTI (National Occupational Competency Testing Institute) Certification
 NOCTI (National Occupational Competency Testing Institute) Certification
 OSHA 10 Hour Health
@@ -1038,9 +1038,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -1091,8 +1091,8 @@ Journeyman papers by the PA Dept. of Labor and Industry (issued by the GACC Pitt
 Journeyman papers by the PA Dept. of Labor and Industry (issued by the GACC Pittsburgh Chapter), Sales Engineer Certificate from a partnering community college, Associates degree from a partnering community college, and Apprenticeship Certificate from the DIHK
 Journeyman papers from the Dept. of Labor & Industry (issued through the GACC Pittsburgh Chapter), and Certificate in Mechatronics and Polymer Processing from a partnering community college, and Associates degree from a partnering community college, and Apprenticeship Certificate from the DIHK
 Manufacturing Technician Level 1 (MT1) Certification
-CompTIA A+
-CompTIA IT Fundamentals+ (ITF+) certificate
+Program School / Org Type A+
+Program School / Org Type IT Fundamentals+ (ITF+) certificate
 Digital Badges
 
 Adobe Certified Associate
@@ -1115,7 +1115,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 CPR
@@ -1177,9 +1177,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -1257,8 +1257,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -1374,8 +1374,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -1478,7 +1478,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 CPR
@@ -1554,7 +1554,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 CPR
@@ -1639,7 +1639,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 CPR
@@ -1693,12 +1693,12 @@ Science Department Undergraduate Credential
 Science Department Undergraduate Credential
 CISSP
 CISSP
-CompTIA A+ Core 1 220-1101 & Certification Exam and the CompTIA A+ Core 2 220-1102
-CompTIA Advanced Security Practitioner CAS-004 exam
-CompTIA IT Fundamentals Certification
-CompTIA Network+ N10-008
-CompTIA Security+ SY0-60
-CompTIA® Advanced Security Practitioner (CASP+®)
+Program School / Org Type A+ Core 1 220-1101 & Certification Exam and the Program School / Org Type A+ Core 2 220-1102
+Program School / Org Type Advanced Security Practitioner CAS-004 exam
+Program School / Org Type IT Fundamentals Certification
+Program School / Org Type Network+ N10-008
+Program School / Org Type Security+ SY0-60
+Program School / Org Type® Advanced Security Practitioner (CASP+®)
 See training and certification classes - https://iuoe66.org/apprenticeships
 See training and certification classes - https://iuoe66.org/apprenticeships
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -1857,8 +1857,8 @@ OSHA-10
 SP/2 Construction
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -1922,8 +1922,8 @@ Baton Tactics
 Cisco CCENT
 Cisco CCNA
 College Credits
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 CPR
 Defensive Tactics
 EMT-B
@@ -2077,9 +2077,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -2138,8 +2138,8 @@ Statistics Undergraduate Credential
 Credentials & College Credits
 Applicable Credentials
 Applicable Credentials
-CompTIA CySA+
-Google IT Support Professional Certificate & CompTIA A+ certification,
+Program School / Org Type CySA+
+Google IT Support Professional Certificate & Program School / Org Type A+ certification,
 Google IT Support Professional Certificate, Google Digital Marketing & E-commerce Professional Certificate
 
 Adobe Certified Associate
@@ -2211,7 +2211,7 @@ S/P2 Safety
 Stop The Bleed
 Applicable Credentials
 Applicable Credentials
-CompTIA A+
+Program School / Org Type A+
 Applicable Credentials
 LabSim PC Pro
 NIMS
@@ -2451,29 +2451,29 @@ Cisco CCNP Security exams: SCOR and SISE
 Cisco CCNP Security exams: SCOR and SVPN
 Cisco CCNP Security exams: SCOR and SVPN
 CISSP® - Certified Information Security Professional
-CompTIA A+ (220-1101 & 220-1102)
-CompTIA A+ (220-1101 & 220-1102)
-CompTIA A+, CompTIA Network+, and CompTIA Security+
-CompTIA A+, CompTIA Network+, CompTIA Security+, CompTIA CySA+, Certified Ethical Hacking, CompTIA Pentest+
-CompTIA A+, Network+, and Security+ certification exams
-CompTIA A+: 220-1101 and 220-1102
-CompTIA Cloud Essentials Exam CLO-002
-CompTIA Cloud Essentials Exam CLO-002
-CompTIA Cloud+ (CV0-003)
-CompTIA Cloud+ (CV0-003)
-CompTIA Cloud+ (CV0-003)
-CompTIA Cybersecurity Analyst (CySA+)
-CompTIA Data+ (DA0-001)
-CompTIA IT Fundamentals FC0-U61
-CompTIA IT Fundamentals FC0-U61
-CompTIA IT Fundamentals, CompTIA A+, CompTIA Network, CompTIA Security+
-CompTIA Linux+
-CompTIA Network
-CompTIA Network+ & CompTIA Security+
-CompTia Project+ PK0-004
-CompTIA Security+
-e CompTIA Advanced Security Practitioner (CASP
-EC-Council Certified Ethical Hacker (CEH) & CompTIA PenTest+
+Program School / Org Type A+ (220-1101 & 220-1102)
+Program School / Org Type A+ (220-1101 & 220-1102)
+Program School / Org Type A+, Program School / Org Type Network+, and Program School / Org Type Security+
+Program School / Org Type A+, Program School / Org Type Network+, Program School / Org Type Security+, Program School / Org Type CySA+, Certified Ethical Hacking, Program School / Org Type Pentest+
+Program School / Org Type A+, Network+, and Security+ certification exams
+Program School / Org Type A+: 220-1101 and 220-1102
+Program School / Org Type Cloud Essentials Exam CLO-002
+Program School / Org Type Cloud Essentials Exam CLO-002
+Program School / Org Type Cloud+ (CV0-003)
+Program School / Org Type Cloud+ (CV0-003)
+Program School / Org Type Cloud+ (CV0-003)
+Program School / Org Type Cybersecurity Analyst (CySA+)
+Program School / Org Type Data+ (DA0-001)
+Program School / Org Type IT Fundamentals FC0-U61
+Program School / Org Type IT Fundamentals FC0-U61
+Program School / Org Type IT Fundamentals, Program School / Org Type A+, Program School / Org Type Network, Program School / Org Type Security+
+Program School / Org Type Linux+
+Program School / Org Type Network
+Program School / Org Type Network+ & Program School / Org Type Security+
+Program School / Org Type Project+ PK0-004
+Program School / Org Type Security+
+e Program School / Org Type Advanced Security Practitioner (CASP
+EC-Council Certified Ethical Hacker (CEH) & Program School / Org Type PenTest+
 EC-Council Certified Ethical Hacker (CEH) certification
 EC-Council Computer Hacking Forensics Investigator (CHFI)
 ELDT Theory Exams-This Class A CDL training course is designed to meet all theory (knowledge) requirements listed in The Code of Federal Regulations (CFR) 49 CFR Part 380, Special Training Requirements.
@@ -2577,9 +2577,9 @@ Oracle Certified Professional: Java SE 17 Developer 1Z0-829
 OSHA 30 certification
 Pharmacy Technician Certification Exam (PTCE) & Certified Pharmacy Technician (CPht)
 Systems Security Certified Practitioner (SSCP) exam offered by (ISC)²
-The ed2go CompTIA Online Training courses give you the training for the exam. Once you complete your online coursework, you can move forward to take the certification exam. CompTIA certification testing is administered by third-party vendors such as Prometric and Virtual University Enterprises (VUE), two leading providers of technology-based testing. Both offer a network of computer-based testing centers with thousands of locations worldwide
+The ed2go Program School / Org Type Online Training courses give you the training for the exam. Once you complete your online coursework, you can move forward to take the certification exam. Program School / Org Type certification testing is administered by third-party vendors such as Prometric and Virtual University Enterprises (VUE), two leading providers of technology-based testing. Both offer a network of computer-based testing centers with thousands of locations worldwide
 This course is one component of the steps required to obtain a NIBI Certified Inspector credential.
-Yes. Once you complete your online coursework, you can move forward to take the certification exam. CompTIA certification testing is administered by third-party vendors such as Prometric and Virtual University Enterprises (VUE), two leading providers of technology-based testing. Both offer a network of computer-based testing centers with thousands of locations worldwide. Proctor fees are not included as part of this course.
+Yes. Once you complete your online coursework, you can move forward to take the certification exam. Program School / Org Type certification testing is administered by third-party vendors such as Prometric and Virtual University Enterprises (VUE), two leading providers of technology-based testing. Both offer a network of computer-based testing centers with thousands of locations worldwide. Proctor fees are not included as part of this course.
 
 Registered Apprenticeship Certificate
 Applicable Credentials
@@ -2587,10 +2587,10 @@ Applied Computer Science Undergraduate Credential
 AWS Cloud Practitioner Certification
 AWS Solutions Architect Associate
 Biological Sciences Undergraduate Credential
-CompTIA A+ Core Series exams: Core 1 (220-1101) and Core 2 (220-1102).
-CompTIA Network+
-CompTIA Project+ - Exam code: PK0-005
-CompTIA Security+ (SY0-701)
+Program School / Org Type A+ Core Series exams: Core 1 (220-1101) and Core 2 (220-1102).
+Program School / Org Type Network+
+Program School / Org Type Project+ - Exam code: PK0-005
+Program School / Org Type Security+ (SY0-701)
 Information Technology Undergraduate Credential
 Microsoft Certified: Azure AI Engineer Associate - Exam AI-102
 Microsoft Certified: Azure AI Fundamentals - Exam AI-900
@@ -2626,8 +2626,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
@@ -2708,9 +2708,9 @@ American Heart Association CPR/AED
 American Heart Association First Aid
 Automotive Service Excellence (A.S.E.)
 CISCO CCENT
-CompTIA A+
-CompTIA Network+ +
-CompTIA Security +
+Program School / Org Type A+
+Program School / Org Type Network+ +
+Program School / Org Type Security +
 Direct Care Staff Worker
 Fire Extinguisher Training
 HAZMAT Awareness
@@ -2804,7 +2804,7 @@ AMCA Physical Therapy Aide
 American Red Cross CPR
 ARM Institute SMART
 Careersafe/OSHA 10
-CompTIA A+
+Program School / Org Type A+
 CPR
 CPR
 CPR
@@ -2938,7 +2938,7 @@ Coordinating Committee for Automotive Repair (CCAR)
 AYES
 10-hour Occupational Safety and Health Administration (OSHA) Construction
 17 certifications through NCCER
-CompTIA A+
+Program School / Org Type A+
 Cisco CCENT
 Cisco CCNA
 Comp TIA Server +
@@ -3384,7 +3384,7 @@ Natural Sciences Major
 Natural Sciences Major
 Natural Sciences Major
 Cisco CCNA
-Comptia A+ Certication
+Program School / Org Type A+ Certication
 Microsoft Certified: Security, Compliance, and Identity Fundamentals.- Exam SC-900
 Microsoft Office Specialist (MOS): MO-110: Microsoft Word (Microsoft 365 Apps), MO-210: Microsoft Excel (Microsoft 365 Apps), MO-410: Microsoft Outlook (Microsoft 365 Apps)
 Associate of Specialized Technology Degree in Veterinary Technology
@@ -3414,8 +3414,8 @@ PA State Inspection
 SP/2 including Mechanical Safety
 Cisco CCENT
 Cisco CCNA
-CompTIA A+
-CompTIA Network++
+Program School / Org Type A+
+Program School / Org Type Network++
 NOCTI (National Occupational Competency Testing Institute) Credential
 Certified by The National Institute for Automatic Service Excellence (ACE)
 NOCTI (National Occupational Competency Testing Institute) Credential
