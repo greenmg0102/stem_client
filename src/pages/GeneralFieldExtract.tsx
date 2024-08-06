@@ -110,10 +110,10 @@ const GeneralFieldFilterExtract = () => {
         return (
             <div>
                 <div className="pt-5">
-                    <SearchBanner
+                    {/* <SearchBanner
                         title={"STEM Data Extracting According to the Pathways"}
                         description={""}
-                    />
+                    /> */}
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
@@ -121,7 +121,6 @@ const GeneralFieldFilterExtract = () => {
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li> Search for opportunity related to a <span className='text-blue-500 font-bold'>specific Interest Area</span>  such as Finance or Health Science</li>
-
                                     </ul>
                                 }
                                 type="info"

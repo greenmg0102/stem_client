@@ -445,7 +445,7 @@ export default function SearchByGroup() {
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
-                                message={<p>How to search for stem data by <span className='text-red-600 text-[18px] font-bold'>Group</span>?</p>}
+                                message={<p>How can I search all opportunities by <span className='text-red-600 text-[18px] font-bold'>Pathway</span>?</p>}
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.</li>

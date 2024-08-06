@@ -107,10 +107,10 @@ const CredentialExtract = () => {
         return (
             <div>
                 <div className="pt-5">
-                    <SearchBanner
+                    {/* <SearchBanner
                         title={"STEM Data Extracting According to the Credential"}
                         description={""}
-                    />
+                    /> */}
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
@@ -118,7 +118,6 @@ const CredentialExtract = () => {
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>Select a specific name of <span className='text-blue-500 font-bold'> Credentials </span>you're looking for.</li>
-                                        
                                     </ul>
                                 }
                                 type="info"
