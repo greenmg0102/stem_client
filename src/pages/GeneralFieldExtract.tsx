@@ -117,11 +117,11 @@ const GeneralFieldFilterExtract = () => {
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
-                                message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Pathway</span>?</p>}
+                                message={<p>How can I search all opportunities by  <span className='text-red-600 text-[18px] font-bold'>interest Area</span>?</p>}
                                 description={
                                     <ul className='list-disc pl-5'>
-                                        <li>Search for <span className='text-blue-500 font-bold'>Pathway</span> related to a specific interest area such as Finance or Health Science</li>
-                                        
+                                        <li> Search for opportunity related to a <span className='text-blue-500 font-bold'>specific Interest Area</span>  such as Finance or Health Science</li>
+
                                     </ul>
                                 }
                                 type="info"

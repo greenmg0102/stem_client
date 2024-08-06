@@ -114,7 +114,7 @@ const CredentialExtract = () => {
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
-                                message={<p>How can I search all the data by <span className='text-red-600 text-[18px] font-bold'>Credential</span>?</p>}
+                                message={<p>How can I search all opportunities by <span className='text-red-600 text-[18px] font-bold'>Credential</span>?</p>}
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>Select a specific name of <span className='text-blue-500 font-bold'> Credentials </span>you're looking for.</li>

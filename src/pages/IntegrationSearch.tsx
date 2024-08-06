@@ -104,7 +104,7 @@ const IntegrationSearch = () => {
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
-                                message={<p>How can I search all the data in an <span className='text-red-600 text-[18px] font-bold'>Integrated way</span>?</p>}
+                                message={<p>How can I search through  at once <span className='text-red-600 text-[18px] font-bold'>all the information</span>?</p>}
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>Search opportunities by <span className='text-blue-500 font-bold'>Name of school or organization</span>.</li>

@@ -26,14 +26,14 @@ const Welcome = () => {
                         <NavLink to="/integration-search" className="w-[45%] text-center hover:text-gray-100 hover:bg-blue-500 px-8 py-3 my-2 hover:shadow-xl font-bold rounded-[6px] border border-[2px] border-blue-600 text-blue-600 text-[18px] cursor-pointer transition-all">
                             <div className="flex items-center">
                                 <svg viewBox="64 64 896 896" focusable="false" data-icon="interaction" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M880 112H144c-17.7 0-32 14.3-32 32v736c0 17.7 14.3 32 32 32h736c17.7 0 32-14.3 32-32V144c0-17.7-14.3-32-32-32zm-40 728H184V184h656v656zM304.8 524h50.7c3.7 0 6.8-3 6.8-6.8v-78.9c0-19.7 15.9-35.6 35.5-35.6h205.7v53.4c0 5.7 6.5 8.8 10.9 5.3l109.1-85.7c3.5-2.7 3.5-8 0-10.7l-109.1-85.7c-4.4-3.5-10.9-.3-10.9 5.3V338H397.7c-55.1 0-99.7 44.8-99.7 100.1V517c0 4 3 7 6.8 7zm-4.2 134.9l109.1 85.7c4.4 3.5 10.9.3 10.9-5.3v-53.4h205.7c55.1 0 99.7-44.8 99.7-100.1v-78.9c0-3.7-3-6.8-6.8-6.8h-50.7c-3.7 0-6.8 3-6.8 6.8v78.9c0 19.7-15.9 35.6-35.5 35.6H420.6V568c0-5.7-6.5-8.8-10.9-5.3l-109.1 85.7c-3.5 2.5-3.5 7.8 0 10.5z"></path></svg>
-                                <span className="ltr:pl-3 rtl:pr-3">Pathway</span>
+                                <span className="ltr:pl-3 rtl:pr-3">Search all</span>
                             </div>
                         </NavLink>
 
-                        <NavLink to="/opportunity-extract" className="w-[45%] text-center hover:text-gray-100 hover:bg-blue-500 px-8 py-3 my-2 hover:shadow-xl font-bold rounded-[6px] border border-[2px] border-blue-600 text-blue-600 text-[18px] cursor-pointer transition-all">
+                        <NavLink to="/search-by-group" className="w-[45%] text-center hover:text-gray-100 hover:bg-blue-500 px-8 py-3 my-2 hover:shadow-xl font-bold rounded-[6px] border border-[2px] border-blue-600 text-blue-600 text-[18px] cursor-pointer transition-all">
                             <div className="flex items-center">
                                 <svg viewBox="64 64 896 896" focusable="false" data-icon="line-chart" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM305.8 637.7c3.1 3.1 8.1 3.1 11.3 0l138.3-137.6L583 628.5c3.1 3.1 8.2 3.1 11.3 0l275.4-275.3c3.1-3.1 3.1-8.2 0-11.3l-39.6-39.6a8.03 8.03 0 00-11.3 0l-230 229.9L461.4 404a8.03 8.03 0 00-11.3 0L266.3 586.7a8.03 8.03 0 000 11.3l39.5 39.7z"></path></svg>
-                                <span className="ltr:pl-3 rtl:pr-3">Opportunity Search</span>
+                                <span className="ltr:pl-3 rtl:pr-3">Pathway</span>
                             </div>
                         </NavLink>
 
