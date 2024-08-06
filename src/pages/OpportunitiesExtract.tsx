@@ -19,7 +19,7 @@ const OpportunitiesExtract = () => {
         isUnique: false
     });
 
-    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
+    const [sortCondition, setSortCondition] = useState("credential.credential:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -116,7 +116,7 @@ const OpportunitiesExtract = () => {
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>Sort by the type of  <span className='text-blue-500 font-bold'>Opportunity</span> such as Apprenticeship, Dual Enrollment, etc. </li>
-                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                        
                                     </ul>
                                 }
                                 type="info"

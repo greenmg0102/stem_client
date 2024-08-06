@@ -5,7 +5,7 @@ import SearchModuleItem from '../../components/UIs/SearchModule/SearchModuleItem
 import RealSearchItem from '../../components/UIs/SearchModule/RealSearchItem'
 import clsx from 'clsx'
 
-const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
+const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, sortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
     const [viewType, setViewType] = useState('list')
 
@@ -49,8 +49,9 @@ const CredentialExtractListModule = ({ setUnique, isUnique, setSortCondition, pa
                                 className="form-select text-gray-900 w-[200px]"
                                 onClick={(e: any) => setSortCondition(e.target.value)}
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
+                                
                             >
-                                <option value={'credentialSchool.school:1'}>School : A ~ Z</option>
+                                <option value={'credential.credential:1'}>School : A ~ Z</option>
                                 <option value={'credentialSchool.school:0'}>School : Z ~ A</option>
                                 <option value={'opportunity.opportunity:1'}>Opportunity : A ~ Z</option>
                                 <option value={'opportunity.opportunity:0'}>Opportunity : Z ~ A</option>

@@ -5,7 +5,7 @@ import SearchModuleItem from './SearchModuleItem'
 import RealSearchItem from './RealSearchItem'
 import clsx from 'clsx'
 
-const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
+const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, sortCondition, page, pageSize, PAGE_SIZES, isRealLoading, bufferSearchDataList, setBufferSearchDataList, setPage, totalCount, isLoading, setPageSize, recordsData, setSearchParameter, bufferSearch, setBufferSearch }: any) => {
 
     const [viewType, setViewType] = useState('list')
 
@@ -31,30 +31,16 @@ const IntegratingSearchModule = ({ setUnique, isUnique, setSortCondition, page, 
                         </div>
                         <div className="flex justify-start items-center">
                             <Checkbox onChange={(e: any) => setUnique(e.target.checked)} checked={isUnique} style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>Extracting Unique School</Checkbox>
-                            {/* <select
-                                className="form-select text-white-dark w-[130px] mr-1"
-                                onClick={(e: any) => setViewType(e.target.value)}
-                            >
-                                <option value={'list'}>List View</option>
-                                <option value={'card'} disabled>Card View</option>
-                                <option value={'map'} disabled>Map View</option>
-                            </select> */}
                             <select
                                 className="form-select text-gray-900 w-[200px]"
                                 onClick={(e: any) => setSortCondition(e.target.value)}
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
+                            // 
                             >
-                                <option value={'credentialSchool.school:1'} className="flex justify-start items-center">
-                                    School : A ~ Z
-
-                                </option>
+                                <option value={'credentialSchool.credential:1'}>School : A ~ Z</option>
                                 <option value={'credentialSchool.school:0'}>School : Z ~ A</option>
                                 <option value={'credential.credential:1'}>Credential : A ~ Z</option>
                                 <option value={'credential.credential:0'}>Credential : Z ~ A</option>
-                                <option value={'opportunity.opportunity:1'}>Opportunity : A ~ Z</option>
-                                <option value={'opportunity.opportunity:0'}>Opportunity : Z ~ A</option>
-                                <option value={'generalfieldstudys.field:1'}>General Study : A ~ Z</option>
-                                <option value={'generalfieldstudys.field:0'}>General Study : Z ~ A</option>
                             </select>
                         </div>
                     </div>

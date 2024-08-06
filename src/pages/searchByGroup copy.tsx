@@ -58,7 +58,7 @@ export default function SearchByGroup() {
     const [bufferPathwayList, setbufferPathwayList] = useState<any>([])
     const [bufferCredentialList, setbufferCredentialList] = useState<any>([])
 
-    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
+    const [sortCondition, setSortCondition] = useState("credential.credential:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);

@@ -9,27 +9,27 @@ const SearchModuleItemList = ({ item }: any) => {
         <div
             className={clsx('relative w-full border  hover:border-gray-500 p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]', isSelect ? "border-gray-500 shadow-lg" : "border-gray-200")}
             // onClick={() => window.open(`/integration-search-id/${item._id}`, '_blank')}
-            onClick={() => setIsSelect(!isSelect)}
+            
             style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
         >
 
-            <div className="absolute top-[20px] right-[50px]">
+            <div className="absolute top-[20px] right-[50px]" onClick={() => setIsSelect(!isSelect)}>
                 {!isSelect ?
                     <div className="flex justify-start items-center">
                         <svg className="text-blue-500" viewBox="64 64 896 896" focusable="false" data-icon="plus-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M696 480H544V328c0-4.4-3.6-8-8-8h-48c-4.4 0-8 3.6-8 8v152H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h152v152c0 4.4 3.6 8 8 8h48c4.4 0 8-3.6 8-8V544h152c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
-                        <p className="text-blue-500 ml-1 mb-0">More Detail</p>
+                        <p className="text-blue-500 ml-1 mb-0 hover:text-gray-600">More Detail</p>
                     </div>
                     :
                     <div className="flex justify-start items-center">
                         <svg className="text-red-500" viewBox="64 64 896 896" focusable="false" data-icon="minus-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M696 480H328c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h368c4.4 0 8-3.6 8-8v-48c0-4.4-3.6-8-8-8z"></path><path d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm0 820c-205.4 0-372-166.6-372-372s166.6-372 372-372 372 166.6 372 372-166.6 372-372 372z"></path></svg>
-                        <p className="text-red-500 ml-1 mb-0">Less Detail</p>
+                        <p className="text-red-500 ml-1 mb-0 hover:text-gray-600">Less Detail</p>
                     </div>
                 }
             </div>
 
             <p className="font-bold flex mb-2 text-[20px]">
-                <svg className="mr-2" viewBox="64 64 896 896" focusable="false" data-icon="home" width="1.2em" height="1.2em" fill="currentColor" aria-hidden="true"><path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 00-44.4 0L77.5 505a63.9 63.9 0 00-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0018.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path></svg>
-                {item.credentialSchool && item.credentialSchool.school}
+                <svg className="mr-2" viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1.2em" height="1.2em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg>
+                {item.credential && item.credential.credential}
             </p>
 
             <div className="flex justify-start items-start flex-wrap mt-4 ">
@@ -49,10 +49,9 @@ const SearchModuleItemList = ({ item }: any) => {
                 </div>
                 <div className="border rounded-[8px] p-2 mr-2 mb-2">
                     <p className="font-bold flex mb-2 text-[16px] items-center">
-                        <svg className="mr-2" viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg>
-                        Credential
+                        School/institution
                     </p>
-                    <p className="">{item.credential && item.credential.credential}</p>
+                    <p className="">{item.credentialSchool && item.credentialSchool.school}</p>
                 </div>
                 <div className="border rounded-[8px] p-2 mr-2 mb-2">
                     <p className="font-bold flex mb-2 text-[16px] items-center">
@@ -125,7 +124,12 @@ const SearchModuleItemList = ({ item }: any) => {
                             <svg className="mr-2" viewBox="64 64 896 896" focusable="false" data-icon="link" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M574 665.4a8.03 8.03 0 00-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8a8.03 8.03 0 00-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zm258.6-474c-84.6-84.6-221.5-84.6-306 0L410.3 307.6a8.03 8.03 0 000 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6a8.03 8.03 0 000 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1zM610.1 372.3a8.03 8.03 0 00-11.3 0L372.3 598.7a8.03 8.03 0 000 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z"></path></svg>
                             Course Link
                         </p>
-                        <a className="">{item && item.CourseList ? item.CourseList : "N/A"}</a>
+                        {item && item.CourseList ?
+                            <a className="hover:underline hover:text-green-700" href={item.CourseList} target="_blank">{item.CourseList}</a>
+                            :
+                            <p>N/A</p>
+                        }
+
                     </div>
 
                     <div className="w-full p-1 mr-2 mb-1">
@@ -133,7 +137,11 @@ const SearchModuleItemList = ({ item }: any) => {
                             <svg className="mr-2" viewBox="64 64 896 896" focusable="false" data-icon="link" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M574 665.4a8.03 8.03 0 00-11.3 0L446.5 781.6c-53.8 53.8-144.6 59.5-204 0-59.5-59.5-53.8-150.2 0-204l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3l-39.8-39.8a8.03 8.03 0 00-11.3 0L191.4 526.5c-84.6 84.6-84.6 221.5 0 306s221.5 84.6 306 0l116.2-116.2c3.1-3.1 3.1-8.2 0-11.3L574 665.4zm258.6-474c-84.6-84.6-221.5-84.6-306 0L410.3 307.6a8.03 8.03 0 000 11.3l39.7 39.7c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c53.8-53.8 144.6-59.5 204 0 59.5 59.5 53.8 150.2 0 204L665.3 562.6a8.03 8.03 0 000 11.3l39.8 39.8c3.1 3.1 8.2 3.1 11.3 0l116.2-116.2c84.5-84.6 84.5-221.5 0-306.1zM610.1 372.3a8.03 8.03 0 00-11.3 0L372.3 598.7a8.03 8.03 0 000 11.3l39.6 39.6c3.1 3.1 8.2 3.1 11.3 0l226.4-226.4c3.1-3.1 3.1-8.2 0-11.3l-39.5-39.6z"></path></svg>
                             Opportunity Link
                         </p>
-                        <a className="">{item && item.OpportunityLink ? item.OpportunityLink : "N/A"}</a>
+                        {item && item.OpportunityLink ?
+                            <a className="hover:underline hover:text-green-700" href={item.OpportunityLink} target="_blank">{item.OpportunityLink}</a>
+                            :
+                            <p>N/A</p>
+                        }
                     </div>
                 </div>
             }

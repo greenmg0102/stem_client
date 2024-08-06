@@ -2,21 +2,22 @@
 const SearchModuleISchoolList = ({ item }: any) => {
 
     return (
-        <div className='w-full border border-gray-700 p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]'
-        style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
+        <div
+            className='w-full border border-gray-700 p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]'
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
+        >
 
             <p className="font-bold flex mb-2 text-[20px]">
-                <svg className="mr-2" viewBox="64 64 896 896" focusable="false" data-icon="home" width="1.2em" height="1.2em" fill="currentColor" aria-hidden="true"><path d="M946.5 505L560.1 118.8l-25.9-25.9a31.5 31.5 0 00-44.4 0L77.5 505a63.9 63.9 0 00-18.8 46c.4 35.2 29.7 63.3 64.9 63.3h42.5V940h691.8V614.3h43.4c17.1 0 33.2-6.7 45.3-18.8a63.6 63.6 0 0018.7-45.3c0-17-6.7-33.1-18.8-45.2zM568 868H456V664h112v204zm217.9-325.7V868H632V640c0-22.1-17.9-40-40-40H432c-22.1 0-40 17.9-40 40v228H238.1V542.3h-96l370-369.7 23.1 23.1L882 542.3h-96.1z"></path></svg>
-                {item.credentialSchool && item.credentialSchool.school}
+                <svg className="mr-2" viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1.2em" height="1.2em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg>
+                {item.credential && item.credential.credential}
             </p>
 
             <div className="flex justify-start items-start flex-wrap border border-t-[1px] border-r-[0px] border-b-[0px] border-l-[0px] border-dashed border-gray-500 py-2">
                 <div className="border rounded-[8px] p-2 mr-2 mb-2">
                     <p className="font-bold flex mb-2 text-[16px] items-center">
-                        <svg className="mr-2" viewBox="0 0 1024 1024" focusable="false" data-icon="bars" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M912 192H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 284H328c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h584c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM104 228a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0zm0 284a56 56 0 10112 0 56 56 0 10-112 0z"></path></svg>
-                        Credential
+                        School/institution
                     </p>
-                    <p className="">{item.credential && item.credential.credential}</p>
+                    <p className="">{item.credentialSchool && item.credentialSchool.school}</p>
                 </div>
                 <div className="border rounded-[8px] p-2 mr-2 mb-2">
                     <p className="font-bold flex mb-[2px] text-[14px] items-center">

@@ -29,7 +29,7 @@ const IntegrationSearch = () => {
         isUnique: false
     });
 
-    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
+    const [sortCondition, setSortCondition] = useState("credential.credential:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
@@ -42,6 +42,9 @@ const IntegrationSearch = () => {
 
     const [searchParameter, setSearchParameter] = useState("");
     const [bufferSearch, setBufferSearch] = useState("");
+
+    console.log("sortCondition", sortCondition);
+    
 
     useEffect(() => {
         setPage(1);
@@ -81,9 +84,6 @@ const IntegrationSearch = () => {
     }, 800), [stemValue, page, pageSize, sortCondition]);
 
     useEffect(() => {
-
-
-
         handleSearch(searchParameter);
     }, [stemValue, pageSize, page, searchParameter, handleSearch, sortCondition]);
 
@@ -110,7 +110,7 @@ const IntegrationSearch = () => {
                                         <li>Search opportunities by <span className='text-blue-500 font-bold'>Name of school or organization</span>.</li>
                                         <li>Enter a specific name of <span className='text-blue-500 font-bold'>Credentials</span> you're looking for. </li>
                                         <li>Search for <span className='text-blue-500 font-bold'>Pathways</span>  related to a specific interest area such as Finance or Health Science.  </li>
-                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                        
                                     </ul>
                                 }
                                 style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
@@ -128,10 +128,8 @@ const IntegrationSearch = () => {
                         </div>
                         <div className='w-full xl:w-[70%] p-2 pt-0 '>
                             <IntegratingSearchModule
-
                                 isUnique={stemValue.isUnique}
                                 setUnique={(bool: any) => setStemValue({ ...stemValue, isUnique: bool })}
-
                                 page={page}
                                 pageSize={pageSize}
                                 isLoading={isLoading}

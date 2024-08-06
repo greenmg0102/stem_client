@@ -122,13 +122,14 @@ export default function SearchByGroup() {
     const [bufferPathwayList, setbufferPathwayList] = useState<any>([])
     const [bufferCredentialList, setbufferCredentialList] = useState<any>([])
 
-    const [sortCondition, setSortCondition] = useState("credentialSchool.school:1")
+    const [sortCondition, setSortCondition] = useState("credential.credential:1")
     const PAGE_SIZES = [10, 20, 30, 50, 100];
     const [pageSize, setPageSize] = useState(PAGE_SIZES[0]);
     const [page, setPage] = useState(1);
     const [totalCount, setTotalCount] = useState(0);
     const [isLoading, setIsLoading] = useState(false);
     const [isRealLoading, setIsRealLoading] = useState<any>(null);
+    const [pathwayId, setPathwayId] = useState(undefined)
 
     const [recordsData, setRecordsData] = useState([]);
     const [bufferSearchDataList, setBufferSearchDataList] = useState<any>(null);
@@ -218,6 +219,8 @@ export default function SearchByGroup() {
 
     const bufferGatherValue = async (type: string, valueList: any) => {
         if (type === "field") {
+
+            setPathwayId(valueList[0].key)
 
             setStemValue({ ...stemValue, field: valueList, credential: [], Opportunity: [] })
             setLoadingStatus({ ...loadingStatus, opportunityCheck: true })
@@ -439,10 +442,6 @@ export default function SearchByGroup() {
                     )}
                 </Drawer>
                 <div className="pt-5">
-                    {/* <SearchBanner
-                        title={"Search By Group"}
-                        description={""}
-                    /> */}
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert
@@ -450,7 +449,7 @@ export default function SearchByGroup() {
                                 description={
                                     <ul className='list-disc pl-5'>
                                         <li>The search is performed in the order <span className='text-blue-500 font-bold'>Pathway</span> &rarr; <span className='text-blue-500 font-bold'>Occupation</span> &rarr; <span className='text-blue-500 font-bold'>Credential</span>, and the final search result displays data containing all three search items.</li>
-                                        <li>To find a unique school, check <span className='text-blue-500 font-bold'>Extracting Unique School</span> below. </li>
+                                        <li>To view a visual of the pathway, click the information <span className='text-blue-500 font-bold'>Icon</span> next to the pathway name</li>
                                     </ul>}
                                 type="info"
                                 showIcon
@@ -518,7 +517,7 @@ export default function SearchByGroup() {
                                                 {item.field}
                                             </p>
 
-                                            {imageList[item.field] ?
+                                            {imageList[item.field] && item._id === pathwayId ?
                                                 <svg
                                                     className='mt-1 animated-box'
                                                     onClick={() => setIsOpen(item.field)}

@@ -91,14 +91,14 @@ const Sidebar = () => {
                                 </NavLink>
                             </li>
 
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <NavLink to="/opportunity-extract" className="group">
                                     <div className="flex items-center">
                                         <svg viewBox="64 64 896 896" focusable="false" data-icon="line-chart" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M888 792H200V168c0-4.4-3.6-8-8-8h-56c-4.4 0-8 3.6-8 8v688c0 4.4 3.6 8 8 8h752c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM305.8 637.7c3.1 3.1 8.1 3.1 11.3 0l138.3-137.6L583 628.5c3.1 3.1 8.2 3.1 11.3 0l275.4-275.3c3.1-3.1 3.1-8.2 0-11.3l-39.6-39.6a8.03 8.03 0 00-11.3 0l-230 229.9L461.4 404a8.03 8.03 0 00-11.3 0L266.3 586.7a8.03 8.03 0 000 11.3l39.5 39.7z"></path></svg>
                                         <span className="ltr:pl-3 rtl:pr-3 text-black dark:text-[#506690] dark:group-hover:text-white-dark">Opportunity</span>
                                     </div>
                                 </NavLink>
-                            </li>
+                            </li> */}
 
                             <li className="nav-item">
                                 <NavLink to="/credential-extract" className="group">
