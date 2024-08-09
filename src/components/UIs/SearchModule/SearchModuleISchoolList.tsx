@@ -13,8 +13,9 @@ const SearchModuleISchoolList = ({ item }: any) => {
             </p>
 
             <div className="flex justify-start items-start flex-wrap border border-t-[1px] border-r-[0px] border-b-[0px] border-l-[0px] border-dashed border-gray-500 py-2">
-                <div className="border rounded-[8px] p-2 mr-2 mb-2">
+                <div className="border rounded-[8px] border-blue-300 p-2 mr-2 mb-2">
                     <p className="font-bold flex mb-2 text-[16px] items-center">
+                        <svg className="mr-2" viewBox="64 64 896 896" focusable="false" data-icon="desktop" width="1em" height="1em" fill="currentColor" aria-hidden="true"><path d="M928 140H96c-17.7 0-32 14.3-32 32v496c0 17.7 14.3 32 32 32h380v112H304c-8.8 0-16 7.2-16 16v48c0 4.4 3.6 8 8 8h432c4.4 0 8-3.6 8-8v-48c0-8.8-7.2-16-16-16H548V700h380c17.7 0 32-14.3 32-32V172c0-17.7-14.3-32-32-32zm-40 488H136V212h752v416z"></path></svg>
                         School/institution
                     </p>
                     <p className="">{item.credentialSchool && item.credentialSchool.school}</p>
