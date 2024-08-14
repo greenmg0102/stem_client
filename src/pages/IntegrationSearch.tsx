@@ -44,7 +44,7 @@ const IntegrationSearch = () => {
     const [bufferSearch, setBufferSearch] = useState("");
 
     console.log("sortCondition", sortCondition);
-    
+
 
     useEffect(() => {
         setPage(1);
@@ -65,7 +65,7 @@ const IntegrationSearch = () => {
         setTotalCount(0)
         setBufferSearchDataList([])
 
-        let data = { ...stemValue, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
+        let data = { ...stemValue, RealOpportunity: stemValue.Opportunity, page: page, pageSize: pageSize, searchParameter: hint, sortCondition: sortCondition };
         setIsLoading(true);
         setIsRealLoading(true);
 

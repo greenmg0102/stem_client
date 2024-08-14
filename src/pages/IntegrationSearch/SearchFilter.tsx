@@ -3,8 +3,9 @@ import StemItemSearch from '../../pages/Admin/ProgramSchool/StemComponent/StemIt
 
 const SearchFilter = ({ stemValue, setStemValue }: any) => {
 
-    const gatherValue = (type: string, valueList: any) => setStemValue({ ...stemValue, [type]: valueList })
-
+    const gatherValue = (type: string, valueList: any) => {
+        setStemValue({ ...stemValue, [type]: valueList })
+    }
     return (
         <div className='w-full'>
             <div className='flex justify-start items-center flex-wrap'>
@@ -35,7 +36,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         placeholder={"School"}
                     />
                 </div>
-                {/* <div className='w-full p-1 mb-2 transition-all'>
+                <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}
                         gatherValue={(valueList: any) => gatherValue('Opportunity', valueList)}
@@ -43,7 +44,7 @@ const SearchFilter = ({ stemValue, setStemValue }: any) => {
                         title={"Opportunity"}
                         placeholder={"Opportunity"}
                     />
-                </div> */}
+                </div>
                 <div className='w-full p-1 mb-2 transition-all'>
                     <StemItemSearch
                         stemValue={stemValue}

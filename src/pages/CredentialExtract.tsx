@@ -99,7 +99,6 @@ const CredentialExtract = () => {
     };
 
     if (!isLoaded) {
-        // Handle loading state
         return <div>Loading...</div>;
     }
 
@@ -107,10 +106,6 @@ const CredentialExtract = () => {
         return (
             <div>
                 <div className="pt-5">
-                    {/* <SearchBanner
-                        title={"STEM Data Extracting According to the Credential"}
-                        description={""}
-                    /> */}
                     <div className='flex justify-around items-center flex-wrap'>
                         <div className='w-full 2xl:w-[45%]'>
                             <Alert

@@ -27,10 +27,9 @@ export const categroyCredential = (bufferCredentialList: any) => {
     return result
 }
 
-
 export const categroyCertifications = (bufferCredentialList: any) => {
 
-    let filterOption = ["Adobe", "Microsoft", "Program School / Org Type"]
+    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
         return {
@@ -61,10 +60,9 @@ export const categroyCertifications = (bufferCredentialList: any) => {
     return result
 }
 
-
 export const menuCategroyCertifications = (bufferCredentialList: any) => {
 
-    let filterOption = ["Adobe", "Microsoft", "Program School / Org Type"]
+    let filterOption = ["Adobe", "Microsoft", "CompTIA"]
 
     let result: any = Array(filterOption.length).fill(0).map((item: any, index: any) => {
         return {

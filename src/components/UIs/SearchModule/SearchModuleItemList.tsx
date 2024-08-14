@@ -7,9 +7,8 @@ const SearchModuleItemList = ({ item }: any) => {
 
     return (
         <div
-            className={clsx('relative w-full border border-red-500 hover:border-gray-500 p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]', isSelect ? "border-gray-500 shadow-lg" : "border-gray-200")}
+            className={clsx('relative w-full border hover:border-gray-500 p-4 hover:shadow-xl cursor-pointer transition-all rounded-[4px]', isSelect ? "border-gray-500 shadow-lg" : "border-gray-200")}
             // onClick={() => window.open(`/integration-search-id/${item._id}`, '_blank')}
-
             style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}
         >
 
